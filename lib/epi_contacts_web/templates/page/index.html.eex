@@ -1,0 +1,1 @@
+<h1><%= gettext("New York State Covid-19 Response - Share My Contacts") %></h1>

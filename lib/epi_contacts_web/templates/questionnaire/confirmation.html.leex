@@ -1,0 +1,21 @@
+<h2><%= gettext("Thank you for helping us stop the spread of COVID-19.") %></h2>
+<%= contact_blurb() %>
+
+<h4><%= gettext("What you should do next:") %></h4>
+<div class="tip">
+  <img src="/images/icon-home.png" />
+  <div>
+    <% end_of_isolation_period = "<span id=\"end-of-isolation-period\">#{@patient_case |> end_of_infectious_period() |> display_end_of_isolation_period()}</span>" %>
+    <p><%= gettext("Self-isolate until...", end_of_isolation_period: end_of_isolation_period) |> raw() %></p>
+    <% protect_web_link = "<a href=\"https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/ \">https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/ </a>" %>
+    <p><%= gettext("Protect household members by...", web_link: protect_web_link) |> raw() %></p>
+  </div>
+</div>
+<div class="tip">
+  <img src="/images/icon-doctor-female.png" />
+  <p><%= gettext("Monitor your symptoms. If you have...") %></p>
+</div>
+<div class="tip">
+  <img src="/images/icon-team-members.png" />
+  <p><%= gettext("You are not in any way required...") %></p>
+</div>

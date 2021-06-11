@@ -1,0 +1,10 @@
+<p><%= gettext("Dear %{name},", name: full_name(@patient_case)) %></p>
+<p><%= gettext("As discussed during our call...")%> </p>
+<p><%= gettext("If you've experienced any COVID-19 symptoms...") %>
+<p><em><%= gettext("Your name will never be disclosed to people we call.") %></em></p>
+<%= existing_contacts_section(@patient_case) %>
+
+<p><%= gettext("We truly appreciate your help in stopping the spread of COVID-19.") %></p>
+<div class="button-group">
+  <%= live_patch gettext("Take 15 minute questionnaire"), to: questionnaire_path(@socket, :prep), id: "next-button", class: "button" %>
+</div>

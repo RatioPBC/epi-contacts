@@ -1,0 +1,149 @@
+@import 'epi_contacts/constants';
+@import 'epi_contacts/header';
+@import 'epi_contacts/footer';
+@import 'epi_contacts/contact';
+@import 'epi_contacts/progress';
+@import 'epi_contacts/forms';
+
+#end-of-isolation-period {
+  color: $pink;
+}
+
+.agree-to-share-wrapper {
+  margin: 20px 0 30px;
+
+  label {
+    margin-left: 10px;
+  }
+}
+
+.symptom-page-infectious-period {
+  margin-bottom: 50px;
+}
+
+.tip {
+  display: flex;
+  padding: 20px 0;
+  &:not(:last-child) {
+    border-bottom: 1px solid $grey;
+  }
+
+  img {
+    height: 48px;
+    width: 48px;
+  }
+
+  p {
+    margin: 0;
+    padding: 10px;
+  }
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+strong {
+  color: $pink;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.button-group-horizontal {
+  display: flex;
+  flex-direction: row;
+
+  #yes-button {
+    flex-grow: 1;
+    background-color: $green;
+    border: $green;
+    margin-right: 5px;
+  }
+
+  #no-button {
+    flex-grow: 1;
+    background-color: $red;
+    border: $red;
+    margin-left: 5px;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: $white;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin-top: 2rem;
+}
+
+// this is the "main" component's container, which is a sibling of header and footer
+body > div {
+  flex-grow: 1;
+}
+
+input[type='date'] {
+  font-size: 1.7rem;
+  padding: 0.7rem;
+  border: 0.1rem solid #d1d1d1;
+  border-radius: 0.4rem;
+  &:focus {
+    border-color: #0069d9;
+  }
+}
+
+.date {
+  color: $pink;
+}
+
+.forget-wrapper {
+  border-bottom: 1px solid $dark_grey;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+
+  button {
+    padding-left: 0;
+  }
+}
+
+.go-back-button {
+  color: $blue;
+  font-size: 1.7rem;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+progress {
+  background-color: #cbddd3;
+  border: 0;
+  height: 3px;
+  border-radius: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 350px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #cbddd3;
+}
+
+progress::-webkit-progress-value {
+  color: #248a47;
+}
+
+ul {
+  list-style: disc inside;
+  li {
+    margin-bottom: 0.5rem;
+  }
+}

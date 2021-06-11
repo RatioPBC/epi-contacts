@@ -1,0 +1,2 @@
+<h1><%= gettext("We're sorry, but the link has expired.") %></h1>
+<%= contact_blurb() %>

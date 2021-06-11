@@ -1,0 +1,7 @@
+From: NY State Health Department
+
+{case.first_name}, we are reaching out regarding your recent lab result. We will call you to follow up.
+
+Please take a few minutes to prepare for the call: https://share-my-contacts-staging.health.ny.gov/start/{case.domain}/{case.case_id}
+
+Reply "NO" if you are not {case.first_name}.

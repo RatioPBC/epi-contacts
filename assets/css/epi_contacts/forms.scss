@@ -1,0 +1,54 @@
+@import './constants';
+
+label {
+  small {
+    font-size: inherit;
+    font-weight: normal;
+  }
+}
+
+.locked-out {
+  $error-line-height: 18px;
+
+  color: $red;
+  display: flex;
+  flex-flow: row nowrap;
+  font-family: Arial;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: $error-line-height;
+
+  .icon_error {
+    display: flex;
+    height: $error-line-height;
+    width: 25px;
+  }
+
+  p {
+    display: flex;
+    padding-left: 5px;
+  }
+}
+
+.checkbox-and-label label {
+  display: inline;
+  vertical-align: middle;
+  font-weight: normal;
+}
+
+.dropdown-group {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  h4 {
+    font-weight: bold;
+    &:first-child {
+      margin-bottom: 0;
+    }
+  }
+
+  select {
+    width: 100%;
+  }
+}

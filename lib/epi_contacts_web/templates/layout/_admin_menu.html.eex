@@ -1,0 +1,6 @@
+<ul>
+<%= if @current_admin do %>
+  <li><%= @current_admin.email %></li>
+  <li><%= link "Log out", to: Routes.admin_session_path(@conn, :delete), method: :delete %></li>
+<% end %>
+</ul>

@@ -1,0 +1,27 @@
+<h2><%= gettext("Review your contacts") %></h2>
+<%= render "_contacts.html", contacts: @contacts %>
+
+<div class="forget-wrapper">
+  <h4><%= gettext("Did you forget anyone?") %></h4>
+  <%= live_patch gettext("Add a contact"), to: Routes.questionnaire_path(@socket, :add_contact, %{ skip_path: :review }), id: "add-contact-button" %>
+</div>
+
+<%= f = form_for @changeset, "#",
+    id: :review,
+    phx_target: @myself,
+    phx_submit: "submit" %>
+
+<div class="agree-to-share-wrapper">
+  <p><%= gettext("Please confirm that you agree...") %></p>
+  <div class="checkbox-and-label">
+    <%= checkbox f, :agree_to_share %>
+    <%= label f, :agree_to_share, gettext("I agree") %>
+    <%= error_tag f, :agree_to_share %>
+  </div>
+</div>
+
+
+<div class="button-group">
+  <%= submit gettext("Submit"), id: "submit-to-commcare-button" %>
+</div>
+</form>

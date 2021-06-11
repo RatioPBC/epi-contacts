@@ -1,0 +1,50 @@
+<h2><%= gettext("Add contact") %></h2>
+<p><%= gettext("Only include people who were within 6 feet of you for more than 10 minutes. Please only add a person's name, not a location.") %></p>
+
+<%= f = form_for @changeset, "#",
+  id: :add_contact,
+  phx_target: @myself,
+  phx_submit: "submit" %>
+
+  <%= text_input f, :first_name, placeholder: gettext("First Name (Required)"), autocomplete: "off" %>
+  <%= error_tag f, :first_name %>
+
+  <%= text_input f, :last_name, placeholder: gettext("Last Name (Required)"), autocomplete: "off" %>
+  <%= error_tag f, :last_name %>
+
+  <%= text_input f, :phone, placeholder: gettext("Phone number (Required)"), autocomplete: "off", inputmode: "numeric" %>
+  <%= error_tag f, :phone %>
+
+  <%= text_input f, :email, placeholder: gettext("Email address"), autocomplete: "off", type: "email" %>
+  <%= error_tag f, :email %>
+
+  <div class="checkbox-and-label">
+    <%= checkbox f, :is_minor %>
+    <%= label f, :is_minor, gettext("This person is under 18 years old.") %>
+  </div>
+
+  <div class="dropdown-group">
+    <h4><%= gettext("When did you most recently see them?") %></h4>
+    <%= select f, :exposed_on, @exposed_on_select_options, prompt: gettext("Select one") %>
+    <%= error_tag f, :exposed_on %>
+  </div>
+
+  <div class="dropdown-group">
+    <h4><%= gettext("What is their relationship to you?") %></h4>
+    <%= select f, :relationship, EpiContacts.Contact.relationships(), prompt: gettext("Select one") %>
+  </div>
+
+  <div class="dropdown-group">
+    <h4><%= gettext("Where did you come in contact?") %></h4>
+    <%= select f, :contact_location, EpiContacts.Contact.locations(), prompt: gettext("Select one") %>
+  </div>
+
+  <div class="dropdown-group">
+    <h4><%= gettext("What is their primary language?") %></h4>
+    <%= select f, :primary_language, EpiContacts.Contact.languages(), prompt: gettext("Select one") %>
+  </div>
+
+  <div class="button-group">
+    <%= submit gettext("Save contact"), phx_disable_with: gettext("Saving contact..."), id: "submit-contact-button", class: "button button-outline" %>
+  </div>
+</form>

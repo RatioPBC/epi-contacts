@@ -1,0 +1,16 @@
+@import "constants";
+
+footer {
+  margin-top: 70px;
+  color: $white;
+  text-align: center;
+  font-size: 12px;
+  line-height: 26px;
+  background-color: $nys_dark_grey;
+  padding: 9px 0px;
+
+  a {
+    color: inherit;
+    font-weight: 700;
+  }
+}

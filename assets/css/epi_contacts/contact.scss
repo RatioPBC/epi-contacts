@@ -1,0 +1,49 @@
+@import 'constants';
+.contacts {
+  margin-bottom: 10px;
+  .contact {
+    border: 1px solid $grey;
+    border-radius: 5px;
+    padding: 15px 0;
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+    display: flex;
+
+    .icon {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 3rem;
+      min-width: 3rem;
+      margin: 5px 10px 0;
+    }
+
+    .details {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      line-break: anywhere;
+
+      div:first-child {
+        font-weight: bold;
+      }
+    }
+
+    .delete-wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-width: 2rem;
+      margin: 0 15px;
+
+      .delete {
+        cursor: pointer;
+        font-size: 2.5rem;
+        padding: 0 15px;
+        background: none;
+        color: black;
+        border: none;
+      }
+    }
+  }
+}

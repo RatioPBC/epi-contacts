@@ -1,0 +1,30 @@
+{
+  "default_phone_number": null,
+  "email": "ci_1@example.com",
+  "first_name": "CI",
+  "groups": [],
+  "id": "00000000341443b88624452b53fa42fb",
+  "last_name": "1",
+  "phone_numbers": [],
+  "resource_uri": "/a/ny-state-covid19/api/v0.5/user/00000000341443b88624452b53fa42fb/",
+  "user_data": {
+    "can_assign_cases": "no",
+    "can_assign_contacts": "no",
+    "can_register_cases": "yes",
+    "case_investigation_team_member": "yes",
+    "ci_role": "ci",
+    "commcare_location_id": "000000009299465ab175357b95b89e7c",
+    "commcare_location_ids": "000000009299465ab175357b95b89e7c",
+    "commcare_primary_case_sharing_id": "000000009299465ab175357b95b89e7c",
+    "commcare_project": "ny-state-covid19",
+    "contact_tracing_team_member": "no",
+    "containment_team_member": "",
+    "ct_role": "",
+    "hub_team_member": "no",
+    "lab_team_member": "",
+    "pui_prefix": "",
+    "pui_team_member": "no",
+    "super_user": ""
+  },
+  "username": "ci_1@ny-state-covid19.commcarehq.org"
+}

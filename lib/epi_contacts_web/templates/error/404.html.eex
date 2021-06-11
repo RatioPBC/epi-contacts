@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Oh no! Share My Contacts</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+  </head>
+  <body>
+  <header>
+    <div class="nys">
+      <a href="https://www.ny.gov">
+        <img src="/images/nys-logo-header.png" alt="New York State Logo"/>
+      </a>
+    </div>
+    <div class="doh">
+      <div><a href="https://health.ny.gov">Department of Health</a></div>
+    </div>
+    <div class="confidential">
+      All reported information is confidential
+    </div>
+  </header>
+
+    <main role="main" class="container">
+      <h1><%= gettext("We're sorry, but that page cannot be found.") %></h1>
+    </main>
+
+    <footer>
+        <div class="revision">Revised: <%= revision_month_and_year() %></div>
+        <div class="site-links">
+          <%= link gettext("Privacy Policy"), to: Routes.page_path(@conn, :privacy) %>
+        </div>
+    </footer>
+  </body>
+</html>

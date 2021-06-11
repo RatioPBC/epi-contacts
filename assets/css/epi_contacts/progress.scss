@@ -1,0 +1,19 @@
+@import "constants";
+
+.progress {
+  display: flex;
+  color: $dark_grey;
+  border-bottom: 1px solid $dark_grey;
+  margin: 20px 0;
+  padding-bottom: 15px;
+
+  #back-button {
+    display: flex;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .question {
+    font-size: 2rem;
+  }
+}

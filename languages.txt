@@ -1,0 +1,14 @@
+English => en
+Spanish => es
+Chinese (Cantonese) => chinese_cantonese
+Chinese (Mandarin) => chinese_mandarin
+Russian => ru
+Haitian Creole => haitian_creole
+Bengali => bengali
+Korean => korean
+Arabic => arabic
+French => fra
+Italian => italian
+Polish => polish
+Swahili => swahili
+Other => other

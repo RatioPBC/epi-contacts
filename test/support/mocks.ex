@@ -1,0 +1,5 @@
+Mox.defmock(EpiContacts.HTTPoisonMock, for: HTTPoison.Base)
+Mox.defmock(CommcareClientBehaviourMock, for: EpiContacts.Commcare.ClientBehaviour)
+Mox.defmock(MetricsAPIBehaviourMock, for: EpiContacts.Monitoring.MetricsAPIBehaviour)
+Mox.defmock(AnalyticsClientBehaviourMock, for: EpiContacts.Monitoring.AnalyticsClientBehaviour)
+Mox.defmock(AnalyticsReporterBehaviourMock, for: EpiContacts.Monitoring.AnalyticsReporterBehaviour)

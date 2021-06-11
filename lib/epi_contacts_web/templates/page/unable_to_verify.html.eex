@@ -1,0 +1,2 @@
+<h1><%= gettext("We're sorry, but we're unable to verify your identity.") %></h1>
+<p><%= gettext("To add additional contacts, contact the Department of Health at ") %><a href="tel:1-833-227-5045">(833) 227-5045</a></p>

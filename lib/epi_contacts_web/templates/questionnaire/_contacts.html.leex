@@ -1,0 +1,24 @@
+<%= if Enum.empty?(@contacts) do %>
+  <p><%= gettext("You have not added any contacts.") %></p>
+<% else %>
+  <ul class="contacts">
+    <%= for {contact, index} <- Enum.with_index(@contacts) do %>
+      <li class="contact" id="contact-<%= index %>">
+        <div class="icon">
+          <img src="/images/icon-human.svg" >
+        </div>
+        <div class="details">
+          <div class="contact-name"><%= contact.first_name %> <%= contact.last_name %></div>
+          <div class="contact-phone"><%= contact.phone %></div>
+          <div class="contact-email"><%= contact.email %></div>
+        </div>
+        <div class="delete-wrapper">
+          <button class="delete" phx-click="delete-contact" phx-value-index="<%= index %>" id="delete-contact-<%= index %>" >
+            &times;
+          </button>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
