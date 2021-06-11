@@ -23,7 +23,7 @@ an initiative of Vital Strategies](https://resolvetosavelives.org/).
 
 This application was originally called `Share My Contacts` and that's
 how it's currently deployed in New York. It was renamed to `Epi Contacts`
-rebranding but the code lagged until open sourcing in June 2021.
+during a rebranding but the code lagged until open sourcing in June 2021.
 
 There are references to `Share My Contacts` in content and metrics
 to maintain backwards compaibility, for now.
