@@ -77,7 +77,8 @@ config :epi_contacts,
   analytics_client: EpiContacts.Monitoring.AsyncAnalyticsClient,
   posthog_client: Posthog.Client,
   analytics_reporter: EpiContacts.Monitoring.AnalyticsReporter,
-  analytics_reporter_application_name: :epi_contacts
+  analytics_reporter_application_name:
+    "ANALYTICS_REPORTER_APPLICATION_NAME" |> System.get_env("share_my_contacts") |> String.to_atom()
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

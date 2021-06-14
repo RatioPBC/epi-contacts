@@ -29,10 +29,6 @@ end
 config :sentry,
   included_environments: [:staging, :prod]
 
-config :epi_contacts,
-  analytics_reporter_application_name:
-    "ANALYTICS_REPORTER_APPLICATION_NAME" |> System.get_env("share_my_contacts") |> String.to_atom()
-
 # ## Using releases (Elixir v1.9+)
 #
 # If you are doing OTP releases, you need to instruct Phoenix
