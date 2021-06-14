@@ -11,7 +11,7 @@ defmodule EpiContacts.Monitoring.AnalyticsReporter do
   """
 
   # NOTE: when adding new event types, make sure to add them to @events_sent_to_analytics_service
-  @application_name Application.compile_env!(:epi_contacts, :analytics_reporter_application_name)
+  @application_name Application.compile_env(:epi_contacts, :analytics_reporter_application_name, :share_my_contacts)
   @contacts_submission_event [@application_name, :analytics, :contacts_submission]
   @page_visit_event [@application_name, :analytics, :page_visit]
   @unauthenticated_page_visit_event [@application_name, :analytics, :unauthenticated_page_visit]
