@@ -1,0 +1,405 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: es\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:11
+msgid "Date of birth"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:15
+msgid "Please confirm that you agree..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:1
+msgid "Confirm your identity"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:18
+msgid "I agree"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:28
+msgid "Moving to next page..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:28 lib/epi_contacts_web/templates/questionnaire/prep.html.leex:20
+msgid "Next"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:5
+msgid "A few tips to jog your memory:"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:3
+msgid "Now, you'll be asked to add contacts you've seen %{infectious_period}."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:8
+msgid "Open your calendar if you have it handy."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:12
+msgid "Write down what you did each day."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:16
+msgid "You only have to include close contacts -- people who were within 6 feet of you for more than 10 minutes."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:1
+msgid "Add contact"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/contact_list.html.leex:2
+msgid "Add new contact"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:18
+msgid "Email address"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/contact_list.html.leex:3
+msgid "Next question"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:4
+msgid "What you should do next:"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:9
+msgid "Self-isolate until..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:16
+msgid "Monitor your symptoms. If you have..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:20
+msgid "You are not in any way required..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:7
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:20
+msgid "Add Contacts"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:8
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:21
+msgid "Skip question"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/error.html.eex:1
+msgid "We're sorry, but something went wrong."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:4
+msgid "Who has been in your house with you %{infectious_period}?"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/contact_list.html.leex:5
+msgid "Your contacts"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:5
+msgid "Include people who live..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:5
+msgid "Did you forget anyone?"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:1
+msgid "Review your contacts"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:25
+msgid "Submit"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:15
+msgid "Gatherings or social events"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:14
+msgid "Gym or exercise class"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:6
+msgid "Include people from:"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:12
+msgid "Parties"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:13
+msgid "Places of worship"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:11
+msgid "Playing sports"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:16
+msgid "Sporting events, concerts"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:10
+msgid "Volunteer activities"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:4
+msgid "Who else have you seen %{infectious_period}?"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:8
+msgid "Workplaces"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:9
+msgid "Take 15 minute questionnaire"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:7
+msgid "We truly appreciate your help in stopping the spread of COVID-19."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/_contacts.html.leex:2
+msgid "You have not added any contacts."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/_infectious_period.html.leex:5
+msgid "from <span..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/_progress.html.leex:9
+msgid "Question %{current} of %{total}"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:1
+msgid "Dear %{name},"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/index.html.eex:1
+msgid "New York State Covid-19 Response - Share My Contacts"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:18
+#: lib/epi_contacts_web/views/questionnaire_view.ex:19
+msgid "today"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/page_view.ex:10
+msgid "If you have any questions, please contact us..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:48
+msgid "Save contact"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:48
+msgid "Saving contact..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:11
+msgid "Protect household members by..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:25
+msgid "Your information is completely..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:6
+msgid "Add a contact"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:1
+msgid "Thank you for helping us stop the spread of COVID-19."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
+msgid "As discussed during our call..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:23
+msgid "This person is under 18 years old."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:34
+#: lib/epi_contacts_web/views/questionnaire_view.ex:44
+msgid "Use this questionnaire to add people you haven’t told us about."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:4
+msgid "Your name will never be disclosed to people we call."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:33
+msgid "What is their relationship to you?"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:38
+msgid "Where did you come in contact?"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:28
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:34
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:39
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:44
+msgid "Select one"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/error/404.html.eex:32
+#: lib/epi_contacts_web/templates/error/500.html.eex:32 lib/epi_contacts_web/templates/layout/root.html.leex:34
+msgid "Privacy Policy"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/link_expired.html.eex:1
+msgid "We're sorry, but the link has expired."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:9
+msgid "First Name (Required)"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:12
+msgid "Last Name (Required)"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:15
+msgid "Phone number (Required)"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/unable_to_verify.html.eex:2
+msgid "To add additional contacts, contact the Department of Health at "
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/error/404.html.eex:26
+msgid "We're sorry, but that page cannot be found."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/error/500.html.eex:26
+msgid "We're sorry, but that page cannot be loaded."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/unable_to_verify.html.eex:1
+msgid "We're sorry, but we're unable to verify your identity."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:43
+msgid "What is their primary language?"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:27
+msgid "When did you most recently see them?"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:3
+msgid "If you've experienced any COVID-19 symptoms..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:45
+msgid "If you have already spoken with us..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:46
+msgid "Contact's initials"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:47
+msgid "Last 4 digits of phone"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:2
+msgid "Only include people who were within 6 feet of you for more than 10 minutes. Please only add a person's name, not a location."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:9
+msgid "Meals at other homes"
+msgstr ""

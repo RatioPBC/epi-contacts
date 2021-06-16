@@ -29,6 +29,11 @@ config :epi_contacts,
   secure_session_cookies: true,
   http_client: HTTPoison
 
+config :epi_contacts, EpiContacts.Gettext,
+  allowed_locales: ~w(en es),
+  default_locale: "en",
+  one_module_per_locale: true
+
 config :epi_contacts, Oban,
   repo: EpiContacts.Repo,
   engine: Oban.Pro.Queue.SmartEngine,
