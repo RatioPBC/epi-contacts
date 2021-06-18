@@ -104,6 +104,23 @@ defmodule EpiContactsWeb do
           [socket, action, params]
         )
       end
+
+      def months do
+        [
+          {gettext("January"), "1"},
+          {gettext("February"), "2"},
+          {gettext("March"), "3"},
+          {gettext("April"), "4"},
+          {gettext("May"), "5"},
+          {gettext("June"), "6"},
+          {gettext("July"), "7"},
+          {gettext("August"), "8"},
+          {gettext("September"), "9"},
+          {gettext("October"), "10"},
+          {gettext("November"), "11"},
+          {gettext("December"), "12"}
+        ]
+      end
     end
   end
 
