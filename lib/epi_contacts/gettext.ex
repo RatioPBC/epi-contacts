@@ -21,4 +21,12 @@ defmodule EpiContacts.Gettext do
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
   use Gettext, otp_app: :epi_contacts
+
+  def get_locale do
+    Gettext.get_locale(__MODULE__)
+  end
+
+  def put_locale(locale) when is_binary(locale) do
+    Gettext.put_locale(__MODULE__, locale)
+  end
 end
