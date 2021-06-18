@@ -72,6 +72,44 @@ defmodule EpiContactsWeb.QuestionnaireView do
     """
   end
 
+  @spec infectious_period(map()) :: Phoenix.HTML.safe()
+  def infectious_period(patient_case) do
+    start_date = patient_case |> start_of_infectious_period() |> format()
+    end_date = patient_case |> end_of_infectious_period() |> display_end_of_historical_infectious_period()
+    from = gettext("from")
+    to = gettext("to")
+
+    ~E"""
+    <%= from %> <span class="date" data-tid="start-date"><%= start_date %></span> <%= to %> <span class="date" data-tid="end-date"><%= end_date %></span>
+    """
+  end
+
+  @spec prep_header(map()) :: Phoenix.HTML.safe()
+  def prep_header(patient_case) do
+    prelude = gettext("Now, you'll be asked to add contacts you've seen")
+    infectious_period_header(patient_case, prelude)
+  end
+
+  @spec house_header(map()) :: Phoenix.HTML.safe()
+  def house_header(patient_case) do
+    prelude = gettext("Who has been in your house with you")
+    infectious_period_header(patient_case, prelude)
+  end
+
+  @spec social_header(map()) :: Phoenix.HTML.safe()
+  def social_header(patient_case) do
+    prelude = gettext("Who else have you seen")
+    infectious_period_header(patient_case, prelude)
+  end
+
+  defp infectious_period_header(patient_case, prelude) do
+    infectious_period = infectious_period(patient_case)
+
+    ~E"""
+      <%= prelude %> <%= infectious_period %>?
+    """
+  end
+
   def phone_number_mask(%Contact{phone: nil}), do: "Unavailable"
   def phone_number_mask(%Contact{phone: ""}), do: "Unavailable"
 

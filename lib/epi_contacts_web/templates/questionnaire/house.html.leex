@@ -1,7 +1,6 @@
-<% infectious_period = render_to_string(EpiContactsWeb.QuestionnaireView, "_infectious_period.html", patient_case: @patient_case, format_long?: true) %>
 <%= render "_progress.html", n: 1, socket: @socket, with_back_button?: true, back_path: :prep %>
 
-<h1><%= gettext("Who has been in your house with you %{infectious_period}?", infectious_period: infectious_period) |> raw %></h1>
+<h1><%= house_header(@patient_case) %></h1>
 <p><%= gettext("Include people who live...") %></p>
 <div class="button-group">
   <%= live_patch gettext("Add Contacts"), to: questionnaire_path(@socket, :add_contact, %{ skip_path: :social }), id: "add-contact-button", class: "button button-outline" %>

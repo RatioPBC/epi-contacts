@@ -1,6 +1,4 @@
-<% infectious_period = render_to_string(EpiContactsWeb.QuestionnaireView, "_infectious_period.html", patient_case: @patient_case, format_long?: true) %>
-
-<h2><%= gettext("Now, you'll be asked to add contacts you've seen %{infectious_period}.", infectious_period: infectious_period) |> raw %></h2>
+<h2><%= prep_header(@patient_case) %></h2>
 <div>
   <h4><%= gettext("A few tips to jog your memory:") %></h4>
   <div class="tip">

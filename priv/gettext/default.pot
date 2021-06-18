@@ -36,32 +36,27 @@ msgid "Moving to next page..."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:28 lib/epi_contacts_web/templates/questionnaire/prep.html.leex:20
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:28 lib/epi_contacts_web/templates/questionnaire/prep.html.leex:18
 msgid "Next"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:5
+#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:3
 msgid "A few tips to jog your memory:"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:3
-msgid "Now, you'll be asked to add contacts you've seen %{infectious_period}."
-msgstr ""
-
-#, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:8
+#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:6
 msgid "Open your calendar if you have it handy."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:12
+#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:10
 msgid "Write down what you did each day."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:16
+#: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:14
 msgid "You only have to include close contacts -- people who were within 6 feet of you for more than 10 minutes."
 msgstr ""
 
@@ -106,14 +101,14 @@ msgid "You are not in any way required..."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:7
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:20
+#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:6
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:19
 msgid "Add Contacts"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:8
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:21
+#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:7
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:20
 msgid "Skip question"
 msgstr ""
 
@@ -123,17 +118,12 @@ msgid "We're sorry, but something went wrong."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:4
-msgid "Who has been in your house with you %{infectious_period}?"
-msgstr ""
-
-#, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/contact_list.html.leex:5
 msgid "Your contacts"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:5
+#: lib/epi_contacts_web/templates/questionnaire/house.html.leex:4
 msgid "Include people who live..."
 msgstr ""
 
@@ -153,52 +143,47 @@ msgid "Submit"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:15
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:14
 msgid "Gatherings or social events"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:14
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:13
 msgid "Gym or exercise class"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:6
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:5
 msgid "Include people from:"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:12
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:11
 msgid "Parties"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:13
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:12
 msgid "Places of worship"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:11
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:10
 msgid "Playing sports"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:16
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:15
 msgid "Sporting events, concerts"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:10
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:9
 msgid "Volunteer activities"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:4
-msgid "Who else have you seen %{infectious_period}?"
-msgstr ""
-
-#, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:8
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:7
 msgid "Workplaces"
 msgstr ""
 
@@ -215,11 +200,6 @@ msgstr ""
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/_contacts.html.leex:2
 msgid "You have not added any contacts."
-msgstr ""
-
-#, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/_infectious_period.html.leex:5
-msgid "from <span..."
 msgstr ""
 
 #, elixir-format
@@ -399,6 +379,190 @@ msgid "Only include people who were within 6 feet of you for more than 10 minute
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:9
+#: lib/epi_contacts_web/templates/questionnaire/social.html.leex:8
 msgid "Meals at other homes"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:19
+msgid "Date"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:18
+msgid "Month"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:17
+msgid "Year"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:79
+msgid "from"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:80
+msgid "to"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:89
+msgid "Now, you'll be asked to add contacts you've seen"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:101
+msgid "Who else have you seen"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:95
+msgid "Who has been in your house with you"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:36 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "April"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:40 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "August"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:44 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "December"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:34 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "February"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:33 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "January"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:39 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "July"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:38 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "June"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:35 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "March"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:37 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "May"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:43 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "November"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:42 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "October"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:41 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "September"
 msgstr ""

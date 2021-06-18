@@ -1,5 +1,0 @@
-<% # This partial is passed through a raw function in some of its uses, it order to use it with gettext. %>
-<% # Please take care when modifying to not accidentally expose fields that could have malicious values injected. %>
-<% start_date = "<span class=\"date\" data-tid=\"start-date\">#{@patient_case |> start_of_infectious_period() |> format()}</span>" %>
-<% end_date = "<span class=\"date\" data-tid=\"end-date\">#{@patient_case |> end_of_infectious_period() |> display_end_of_historical_infectious_period()}</span>" %>
-<%= gettext("from <span...", start_date: start_date, end_date: end_date) |> raw %>

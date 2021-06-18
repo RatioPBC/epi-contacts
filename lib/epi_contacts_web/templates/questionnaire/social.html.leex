@@ -1,7 +1,6 @@
-<% infectious_period = render_to_string(EpiContactsWeb.QuestionnaireView, "_infectious_period.html", patient_case: @patient_case, format_long?: true) %>
 <%= render "_progress.html", n: 2, socket: @socket, with_back_button?: true, back_path: :house %>
 
-<h1><%= gettext("Who else have you seen %{infectious_period}?", infectious_period: infectious_period) |> raw %></h1>
+<h1><%= social_header(@patient_case) %></h1>
 <div>
   <p><%= gettext("Include people from:") %></p>
   <ul>

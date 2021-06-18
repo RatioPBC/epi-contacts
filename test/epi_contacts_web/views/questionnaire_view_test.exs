@@ -67,22 +67,25 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
         }
       }
 
-      html = html_for(patient_case)
+      html =
+        patient_case
+        |> View.existing_contacts_section()
+        |> html_for()
 
       assert_content(html)
       assert Floki.text(html) =~ gettext("If you have already spoken with us...")
 
-      rows_text =
-        html
-        |> Floki.find("tbody tr")
-        |> Floki.text()
+      rows_text = text(html, "tbody tr")
 
       assert rows_text =~ "J.D."
       assert rows_text =~ "*** *** 6666"
     end
 
     test "only displays copy" do
-      html = html_for(%{"child_cases" => %{}})
+      html =
+        %{"child_cases" => %{}}
+        |> View.existing_contacts_section()
+        |> html_for()
 
       assert_content(html)
     end
@@ -90,12 +93,89 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
     defp assert_content(html) do
       assert Floki.text(html) =~ gettext("Use this questionnaire to add people you haven’t told us about.")
     end
+  end
 
-    defp html_for(patient_case) do
-      patient_case
-      |> View.existing_contacts_section()
-      |> Phoenix.HTML.safe_to_string()
-      |> Floki.parse_fragment!()
+  describe "infectious_period/1" do
+    test "renders start & end date" do
+      patient_case = %{
+        "properties" => %{
+          "isolation_start_date" => "2021-06-17"
+        }
+      }
+
+      html =
+        patient_case
+        |> View.infectious_period()
+        |> html_for()
+
+      assert_infectious_period(html, "Tuesday, June 15", "today")
+    end
+  end
+
+  defp assert_infectious_period(html, start_span_text, end_span_text) do
+    start_span = text(html, "[data-tid=start-date]")
+    end_span = text(html, "[data-tid=end-date]")
+
+    assert start_span == start_span_text
+    assert end_span == end_span_text
+  end
+
+  defp escaped_text(text) do
+    text
+    |> Phoenix.HTML.html_escape()
+    |> Phoenix.HTML.safe_to_string()
+  end
+
+  defp html_for(safe_string) do
+    safe_string
+    |> Phoenix.HTML.safe_to_string()
+    |> Floki.parse_fragment!()
+  end
+
+  defp text(html, query) do
+    html
+    |> Floki.find(query)
+    |> Floki.text()
+  end
+
+  describe "headers" do
+    @patient_case %{
+      "properties" => %{
+        "isolation_start_date" => "2021-06-17"
+      }
+    }
+
+    test "prep_header/1" do
+      prelude = gettext("Now, you'll be asked to add contacts you've seen")
+
+      @patient_case
+      |> View.prep_header()
+      |> assert_infectious_header(prelude)
+    end
+
+    test "house_header/1" do
+      prelude = gettext("Who has been in your house with you")
+
+      @patient_case
+      |> View.house_header()
+      |> assert_infectious_header(prelude)
+    end
+
+    test "social_header/1" do
+      prelude = gettext("Who else have you seen")
+
+      @patient_case
+      |> View.social_header()
+      |> assert_infectious_header(prelude)
+    end
+
+    defp assert_infectious_header(safe_string, prelude) do
+      html = html_for(safe_string)
+
+      raw_html = Floki.raw_html(html)
+
+      assert raw_html =~ escaped_text(prelude)
+      assert_infectious_period(html, "Tuesday, June 15", "today")
     end
   end
 
