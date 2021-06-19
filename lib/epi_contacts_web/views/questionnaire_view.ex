@@ -79,9 +79,7 @@ defmodule EpiContactsWeb.QuestionnaireView do
     from = gettext("from")
     to = gettext("to")
 
-    ~E"""
-    <%= from %> <span class="date" data-tid="start-date"><%= start_date %></span> <%= to %> <span class="date" data-tid="end-date"><%= end_date %></span>
-    """
+    ~E(<%= from %> <span class="date" data-tid="start-date"><%= start_date %></span> <%= to %> <span class="date" data-tid="end-date"><%= end_date %></span>)
   end
 
   @spec prep_header(map()) :: Phoenix.HTML.safe()
@@ -106,7 +104,7 @@ defmodule EpiContactsWeb.QuestionnaireView do
     infectious_period = infectious_period(patient_case)
 
     ~E"""
-      <%= prelude %> <%= infectious_period %>?
+      <%= prelude %> <%= infectious_period %>:
     """
   end
 
