@@ -44,22 +44,22 @@ msgstr "Próximo"
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:3
 msgid "A few tips to jog your memory:"
-msgstr ""
+msgstr "Algunos consejos para refrescar su memoria:"
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:6
 msgid "Open your calendar if you have it handy."
-msgstr ""
+msgstr "Abra su agenda si la tiene a la mano."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:10
 msgid "Write down what you did each day."
-msgstr ""
+msgstr "Anote lo que hizo cada día."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:14
 msgid "You only have to include close contacts -- people who were within 6 feet of you for more than 10 minutes."
-msgstr ""
+msgstr "Incluya a las personas que estuvieron a menos de 6 pies de usted por más de 10 minutos."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:1
@@ -126,7 +126,7 @@ msgstr ""
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/house.html.leex:4
 msgid "Include people who live..."
-msgstr ""
+msgstr "Incluya a las personas que vivan en su hogar y a las personas que lo hayan visitado, como amigos, una niñera o cualquier persona que preste servicios en el hogar."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:5
@@ -412,7 +412,7 @@ msgstr "a"
 #, elixir-format
 #: lib/epi_contacts_web/views/questionnaire_view.ex:89
 msgid "Now, you'll be asked to add contacts you've seen"
-msgstr ""
+msgstr "Ahora le pediremos añadir a las personas a las que ha visto desde"
 
 #, elixir-format
 #: lib/epi_contacts_web/views/questionnaire_view.ex:101
@@ -422,7 +422,7 @@ msgstr ""
 #, elixir-format
 #: lib/epi_contacts_web/views/questionnaire_view.ex:95
 msgid "Who has been in your house with you"
-msgstr ""
+msgstr "¿Quiénes han estado en su vivienda con usted"
 
 #, elixir-format
 #: lib/epi_contacts_web/live/add_contact_component.ex:6
