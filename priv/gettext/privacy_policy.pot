@@ -1,0 +1,136 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here as no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:20
+msgid "Automatically collected from your phone."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:14
+msgid "Data"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:25
+msgid "Data automatically collected from your phone..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:43
+msgid "For further questions, please reach out to"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:41
+msgid "For more information, visit the"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:27
+msgid "How Data is Used"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:31
+msgid "IP address"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:29
+msgid "If you share this information, it will be used by the NYSDOH and/or Local Health Departments for contact tracing purposes. Your name or other personal information is not shared with the contacts that we speak to."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:16
+msgid "Information processed in the App is collected in two different ways:"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:47
+msgid "Organizations from across the United States together to develop the Share My Contacts mobile survey. They included partnerships with:"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:45
+msgid "Partners"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:49
+msgid "Project Governance and Delivery"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:19
+msgid "Provided by you as the user (if you choose to provide it); and"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:39
+msgid "Resources & Partners"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:55
+msgid "Technology Partners"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:23
+msgid "The Share My Contacts survey collects information..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:8
+msgid "The survey allows COVID-19 positive individuals to submit additional contacts for contact tracing that were not discussed during their case interview."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:9
+msgid "The survey provides the COVID-19 positive individual to review a list of contacts that were previously discussed during their case interview, to avoid duplicating previously-submitted contacts."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:12
+msgid "The use of this survey is completely voluntary."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:33
+msgid "Your IP address is a unique set of numbers that identifies your phone or computer when you use the internet. IP addresses are used so you can send and receive information online."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:35
+msgid "Your IP address is logged, but is not used for any location tracking. It is only used to prevent abuse of the application (i.e. brute force attacks)."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:4
+msgid "is a voluntary web survey designed to assist the New York State Department of Health and your local health department with conducting Contact Tracing for COVID-19."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:43
+msgid "privacy@health.ny.gov"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:1
+msgid "Protecting Your Privacy"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:41
+msgid "NYS Department of Health Privacy Policy"
+msgstr ""

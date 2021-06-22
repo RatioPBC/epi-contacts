@@ -3,6 +3,8 @@ defmodule EpiContactsWeb.LayoutHelpers do
   Provides view helpers that are used in shared layouts
   """
 
+  import EpiContacts.Gettext
+
   alias Timex.Format.DateTime.Formatters.Strftime
 
   def revision_month_and_year do
@@ -13,6 +15,6 @@ defmodule EpiContactsWeb.LayoutHelpers do
   rescue
     date_format_exception ->
       Sentry.capture_exception(date_format_exception, stacktrace: __STACKTRACE__)
-      "Unknown"
+      gettext("Unknown")
   end
 end

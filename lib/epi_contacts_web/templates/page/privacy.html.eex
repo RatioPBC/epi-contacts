@@ -1,73 +1,62 @@
-<h1>Protecting Your Privacy</h1>
+<div class="privacy-policy">
+  <h1><%= dgettext("privacy_policy", "Protecting Your Privacy") %></h1>
 
-<p><strong>Share My Contacts</strong>&nbsp;is a voluntary web survey designed to assist the New York State Department of Health and your local health department with conducting Contact Tracing for COVID-19.</p>
+  <p>
+    <strong>Share My Contacts</strong>&nbsp;<%= dgettext("privacy_policy", "is a voluntary web survey designed to assist the New York State Department of Health and your local health department with conducting Contact Tracing for COVID-19.") %>
+  </p>
 
-<ul>
+  <ul>
+    <li><%= dgettext("privacy_policy", "The survey allows COVID-19 positive individuals to submit additional contacts for contact tracing that were not discussed during their case interview.") %></li>
+    <li><%= dgettext("privacy_policy", "The survey provides the COVID-19 positive individual to review a list of contacts that were previously discussed during their case interview, to avoid duplicating previously-submitted contacts.") %></li>
+  </ul>
 
-<li>The survey allows COVID-19 positive individuals to submit additional contacts for contact tracing that were not discussed during their case interview.</li>
+  <p><%= dgettext("privacy_policy", "The use of this survey is completely voluntary.") %></p>
 
-<li>The survey provides the COVID-19 positive individual to review a list of contacts that were previously discussed during their case interview, to avoid duplicating previously-submitted contacts.</li>
+  <h2><strong><%= dgettext("privacy_policy", "Data") %></strong></h2>
 
-</ul>
+  <p><%= dgettext("privacy_policy", "Information processed in the App is collected in two different ways:") %></p>
 
-<p>The use of this survey is completely voluntary.</p>
+  <ol>
+    <li><%= dgettext("privacy_policy", "Provided by you as the user (if you choose to provide it); and") %></li>
+    <li><%= dgettext("privacy_policy", "Automatically collected from your phone.") %></li>
+  </ol>
 
-<h2><strong>Data</strong></h2>
+  <p><%= dgettext("privacy_policy", "The Share My Contacts survey collects information...") %></p>
 
-<p>Information processed in the App is collected in two different ways:</p>
+  <p><%= dgettext("privacy_policy", "Data automatically collected from your phone...") %></p>
 
-<ol>
+  <p><strong><%= dgettext("privacy_policy", "How Data is Used") %></strong></p>
 
-<li>Provided by you as the user (if you choose to provide it); and</li>
+  <p><%= dgettext("privacy_policy", "If you share this information, it will be used by the NYSDOH and/or Local Health Departments for contact tracing purposes. Your name or other personal information is not shared with the contacts that we speak to.") %></p>
 
-<li>Automatically collected from your phone.</li>
+  <p><strong><%= dgettext("privacy_policy", "IP address") %></strong></p>
 
-</ol>
+  <p><%= dgettext("privacy_policy", "Your IP address is a unique set of numbers that identifies your phone or computer when you use the internet. IP addresses are used so you can send and receive information online.") %></p>
 
-<p>The Share My Contacts survey collects information provided by you, if you choose (your birthdate and any contact information that you provide). Your birthdate will be used to verify that you are the correct user for this survey. If you share contact information for your close contacts, it will be used by the NYSDOH and/or Local Health Departments for contact tracing purposes. Your name, birthdate, or other personal information is not shared with the contacts that we speak to.</p>
+  <p><%= dgettext("privacy_policy", "Your IP address is logged, but is not used for any location tracking. It is only used to prevent abuse of the application (i.e. brute force attacks).") %></p>
 
-<p>Data automatically collected from your phone includes your phone&rsquo;s IP address. Your phone automatically shares your phone&rsquo;s IP address with the back-end server (an IP is a network address for your computer, so the Internet knows where to send you emails, data, etc.) when you visit a website.</p>
+  <h2><strong><%= dgettext("privacy_policy", "Resources & Partners") %></strong></h2>
 
-<p><strong>How Data is Used</strong></p>
+  <p><%= dgettext("privacy_policy", "For more information, visit the") %> <%= link dgettext("privacy_policy", "NYS Department of Health Privacy Policy"), to: "https://www.health.ny.gov/about/privacy.htm" %>.</p>
 
-<p>If you share this information, it will be used by the NYSDOH and/or Local Health Departments for contact tracing purposes. Your name or other personal information is not shared with the contacts that we speak to.</p>
+  <p><%= dgettext("privacy_policy", "For further questions, please reach out to") %> <%= link dgettext("privacy_policy", "privacy@health.ny.gov"), to: "mailto:privacy@health.ny.gov" %>.</p>
 
-<p><strong><br />IP address</strong></p>
+  <h3><%= dgettext("privacy_policy", "Partners") %></h3>
 
-<p>Your IP address is a unique set of numbers that identifies your phone or computer when you use the internet. IP addresses are used so you can send and receive information online.</p>
+  <p><%= dgettext("privacy_policy", "Organizations from across the United States together to develop the Share My Contacts mobile survey. They included partnerships with:") %></p>
 
-<p>Your IP address is logged, but is not used for any location tracking. It is only used to prevent abuse of the application (i.e. brute force attacks).</p>
+  <h3><strong><%= dgettext("privacy_policy", "Project Governance and Delivery") %></strong></h3>
 
-<p>&nbsp;</p>
+  <ul>
+    <li><%= gettext("New York State Department of Health") %></li>
+  </ul>
 
-<h2>Resources &amp; Partners</h2>
+  <h3><strong><%= dgettext("privacy_policy", "Technology Partners") %></strong></h3>
 
-<p>For more information, visit the&nbsp;<a href="https://www.health.ny.gov/about/privacy.htm">NYS Department of Health Privacy Policy</a>.</p>
-
-<p>For further questions, please reach out to&nbsp;<a href="mailto:privacy@health.ny.gov">privacy@health.ny.gov</a>.</p>
-
-<h3>Partners</h3>
-
-<p>Organizations from across the United States together to develop the Share My Contacts mobile survey. They included partnerships with:</p>
-
-<h3><strong><br /> Project Governance and Delivery</strong></h3>
-
-<ul>
-
-<li>New York State Department of Health</li>
-
-</ul>
-
-<h3><strong><br /> Technology Partners</strong></h3>
-
-<ul>
-
-<li>Dimagi</li>
-
-<li>Ratio PBC, Inc.</li>
-
-<li>NYSTEC</li>
-
-<li>Resolve to Save Lives</li>
-
-</ul>
+  <ul>
+    <li>Dimagi</li>
+    <li>Ratio PBC, Inc.</li>
+    <li>NYSTEC</li>
+    <li>Resolve to Save Lives</li>
+  </ul>
+</div>

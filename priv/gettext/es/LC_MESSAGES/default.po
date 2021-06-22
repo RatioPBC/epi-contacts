@@ -308,7 +308,7 @@ msgstr "Seleccione uno"
 #: lib/epi_contacts_web/templates/error/404.html.eex:34
 #: lib/epi_contacts_web/templates/error/500.html.eex:34 lib/epi_contacts_web/templates/layout/root.html.leex:36
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Política De Privacidad"
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/page/link_expired.html.eex:1
@@ -1029,7 +1029,7 @@ msgstr "Toda la información reportada es confidencial"
 #: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
 #: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
 msgid "Department of Health"
-msgstr "Actualización del estado de NY"
+msgstr "Departamento de Salud"
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/error/404.html.eex:32
@@ -1041,3 +1041,13 @@ msgstr "Revisado: %{revision_month_and_year}"
 #: lib/epi_contacts_web/templates/layout/root.html.leex:16
 msgid "New York State Logo"
 msgstr "Logotipo del estado de NY"
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:52
+msgid "New York State Department of Health"
+msgstr "Departamento de Salud de Nueva York"
+
+#, elixir-format
+#: lib/epi_contacts_web/views/layout_helpers.ex:18
+msgid "Unknown"
+msgstr "Desconocido"
