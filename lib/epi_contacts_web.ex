@@ -105,8 +105,66 @@ defmodule EpiContactsWeb do
         )
       end
 
-      def months do
-        [
+      @spec days_of_the_week_options() :: list({binary(), binary()})
+      def days_of_the_week_options,
+        do: [
+          {gettext("Monday"), "1"},
+          {gettext("Tuesday"), "2"},
+          {gettext("Wednesday"), "3"},
+          {gettext("Thursday"), "4"},
+          {gettext("Friday"), "5"},
+          {gettext("Saturday"), "6"},
+          {gettext("Sunday"), "7"}
+        ]
+
+      @spec days_of_the_week() :: list(binary())
+      def days_of_the_week, do: days_of_the_week_options() |> collect_first_elements()
+
+      @spec languages() :: list(binary())
+      def languages, do: languages_options() |> collect_first_elements()
+
+      @spec languages_options() :: list({binary(), binary()})
+      def languages_options,
+        do: [
+          {gettext("English"), "en"},
+          {gettext("Spanish"), "es"},
+          {gettext("Chinese Cantonese"), "chinese_cantonese"},
+          {gettext("Chinese Mandarin"), "chinese_mandarin"},
+          {gettext("Russian"), "ru"},
+          {gettext("Haitian Creole"), "haitian_creole"},
+          {gettext("Hebrew"), "hebrew"},
+          {gettext("Hindi"), "hindi"},
+          {gettext("Bengali"), "bengali"},
+          {gettext("Korean"), "korean"},
+          {gettext("Arabic"), "arabic"},
+          {gettext("France"), "fra"},
+          {gettext("Italian"), "italian"},
+          {gettext("Yiddish"), "yiddish"},
+          {gettext("Polish"), "polish"},
+          {gettext("Swahili"), "swahili"},
+          {gettext("Other"), "other"}
+        ]
+
+      @spec locations_options() :: list({binary(), binary()})
+      def locations_options,
+        do: [
+          {gettext("At home (household member or friend)"), "household"},
+          {gettext("At home (caretaker)"), "caretaker"},
+          {gettext("Place of worship"), "church"},
+          {gettext("Healthcare facility"), "health_care"},
+          {gettext("Nursing/Assisted living"), "nursing_assisted_living_home"},
+          {gettext("School setting"), "school_setting"},
+          {gettext("Workplace"), "workplace"},
+          {gettext("Other"), "other"}
+        ]
+
+      @spec locations() :: list(binary())
+      def locations,
+        do: locations_options() |> collect_first_elements()
+
+      @spec months_options() :: list({binary(), binary()})
+      def months_options,
+        do: [
           {gettext("January"), "1"},
           {gettext("February"), "2"},
           {gettext("March"), "3"},
@@ -120,6 +178,25 @@ defmodule EpiContactsWeb do
           {gettext("November"), "11"},
           {gettext("December"), "12"}
         ]
+
+      @spec months() :: list(binary())
+      def months, do: months_options() |> collect_first_elements()
+
+      def relationships_options,
+        do: [
+          {gettext("Family"), "family"},
+          {gettext("Friend"), "friend"},
+          {gettext("Partner or roommate"), "partner_or_roommate"},
+          {gettext("Co-worker"), "co-worker"},
+          {gettext("Neighbor"), "neighbor"},
+          {gettext("Healthcare worker"), "health_care_worker"},
+          {gettext("Teacher/childcare"), "teacher_childcare"},
+          {gettext("Service provider"), "service_provider"},
+          {gettext("Other"), "other"}
+        ]
+
+      defp collect_first_elements(list) do
+        Enum.map(list, &elem(&1, 0))
       end
     end
   end

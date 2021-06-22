@@ -15,7 +15,7 @@
       <% this_year = DateTime.utc_now.year %>
       <% year_range = (this_year - 100)..this_year |> Enum.reverse() %>
       <%= b.(:year, prompt: gettext("Year"), options: year_range) %>
-      <%= b.(:month, prompt: gettext("Month"), options: months()) %>
+      <%= b.(:month, prompt: gettext("Month"), options: months_options()) %>
       <%= b.(:day, prompt: gettext("Date")) %>
     <% end %>
   </div>
