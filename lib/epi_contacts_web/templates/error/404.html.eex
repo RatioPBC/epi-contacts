@@ -15,10 +15,12 @@
       </a>
     </div>
     <div class="doh">
-      <div><a href="https://health.ny.gov">Department of Health</a></div>
+      <div>
+        <%= external_link() %>
+      </div>
     </div>
     <div class="confidential">
-      All reported information is confidential
+      <%= gettext("All reported information is confidential.") %>
     </div>
   </header>
 
@@ -27,7 +29,7 @@
     </main>
 
     <footer>
-        <div class="revision">Revised: <%= revision_month_and_year() %></div>
+        <div class="revision"><%= gettext("Revised: %{revision_month_and_year}", revision_month_and_year: revision_month_and_year()) %></div>
         <div class="site-links">
           <%= link gettext("Privacy Policy"), to: Routes.page_path(@conn, :privacy) %>
         </div>

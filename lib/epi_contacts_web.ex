@@ -195,6 +195,10 @@ defmodule EpiContactsWeb do
           {gettext("Other"), "other"}
         ]
 
+      def external_link do
+        link(gettext("Department of Health"), to: "https://health.ny.gov")
+      end
+
       defp collect_first_elements(list) do
         Enum.map(list, &elem(&1, 0))
       end

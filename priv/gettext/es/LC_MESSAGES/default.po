@@ -82,16 +82,19 @@ msgid "Next question"
 msgstr "Próxima pregunta"
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:5
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:4
 msgid "What you should do next:"
 msgstr "Lo que debe hacer a continuación:"
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:7
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:9
 msgid "Self-isolate until..."
 msgstr "Aislarse hasta la mañana del %{end_of_isolation_period}."
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:11
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:16
 msgid "Monitor your symptoms. If you have..."
 msgstr "Preste atención a sus síntomas. Si tiene problemas para respirar, dolor persistente opresión en el pecho, confusión de nueva aparición, incapacidad para despertar, o piel, labios o uñas con coloración pálida, grisácea o azulada, dependiendo de su tono de piel, llame al 911 o busque atención médica de emergencia inmediatamente."
@@ -209,6 +212,7 @@ msgid "Question %{current} of %{total}"
 msgstr "Pregunta %{current} de %{total}"
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:1
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:1
 msgid "Dear %{name},"
 msgstr "Estimado %{name},"
@@ -225,6 +229,7 @@ msgid "today"
 msgstr "hoy"
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:15
 #: lib/epi_contacts_web/views/page_view.ex:10
 msgid "If you have any questions, please contact us..."
 msgstr "Si tiene alguna pregunta, llámenos al %{phone_number} o visite la página de COVID-19 del Departamento de Salud del Estado de Nueva York para ver más información: %{web_link}."
@@ -260,6 +265,7 @@ msgid "Thank you for helping us stop the spread of COVID-19."
 msgstr "Gracias por ayudarnos a detener la propagación de la COVID-19."
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:13
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
 msgid "As discussed during our call..."
 msgstr "Para ayudar a limitar la propagación de la COVID-19, por favor empiece a identificar a las personas que hayan estado a menos de 6 pies de usted por 10 minutos o más. Si ha presentado síntomas, comience 2 días antes de su primer síntoma O, si no ha presentado síntomas, comience 2 días antes de la fecha de su prueba (esta es su fecha de inicio)."
@@ -299,8 +305,8 @@ msgid "Select one"
 msgstr "Seleccione uno"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/error/404.html.eex:32
-#: lib/epi_contacts_web/templates/error/500.html.eex:32 lib/epi_contacts_web/templates/layout/root.html.leex:34
+#: lib/epi_contacts_web/templates/error/404.html.eex:34
+#: lib/epi_contacts_web/templates/error/500.html.eex:34 lib/epi_contacts_web/templates/layout/root.html.leex:36
 msgid "Privacy Policy"
 msgstr ""
 
@@ -330,12 +336,12 @@ msgid "To add additional contacts, contact the Department of Health at "
 msgstr "Para agregar contactos adicionales, comuníquese con el Departamento de Salud al "
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/error/404.html.eex:26
+#: lib/epi_contacts_web/templates/error/404.html.eex:28
 msgid "We're sorry, but that page cannot be found."
 msgstr "Lo sentimos, pero esa página no se puede encontrar."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/error/500.html.eex:26
+#: lib/epi_contacts_web/templates/error/500.html.eex:28
 msgid "We're sorry, but that page cannot be loaded."
 msgstr ""
 
@@ -965,7 +971,7 @@ msgstr "Centro de salud"
 msgid "Nursing/Assisted living"
 msgstr "Enfermería / Vivienda asistida"
 
-#, elixir-format, fuzzy
+#, elixir-format
 #: lib/epi_contacts_web/live/add_contact_component.ex:6
 #: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
 #: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
@@ -987,7 +993,7 @@ msgstr "Lugar de adoración"
 msgid "School setting"
 msgstr "Entorno escolar"
 
-#, elixir-format, fuzzy
+#, elixir-format
 #: lib/epi_contacts_web/live/add_contact_component.ex:6
 #: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
 #: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
@@ -997,3 +1003,41 @@ msgstr "Entorno escolar"
 #: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
 msgid "Workplace"
 msgstr "Lugar de trabajo"
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:9
+msgid "Protect your family and the other people you live with by..."
+msgstr "Proteger a su familia y a las otras personas con las que vive, para lo que debe separarse de ellas lo más posible, usar mascarilla y permanecer a 6 pies de otras personas que estén en la misma habitación, lavarse las manos con frecuencia, toser y estornudar en su codo o en un pañuelo, y poner los pañuelos usados en la basura de inmediato. Puede encontrar información adicional en: %{web_link}"
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:3
+msgid "Your COVID-19 test came back, and you tested positive. You should immediately tell your parent/guardian."
+msgstr "Su prueba de COVID-19 tuvo un resultado positivo. Debe informarlo de inmediato a su padre, madre o tutor."
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/error/404.html.eex:23
+#: lib/epi_contacts_web/templates/error/500.html.eex:23 lib/epi_contacts_web/templates/layout/root.html.leex:25
+msgid "All reported information is confidential."
+msgstr "Toda la información reportada es confidencial"
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "Department of Health"
+msgstr "Actualización del estado de NY"
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/error/404.html.eex:32
+#: lib/epi_contacts_web/templates/error/500.html.eex:32 lib/epi_contacts_web/templates/layout/root.html.leex:34
+msgid "Revised: %{revision_month_and_year}"
+msgstr "Revisado: %{revision_month_and_year}"
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/layout/root.html.leex:16
+msgid "New York State Logo"
+msgstr "Logotipo del estado de NY"

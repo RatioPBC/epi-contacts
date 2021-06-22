@@ -81,16 +81,19 @@ msgid "Next question"
 msgstr ""
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:5
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:4
 msgid "What you should do next:"
 msgstr ""
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:7
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:9
 msgid "Self-isolate until..."
 msgstr ""
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:11
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:16
 msgid "Monitor your symptoms. If you have..."
 msgstr ""
@@ -208,6 +211,7 @@ msgid "Question %{current} of %{total}"
 msgstr ""
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:1
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:1
 msgid "Dear %{name},"
 msgstr ""
@@ -224,6 +228,7 @@ msgid "today"
 msgstr ""
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:15
 #: lib/epi_contacts_web/views/page_view.ex:10
 msgid "If you have any questions, please contact us..."
 msgstr ""
@@ -259,6 +264,7 @@ msgid "Thank you for helping us stop the spread of COVID-19."
 msgstr ""
 
 #, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:13
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
 msgid "As discussed during our call..."
 msgstr ""
@@ -298,8 +304,8 @@ msgid "Select one"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/error/404.html.eex:32
-#: lib/epi_contacts_web/templates/error/500.html.eex:32 lib/epi_contacts_web/templates/layout/root.html.leex:34
+#: lib/epi_contacts_web/templates/error/404.html.eex:34
+#: lib/epi_contacts_web/templates/error/500.html.eex:34 lib/epi_contacts_web/templates/layout/root.html.leex:36
 msgid "Privacy Policy"
 msgstr ""
 
@@ -329,12 +335,12 @@ msgid "To add additional contacts, contact the Department of Health at "
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/error/404.html.eex:26
+#: lib/epi_contacts_web/templates/error/404.html.eex:28
 msgid "We're sorry, but that page cannot be found."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/error/500.html.eex:26
+#: lib/epi_contacts_web/templates/error/500.html.eex:28
 msgid "We're sorry, but that page cannot be loaded."
 msgstr ""
 
@@ -995,4 +1001,42 @@ msgstr ""
 #: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
 #: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
 msgid "Workplace"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:9
+msgid "Protect your family and the other people you live with by..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:3
+msgid "Your COVID-19 test came back, and you tested positive. You should immediately tell your parent/guardian."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/error/404.html.eex:23
+#: lib/epi_contacts_web/templates/error/500.html.eex:23 lib/epi_contacts_web/templates/layout/root.html.leex:25
+msgid "All reported information is confidential."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/live/add_contact_component.ex:6
+#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
+#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
+#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
+#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
+#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
+#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+msgid "Department of Health"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/error/404.html.eex:32
+#: lib/epi_contacts_web/templates/error/500.html.eex:32 lib/epi_contacts_web/templates/layout/root.html.leex:34
+msgid "Revised: %{revision_month_and_year}"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/layout/root.html.leex:16
+msgid "New York State Logo"
 msgstr ""

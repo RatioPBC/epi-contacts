@@ -1,25 +1,15 @@
-<p>Dear <%= @case_initials %>,</p>
+<p><%= gettext("Dear %{name},", name: @case_initials) %></p>
 
-<p>Your COVID-19 test came back, and you tested positive. You should immediately tell your parent/guardian.</p>
+<p><%= gettext("Your COVID-19 test came back, and you tested positive. You should immediately tell your parent/guardian.") %></p>
 
-<p>What you should do next:</p>
+<p><%= gettext("What you should do next:") %></p>
 
-<p>Self-isolate until the morning of <%= @end_of_infectious_period %>.</p>
+<p><%= gettext("Self-isolate until...", end_of_isolation_period: @end_of_infectious_period) %></p>
 
-<p>Protect your family and the other people you live with by separating yourself from them as much as
-possible, wearing a mask and staying 6 feet from others when you are in the same room, wash your
-hands frequently, coughing and sneezing into your elbow or a tissue and putting used tissues in the
-trash immediately. Additional information can be found at: <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/">https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/</a></p>
+<p><%= gettext("Protect your family and the other people you live with by...", web_link: "https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/") %></p>
 
-<p>Monitor your symptoms. If you have trouble breathing, persistent pain or pressure in the chest, new
-confusion, inability to wake, or pale, gray, or blue-colored skin, lips, or nail beds, depending on skin
-tone, call 911 or seek emergency medical care immediately.</p>
+<p><%= gettext("Monitor your symptoms. If you have...") %></p>
 
-<p>To help limit the spread of COVID-19, your local health department will be contacting your
-parent/guardian to find out where you have been or who you came in contact with. Please begin to
-identify and create a list of any people you may have come within 6 ft for 10 minutes or more. If you
-have had symptoms, start 2 days before your first symptom OR, if you have had no symptoms, then start
-2 days before your test date (this is your start date).</p>
+<p><%= gettext("As discussed during our call...") %></p>
 
-<p>If you have any questions, please contact us at <a href="tel:+18332275045">1-(833)-227-5045</a> or visit NYSDOH COVID-19 webpage for
-more information at: <a href="https://www.ny.gov/coronavirus">https://www.ny.gov/coronavirus</a>.</p>
+<p><%= gettext("If you have any questions, please contact us...", phone_number: "833-227-5045", web_link: "https://www.ny.gov/coronavirus") %></p>
