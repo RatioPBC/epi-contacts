@@ -8,53 +8,6 @@ defmodule EpiContacts.Contact do
   import EpiContacts.Validators
   alias EpiContacts.PatientCase
 
-  @spec languages() :: list({binary(), binary()})
-  def languages,
-    do: [
-      {"English", "en"},
-      {"Spanish", "es"},
-      {"Chinese Cantonese", "chinese_cantonese"},
-      {"Chinese Mandarin", "chinese_mandarin"},
-      {"Russian", "ru"},
-      {"Haitian Creole", "haitian_creole"},
-      {"Hebrew", "hebrew"},
-      {"Hindi", "hindi"},
-      {"Bengali", "bengali"},
-      {"Korean", "korean"},
-      {"Arabic", "arabic"},
-      {"France", "fra"},
-      {"Italian", "italian"},
-      {"Yiddish", "yiddish"},
-      {"Polish", "polish"},
-      {"Swahili", "swahili"},
-      {"Other", "other"}
-    ]
-
-  def locations,
-    do: [
-      {"At home (household member or friend)", "household"},
-      {"At home (caretaker)", "caretaker"},
-      {"Place of worship", "church"},
-      {"Healthcare facility", "health_care"},
-      {"Nursing/Assisted living", "nursing_assisted_living_home"},
-      {"School setting", "school_setting"},
-      {"Workplace", "workplace"},
-      {"Other", "other"}
-    ]
-
-  def relationships,
-    do: [
-      {"Family", "family"},
-      {"Friend", "friend"},
-      {"Partner or roommate", "partner_or_roommate"},
-      {"Co-worker", "co-worker"},
-      {"Neighbor", "neighbor"},
-      {"Healthcare worker", "health_care_worker"},
-      {"Teacher/childcare", "teacher_childcare"},
-      {"Service provider", "service_provider"},
-      {"Other", "other"}
-    ]
-
   @derive Jason.Encoder
   embedded_schema do
     field(:contact_id, :string)

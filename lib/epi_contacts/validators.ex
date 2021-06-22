@@ -3,7 +3,7 @@ defmodule EpiContacts.Validators do
   Custom Ecto validators for phone number and email
   """
 
-  alias EpiContacts.{Contact, PatientCase}
+  alias EpiContacts.PatientCase
   import EpiContacts.Gettext
   import Ecto.Changeset
 
@@ -21,16 +21,11 @@ defmodule EpiContacts.Validators do
     )
   end
 
-  # although Keyword.values works here, dialyzer does not like the
-  # fact that the keys are binaries, so we implement our own
-  # Keyword.values that doesn't require the keys to be atoms
-  defp values(kwlist_with_string_keys), do: Enum.map(kwlist_with_string_keys, &elem(&1, 1))
-
   def validate_contact_location(changeset) do
     if changeset |> get_field(:contact_location) |> is_nil() do
       put_change(changeset, :contact_location, "unknown")
     else
-      validate_inclusion(changeset, :contact_location, values(Contact.locations()))
+      validate_inclusion(changeset, :contact_location, EpiContacts.Locations.locations())
     end
   end
 
@@ -38,7 +33,7 @@ defmodule EpiContacts.Validators do
     if changeset |> get_field(:relationship) |> is_nil() do
       put_change(changeset, :relationship, "na")
     else
-      validate_inclusion(changeset, :relationship, values(Contact.relationships()))
+      validate_inclusion(changeset, :relationship, EpiContacts.Relationships.relationships())
     end
   end
 
@@ -46,7 +41,7 @@ defmodule EpiContacts.Validators do
     if changeset |> get_field(:primary_language) |> is_nil() do
       put_change(changeset, :primary_language, "other")
     else
-      validate_inclusion(changeset, :primary_language, values(Contact.languages()))
+      validate_inclusion(changeset, :primary_language, EpiContacts.Languages.languages())
     end
   end
 
