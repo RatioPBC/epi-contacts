@@ -44,3 +44,6 @@ config :epi_contacts,
   posthog_client: AnalyticsClientBehaviourMock,
   analytics_reporter: AnalyticsReporterBehaviourMock,
   analytics_reporter_application_name: :share_my_contacts
+
+config :sentry,
+  included_environments: [:test]

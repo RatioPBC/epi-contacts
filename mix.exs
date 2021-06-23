@@ -45,6 +45,7 @@ defmodule EpiContacts.MixProject do
     [
       {:bcrypt_elixir, "~> 2.0"},
       {:briefly, "~> 0.1.1"},
+      {:bypass, "~> 2.1", only: :test},
       {:cachex, "~> 3.2"},
       {:commcare_api, "~> 0.2"},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
