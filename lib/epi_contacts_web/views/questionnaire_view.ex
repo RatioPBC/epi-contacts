@@ -94,7 +94,7 @@ defmodule EpiContactsWeb.QuestionnaireView do
   def infectious_period(patient_case, opts \\ []) do
     locale = opts[:locale] || EpiContacts.Gettext.default_locale()
 
-    start_date = patient_case |> start_of_infectious_period() |> format()
+    start_date = patient_case |> start_of_infectious_period() |> format(locale: locale)
     end_date = patient_case |> end_of_infectious_period() |> display_end_of_historical_infectious_period()
     from = gettext("from")
     to = gettext("to")
