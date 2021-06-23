@@ -639,367 +639,163 @@ msgid "Wednesday"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:23
 msgid "Arabic"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:21
 msgid "Bengali"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:15
 msgid "Chinese Cantonese"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:16
 msgid "Chinese Mandarin"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:13
 msgid "English"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:24
 msgid "France"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:18
 msgid "Haitian Creole"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:19
 msgid "Hebrew"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:20
 msgid "Hindi"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:25
 msgid "Italian"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:22
 msgid "Korean"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/add_contact_component.ex:6 lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/confirm_identity_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/questionnaire_live.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/live/review_component.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_session_view.ex:2 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/admin_settings_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/commcare_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/error_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/layout_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/login_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/page_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/questionnaire_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
-#: lib/epi_contacts_web/views/search_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:29 lib/epi_contacts/locations.ex:21
+#: lib/epi_contacts/relationships.ex:21
 msgid "Other"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:27
 msgid "Polish"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:17
 msgid "Russian"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:14
 msgid "Spanish"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:28
 msgid "Swahili"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/languages.ex:26
 msgid "Yiddish"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/relationships.ex:16
 msgid "Co-worker"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/relationships.ex:13
 msgid "Family"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/relationships.ex:14
 msgid "Friend"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/relationships.ex:18
 msgid "Healthcare worker"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/relationships.ex:17
 msgid "Neighbor"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/relationships.ex:15
 msgid "Partner or roommate"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/relationships.ex:20
 msgid "Service provider"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/relationships.ex:19
 msgid "Teacher/childcare"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/locations.ex:15
 msgid "At home (caretaker)"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/locations.ex:14
 msgid "At home (household member or friend)"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/locations.ex:17
 msgid "Healthcare facility"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/locations.ex:18
 msgid "Nursing/Assisted living"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/locations.ex:16
 msgid "Place of worship"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/locations.ex:19
 msgid "School setting"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/live/add_contact_component.ex:6
-#: lib/epi_contacts_web/live/confirm_identity_component.ex:6 lib/epi_contacts_web/live/questionnaire_live.ex:6
-#: lib/epi_contacts_web/live/review_component.ex:6 lib/epi_contacts_web/views/admin_session_view.ex:2
-#: lib/epi_contacts_web/views/admin_settings_view.ex:2 lib/epi_contacts_web/views/commcare_view.ex:2
-#: lib/epi_contacts_web/views/error_view.ex:2 lib/epi_contacts_web/views/layout_view.ex:2
-#: lib/epi_contacts_web/views/login_view.ex:2 lib/epi_contacts_web/views/page_view.ex:2
-#: lib/epi_contacts_web/views/questionnaire_view.ex:2 lib/epi_contacts_web/views/search_view.ex:2
+#: lib/epi_contacts/locations.ex:20
 msgid "Workplace"
 msgstr ""
 
@@ -1042,11 +838,16 @@ msgid "New York State Logo"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/privacy.html.eex:52
+#: lib/epi_contacts_web/templates/page/privacy.html.eex:51
 msgid "New York State Department of Health"
 msgstr ""
 
 #, elixir-format
 #: lib/epi_contacts_web/views/layout_helpers.ex:18
 msgid "Unknown"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/questionnaire_view.ex:137
+msgid "Friday, Sep 13 - %{weekday}, %{month} %{day}"
 msgstr ""

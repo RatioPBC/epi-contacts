@@ -10,7 +10,25 @@ defmodule EpiContactsWeb.QuestionnaireView do
 
   alias EpiContacts.{Contact, PatientCase}
 
-  def format(%Date{} = date), do: date |> Timex.format!("%A, %B %d", :strftime)
+  def format(%Date{} = date, opts \\ []) do
+    locale = opts[:locale] || EpiContacts.Gettext.default_locale()
+
+    Gettext.with_locale(locale, fn ->
+      weekday = Timex.format!(date, "{WDfull}")
+      weekday = Gettext.gettext(EpiContacts.Gettext, weekday)
+
+      month = Timex.format!(date, "{Mfull}")
+      month = Gettext.gettext(EpiContacts.Gettext, month)
+
+      day = Timex.format!(date, "{D}")
+
+      Gettext.gettext(EpiContacts.Gettext, "Friday, Sep 13 - %{weekday}, %{month} %{day}",
+        weekday: weekday,
+        month: month,
+        day: day
+      )
+    end)
+  end
 
   def display_end_of_historical_infectious_period(%Date{} = end_date, %Date{} = today \\ Timex.today()) do
     case Date.compare(end_date, today) do
@@ -73,7 +91,9 @@ defmodule EpiContactsWeb.QuestionnaireView do
   end
 
   @spec infectious_period(map()) :: Phoenix.HTML.safe()
-  def infectious_period(patient_case) do
+  def infectious_period(patient_case, opts \\ []) do
+    locale = opts[:locale] || EpiContacts.Gettext.default_locale()
+
     start_date = patient_case |> start_of_infectious_period() |> format()
     end_date = patient_case |> end_of_infectious_period() |> display_end_of_historical_infectious_period()
     from = gettext("from")
@@ -117,7 +137,10 @@ defmodule EpiContactsWeb.QuestionnaireView do
     "*** *** #{last_4}"
   end
 
-  def exposed_on_select_options(patient_case, now \\ Date.utc_today()) do
+  def exposed_on_select_options(patient_case, opts \\ []) do
+    now = opts[:now] || Date.utc_today()
+    locale = opts[:locale] || EpiContacts.Gettext.default_locale()
+
     start_of_infectious_period = PatientCase.start_of_infectious_period(patient_case)
 
     end_of_infectious_period = PatientCase.end_of_infectious_period(patient_case)
@@ -130,6 +153,20 @@ defmodule EpiContactsWeb.QuestionnaireView do
 
     start_of_infectious_period
     |> Date.range(end_of_range)
-    |> Enum.map(fn date -> {Timex.format!(date, "{WDfull}, {Mshort} {D}"), Date.to_iso8601(date)} end)
+    |> Enum.map(fn date ->
+      Gettext.with_locale(locale, fn ->
+        weekday = Timex.format!(date, "{WDfull}")
+        weekday = Gettext.gettext(EpiContacts.Gettext, weekday)
+
+        short_month = Timex.format!(date, "{Mshort}")
+        short_month = Gettext.gettext(EpiContacts.Gettext, short_month)
+
+        day = Timex.format!(date, "{D}")
+
+        text = gettext("Friday, Sep 13 - %{weekday}, %{month} %{day}", weekday: weekday, month: short_month, day: day)
+
+        {text, Date.to_iso8601(date)}
+      end)
+    end)
   end
 end

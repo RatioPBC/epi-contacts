@@ -22,6 +22,10 @@ defmodule EpiContacts.Gettext do
   """
   use Gettext, otp_app: :epi_contacts
 
+  def default_locale do
+    Application.get_env(:epi_contacts, __MODULE__)[:default_locale]
+  end
+
   def get_locale do
     Gettext.get_locale(__MODULE__)
   end

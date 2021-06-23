@@ -4,8 +4,12 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
   alias EpiContactsWeb.QuestionnaireView, as: View
 
   describe "format" do
-    test "it formats the date for the user" do
-      assert View.format(~D[2020-04-15]) == "Wednesday, April 15"
+    test "it formats the date for the user in English" do
+      assert View.format(~D[2020-04-15], locale: "en") == "Wednesday, April 15"
+    end
+
+    test "it formats the date for the user in Spanish" do
+      assert View.format(~D[2020-04-15], locale: "es") == "Miércoles 15 de Abril"
     end
   end
 
@@ -96,7 +100,22 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
   end
 
   describe "infectious_period/1" do
-    test "renders start & end date" do
+    test "renders start & end date in English" do
+      patient_case = %{
+        "properties" => %{
+          "isolation_start_date" => "2021-06-17"
+        }
+      }
+
+      html =
+        patient_case
+        |> View.infectious_period()
+        |> html_for()
+
+      assert_infectious_period(html, "Tuesday, June 15", "today")
+    end
+
+    test "renders start & end date in Spanish" do
       patient_case = %{
         "properties" => %{
           "isolation_start_date" => "2021-06-17"
@@ -183,13 +202,59 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
     test "doesn't return future dates" do
       patient_case = %{"properties" => %{"isolation_start_date" => "2021-01-04"}}
 
-      options = View.exposed_on_select_options(patient_case, ~D[2021-01-06])
+      options = View.exposed_on_select_options(patient_case, now: ~D[2021-01-06])
       assert Enum.count(options) == 5
 
       patient_case = %{"properties" => %{"isolation_start_date" => "2020-12-20"}}
 
       options = View.exposed_on_select_options(patient_case)
       assert Enum.count(options) == 11
+    end
+
+    test "handles English" do
+      patient_case = %{"properties" => %{"isolation_start_date" => "2020-12-20"}}
+
+      options = View.exposed_on_select_options(patient_case)
+
+      assert match?(
+               [
+                 {"Friday, Dec 18", "2020-12-18"},
+                 {"Saturday, Dec 19", "2020-12-19"},
+                 {"Sunday, Dec 20", "2020-12-20"},
+                 {"Monday, Dec 21", "2020-12-21"},
+                 {"Tuesday, Dec 22", "2020-12-22"},
+                 {"Wednesday, Dec 23", "2020-12-23"},
+                 {"Thursday, Dec 24", "2020-12-24"},
+                 {"Friday, Dec 25", "2020-12-25"},
+                 {"Saturday, Dec 26", "2020-12-26"},
+                 {"Sunday, Dec 27", "2020-12-27"},
+                 {"Monday, Dec 28", "2020-12-28"}
+               ],
+               options
+             )
+    end
+
+    test "handles Spanish" do
+      patient_case = %{"properties" => %{"isolation_start_date" => "2020-12-20"}}
+
+      options = View.exposed_on_select_options(patient_case, locale: "es")
+
+      assert match?(
+               [
+                 {"Viernes 18 de Dic", "2020-12-18"},
+                 {"Sábado 19 de Dic", "2020-12-19"},
+                 {"Domingo 20 de Dic", "2020-12-20"},
+                 {"Lunes 21 de Dic", "2020-12-21"},
+                 {"Martes 22 de Dic", "2020-12-22"},
+                 {"Miércoles 23 de Dic", "2020-12-23"},
+                 {"Jueves 24 de Dic", "2020-12-24"},
+                 {"Viernes 25 de Dic", "2020-12-25"},
+                 {"Sábado 26 de Dic", "2020-12-26"},
+                 {"Domingo 27 de Dic", "2020-12-27"},
+                 {"Lunes 28 de Dic", "2020-12-28"}
+               ],
+               options
+             )
     end
   end
 end
