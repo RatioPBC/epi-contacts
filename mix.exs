@@ -73,6 +73,7 @@ defmodule EpiContacts.MixProject do
       {:phoenix_ecto, "~> 4.1"},
       {:phoenix_html, "~> 2.11"},
       {:phx_gen_auth, "~> 0.7"},
+      {:phoenix_integration, "~> 0.9.1", only: :test},
       {:phoenix_live_dashboard, "~> 0.4.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.14"},

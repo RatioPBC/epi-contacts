@@ -30,6 +30,10 @@ defmodule EpiContacts.Gettext do
     Gettext.get_locale(__MODULE__)
   end
 
+  def known_locales do
+    Gettext.known_locales(__MODULE__)
+  end
+
   def put_locale(locale) when is_binary(locale) do
     Gettext.put_locale(__MODULE__, locale)
   end

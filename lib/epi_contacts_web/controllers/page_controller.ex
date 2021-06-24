@@ -6,6 +6,10 @@ defmodule EpiContactsWeb.PageController do
     log_and_render(conn, "index.html")
   end
 
+  def locale(conn, _params) do
+    render(conn, "locale.html")
+  end
+
   def privacy(conn, _params) do
     log_and_render(conn, "privacy.html")
   end

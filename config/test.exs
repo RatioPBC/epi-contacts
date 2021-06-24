@@ -45,5 +45,7 @@ config :epi_contacts,
   analytics_reporter: AnalyticsReporterBehaviourMock,
   analytics_reporter_application_name: :share_my_contacts
 
+config :phoenix_integration, endpoint: EpiContactsWeb.Endpoint
+
 config :sentry,
   included_environments: [:test]

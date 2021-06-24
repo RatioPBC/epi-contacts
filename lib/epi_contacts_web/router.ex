@@ -31,13 +31,17 @@ defmodule EpiContactsWeb.Router do
     plug(EpiContactsWeb.Plugs.CommcareInfoLoader)
   end
 
+  pipeline :locale do
+    plug(EpiContactsWeb.Plugs.Locale)
+  end
+
   scope "/api/commcare", EpiContactsWeb do
     pipe_through(:api)
     post("/forwarding", CommcareApiController, :webhook)
   end
 
   scope "/", EpiContactsWeb do
-    pipe_through([:browser, :questionnaire])
+    pipe_through([:browser, :locale, :questionnaire])
 
     live("/s/:secure_id", QuestionnaireLive, :confirm_identity)
     live("/start/:commcare_domain/:case_id", QuestionnaireLive, :confirm_identity)
@@ -54,15 +58,21 @@ defmodule EpiContactsWeb.Router do
   end
 
   scope "/", EpiContactsWeb do
-    pipe_through(:browser)
+    pipe_through([:browser, :locale])
 
     get("/", PageController, :index)
     get("/error", PageController, :error)
     get("/expired", PageController, :link_expired)
-    get("/healthcheck", HealthCheckController, :index)
     get("/minor", PageController, :minor)
     get("/privacy", PageController, :privacy)
     get("/unable_to_verify", PageController, :unable_to_verify)
+  end
+
+  scope "/", EpiContactsWeb do
+    pipe_through(:browser)
+
+    get("/healthcheck", HealthCheckController, :index)
+    get("/locale", PageController, :locale)
   end
 
   scope "/private" do
