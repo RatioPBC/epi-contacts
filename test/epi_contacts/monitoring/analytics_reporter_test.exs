@@ -323,13 +323,15 @@ defmodule EpiContacts.Monitoring.AnalyticsReporterTest do
       assert :ok ==
                AnalyticsReporter.report_unauthenticated_page_visit(
                  page_identifier: @page,
-                 timestamp: timestamp
+                 timestamp: timestamp,
+                 locale: "en"
                )
 
       assert_receive {:telemetry_event, [:share_my_contacts, :analytics, :unauthenticated_page_visit], %{},
                       %{
                         page: @page,
-                        timestamp: ^timestamp
+                        timestamp: ^timestamp,
+                        locale: "en"
                       }}
     end
   end

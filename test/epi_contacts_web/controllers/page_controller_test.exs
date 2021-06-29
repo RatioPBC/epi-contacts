@@ -9,10 +9,13 @@ defmodule EpiContactsWeb.PageControllerTest do
   @domain "abc"
 
   setup %{conn: conn} do
-    stub(AnalyticsReporterBehaviourMock, :report_unauthenticated_page_visit, fn page_identifier: _page_identifier,
-                                                                                timestamp: _timestamp ->
-      :ok
-    end)
+    stub(
+      AnalyticsReporterBehaviourMock,
+      :report_unauthenticated_page_visit,
+      fn page_identifier: _page_identifier, timestamp: _timestamp, locale: _locale ->
+        :ok
+      end
+    )
 
     conn =
       conn
@@ -56,12 +59,16 @@ defmodule EpiContactsWeb.PageControllerTest do
 
   describe "telemetry" do
     defp expect_page_visit_analytics(route) do
-      expect(AnalyticsReporterBehaviourMock, :report_unauthenticated_page_visit, 1, fn page_identifier: page_identifier,
-                                                                                       timestamp: timestamp ->
-        assert page_identifier == route
-        assert DateTime.diff(timestamp, DateTime.utc_now()) < 2
-        :ok
-      end)
+      expect(
+        AnalyticsReporterBehaviourMock,
+        :report_unauthenticated_page_visit,
+        1,
+        fn page_identifier: page_identifier, timestamp: timestamp, locale: _locale ->
+          assert page_identifier == route
+          assert DateTime.diff(timestamp, DateTime.utc_now()) < 2
+          :ok
+        end
+      )
     end
 
     test "sends a telemetry event when visiting the index page", %{conn: conn} do

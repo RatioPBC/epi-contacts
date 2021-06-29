@@ -145,12 +145,13 @@ defmodule EpiContacts.Monitoring.AnalyticsReporter do
   def report_page_visit(page_identifier: _, patient_case: _, timestamp: _), do: :error
 
   @impl AnalyticsReporterBehaviour
-  def report_unauthenticated_page_visit(page_identifier: page_identifier, timestamp: timestamp) do
+  def report_unauthenticated_page_visit(page_identifier: page_identifier, timestamp: timestamp, locale: locale) do
     execute_telemetry(
       event_name: @unauthenticated_page_visit_event,
       meta: %{
         page: page_identifier,
-        timestamp: timestamp
+        timestamp: timestamp,
+        locale: locale
       }
     )
   end

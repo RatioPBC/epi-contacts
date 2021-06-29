@@ -2,6 +2,18 @@ defmodule EpiContactsWeb.Integrations.LocaleTest do
   use EpiContactsWeb.IntegrationCase
   import Mox
 
+  setup :verify_on_exit!
+
+  defp mock_unauthenticated_page_visit_report(mock, page_identifier, locale) do
+    expect(
+      mock,
+      :report_unauthenticated_page_visit,
+      fn [page_identifier: ^page_identifier, timestamp: _timestamp, locale: ^locale] ->
+        :ok
+      end
+    )
+  end
+
   test "prompts the user to select a language", %{conn: conn} do
     locale_path = Routes.page_path(conn, :locale)
     privacy_path = Routes.page_path(conn, :privacy, foo: "bar")
@@ -11,15 +23,11 @@ defmodule EpiContactsWeb.Integrations.LocaleTest do
     header_in_english = Gettext.with_locale("en", fn -> dgettext("privacy_policy", "Protecting Your Privacy") end)
     header_in_spanish = Gettext.with_locale("es", fn -> dgettext("privacy_policy", "Protecting Your Privacy") end)
 
-    expect(
-      AnalyticsReporterBehaviourMock,
-      :report_unauthenticated_page_visit,
-      # once for English, once for Spanish
-      2,
-      fn page_identifier: :privacy, timestamp: _timestamp ->
-        :ok
-      end
-    )
+    AnalyticsReporterBehaviourMock
+    |> mock_unauthenticated_page_visit_report(:set_locale, "en")
+    |> mock_unauthenticated_page_visit_report(:privacy, "en")
+    |> mock_unauthenticated_page_visit_report(:set_locale, "es")
+    |> mock_unauthenticated_page_visit_report(:privacy, "es")
 
     locale_conn =
       conn

@@ -38,6 +38,7 @@ defmodule EpiContactsWeb.PageController do
 
       conn
       |> put_session(:locale, locale)
+      |> log_page_view()
       |> redirect(to: redirect_to)
       |> halt()
     else
@@ -92,7 +93,8 @@ defmodule EpiContactsWeb.PageController do
   defp log_page_view(conn) do
     analytics_reporter().report_unauthenticated_page_visit(
       page_identifier: conn.private.phoenix_action,
-      timestamp: DateTime.utc_now()
+      timestamp: DateTime.utc_now(),
+      locale: get_session(conn, :locale)
     )
 
     conn
