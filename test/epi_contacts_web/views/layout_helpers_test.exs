@@ -16,6 +16,15 @@ defmodule EpiContactsWeb.LayoutHelpersTest do
         end)
       end
 
+      if locale = context[:locale] do
+        previous_locale = get_locale()
+        put_locale(locale)
+
+        on_exit(fn ->
+          put_locale(previous_locale)
+        end)
+      end
+
       :ok
     end
 
@@ -35,9 +44,16 @@ defmodule EpiContactsWeb.LayoutHelpersTest do
                Gettext.with_locale("es", fn -> gettext("Unknown") end)
     end
 
+    @tag locale: "en"
     @tag revision: "1601918940"
-    test "uses the value in the config" do
+    test "uses the value in the config - English" do
       assert H.revision_month_and_year() == "October 2020"
+    end
+
+    @tag locale: "es"
+    @tag revision: "1601918940"
+    test "uses the value in the config - Spanish" do
+      assert H.revision_month_and_year() == "Octubre 2020"
     end
 
     @tag revision: ""

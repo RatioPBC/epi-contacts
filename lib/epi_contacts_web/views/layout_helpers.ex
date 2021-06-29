@@ -6,7 +6,7 @@ defmodule EpiContactsWeb.LayoutHelpers do
   import EpiContacts.Gettext
 
   def revision_month_and_year(opts \\ []) do
-    locale = opts[:locale] || default_locale()
+    locale = opts[:locale] || get_locale() || default_locale()
 
     with {:ok, seconds} <- revision_date_epoch_seconds(opts[:revision]),
          {:ok, dt} <- DateTime.from_unix(seconds),
