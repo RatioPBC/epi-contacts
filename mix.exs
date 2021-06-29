@@ -60,7 +60,7 @@ defmodule EpiContacts.MixProject do
       {:fun_with_flags, "~> 1.5"},
       {:fun_with_flags_ui, "~> 0.7"},
       {:gettext, "~> 0.18"},
-      {:hammox, "~> 0.2"},
+      {:hammox, "~> 0.5"},
       {:httpoison, "~> 1.6"},
       {:jason, "~> 1.0"},
       {:kcl, "~> 1.3.2"},
