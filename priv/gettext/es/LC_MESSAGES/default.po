@@ -223,8 +223,8 @@ msgid "New York State Covid-19 Response - Share My Contacts"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:18
-#: lib/epi_contacts_web/views/questionnaire_view.ex:19
+#: lib/epi_contacts_web/views/questionnaire_view.ex:36
+#: lib/epi_contacts_web/views/questionnaire_view.ex:37
 msgid "today"
 msgstr "hoy"
 
@@ -276,8 +276,8 @@ msgid "This person is under 18 years old."
 msgstr "Esta persona tiene menos de 18 años de edad."
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:34
-#: lib/epi_contacts_web/views/questionnaire_view.ex:44
+#: lib/epi_contacts_web/views/questionnaire_view.ex:52
+#: lib/epi_contacts_web/views/questionnaire_view.ex:62
 msgid "Use this questionnaire to add people you haven’t told us about."
 msgstr "Utilice este cuestionario para proporcionar los nombres y números de teléfono de las personas con las que ha estado en contacto. Añada solo el nombre de una persona, y no un lugar. Solamente incluya los contactos que no le ha proporcionado al departamento de salud."
 
@@ -366,17 +366,17 @@ msgid "If you've experienced any COVID-19 symptoms..."
 msgstr "Primero incluya a las personas que vivan en su hogar y a todas las personas que presten servicios en el hogar, como una niñera. Después incluya a las personas con las que ha pasado tiempo desde su fecha de inicio, como familiares, amigos, vecinos y compañeros de trabajo."
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:45
+#: lib/epi_contacts_web/views/questionnaire_view.ex:63
 msgid "If you have already spoken with us..."
 msgstr "Si ya ha hablado con nosotros, no es necesario que incluya estos contactos informados anteriormente a continuación"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:46
+#: lib/epi_contacts_web/views/questionnaire_view.ex:64
 msgid "Contact's initials"
 msgstr "Iniciales del contacto"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:47
+#: lib/epi_contacts_web/views/questionnaire_view.ex:65
 msgid "Last 4 digits of phone"
 msgstr "Últimos 4 dígitos del número de teléfono"
 
@@ -406,27 +406,27 @@ msgid "Year"
 msgstr "Año"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:79
+#: lib/epi_contacts_web/views/questionnaire_view.ex:99
 msgid "from"
 msgstr "de"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:80
+#: lib/epi_contacts_web/views/questionnaire_view.ex:100
 msgid "to"
 msgstr "a"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:87
+#: lib/epi_contacts_web/views/questionnaire_view.ex:107
 msgid "Now, you'll be asked to add contacts you've seen"
 msgstr "Ahora le pediremos añadir a las personas a las que ha visto desde"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:99
+#: lib/epi_contacts_web/views/questionnaire_view.ex:119
 msgid "Who else have you seen"
 msgstr "A quien mas has visto"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:93
+#: lib/epi_contacts_web/views/questionnaire_view.ex:113
 msgid "Who has been in your house with you"
 msgstr "¿Quiénes han estado en su vivienda con usted"
 
@@ -844,11 +844,16 @@ msgid "New York State Department of Health"
 msgstr "Departamento de Salud de Nueva York"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/layout_helpers.ex:18
+#: lib/epi_contacts_web/views/layout_helpers.ex:27
 msgid "Unknown"
 msgstr "Desconocido"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:137
+#: lib/epi_contacts_web/views/questionnaire_view.ex:166
 msgid "Friday, Sep 13 - %{weekday}, %{month} %{day}"
 msgstr "%{weekday} %{day} de %{month}"
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/locale.html.eex:7
+msgid "Continue in language..."
+msgstr "Haga clic aquí para continuar en español"

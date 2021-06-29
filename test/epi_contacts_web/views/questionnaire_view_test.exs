@@ -112,7 +112,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
         |> View.infectious_period()
         |> html_for()
 
-      assert_infectious_period(html, "Tuesday, June 15", "today")
+      assert_infectious_period(html, "Tuesday, June 15", "Friday, June 25")
     end
 
     test "renders start & end date in Spanish" do
@@ -127,7 +127,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
         |> View.infectious_period()
         |> html_for()
 
-      assert_infectious_period(html, "Tuesday, June 15", "today")
+      assert_infectious_period(html, "Tuesday, June 15", "Friday, June 25")
     end
   end
 
@@ -194,7 +194,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
       raw_html = Floki.raw_html(html)
 
       assert raw_html =~ escaped_text(prelude)
-      assert_infectious_period(html, "Tuesday, June 15", "today")
+      assert_infectious_period(html, "Tuesday, June 15", "Friday, June 25")
     end
   end
 

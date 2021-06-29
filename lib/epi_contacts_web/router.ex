@@ -73,6 +73,7 @@ defmodule EpiContactsWeb.Router do
 
     get("/healthcheck", HealthCheckController, :index)
     get("/locale", PageController, :locale)
+    post("/locale", PageController, :set_locale)
   end
 
   scope "/private" do

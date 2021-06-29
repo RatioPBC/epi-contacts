@@ -222,8 +222,8 @@ msgid "New York State Covid-19 Response - Share My Contacts"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:18
-#: lib/epi_contacts_web/views/questionnaire_view.ex:19
+#: lib/epi_contacts_web/views/questionnaire_view.ex:36
+#: lib/epi_contacts_web/views/questionnaire_view.ex:37
 msgid "today"
 msgstr ""
 
@@ -275,8 +275,8 @@ msgid "This person is under 18 years old."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:34
-#: lib/epi_contacts_web/views/questionnaire_view.ex:44
+#: lib/epi_contacts_web/views/questionnaire_view.ex:52
+#: lib/epi_contacts_web/views/questionnaire_view.ex:62
 msgid "Use this questionnaire to add people you haven’t told us about."
 msgstr ""
 
@@ -365,17 +365,17 @@ msgid "If you've experienced any COVID-19 symptoms..."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:45
+#: lib/epi_contacts_web/views/questionnaire_view.ex:63
 msgid "If you have already spoken with us..."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:46
+#: lib/epi_contacts_web/views/questionnaire_view.ex:64
 msgid "Contact's initials"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:47
+#: lib/epi_contacts_web/views/questionnaire_view.ex:65
 msgid "Last 4 digits of phone"
 msgstr ""
 
@@ -405,27 +405,27 @@ msgid "Year"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:79
+#: lib/epi_contacts_web/views/questionnaire_view.ex:99
 msgid "from"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:80
+#: lib/epi_contacts_web/views/questionnaire_view.ex:100
 msgid "to"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:87
+#: lib/epi_contacts_web/views/questionnaire_view.ex:107
 msgid "Now, you'll be asked to add contacts you've seen"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:99
+#: lib/epi_contacts_web/views/questionnaire_view.ex:119
 msgid "Who else have you seen"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:93
+#: lib/epi_contacts_web/views/questionnaire_view.ex:113
 msgid "Who has been in your house with you"
 msgstr ""
 
@@ -843,11 +843,16 @@ msgid "New York State Department of Health"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/layout_helpers.ex:18
+#: lib/epi_contacts_web/views/layout_helpers.ex:27
 msgid "Unknown"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:137
+#: lib/epi_contacts_web/views/questionnaire_view.ex:166
 msgid "Friday, Sep 13 - %{weekday}, %{month} %{day}"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/locale.html.eex:7
+msgid "Continue in language..."
 msgstr ""

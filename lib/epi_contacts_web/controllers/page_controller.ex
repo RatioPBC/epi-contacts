@@ -2,12 +2,49 @@ defmodule EpiContactsWeb.PageController do
   use EpiContactsWeb, :controller
   alias EpiContacts.PatientCase
 
+  defmodule LocaleForm do
+    import Ecto.Changeset
+
+    defstruct [:locale, :redirect_to]
+
+    @types %{locale: :string, redirect_to: :string}
+    @required [:locale]
+    @allowed [:locale, :redirect_to]
+
+    @doc """
+    Creates a changeset for the form.
+    """
+    def changeset(params) do
+      {%__MODULE__{}, @types}
+      |> cast(params, @allowed)
+      |> validate_required(@required)
+    end
+  end
+
   def index(conn, _params) do
     log_and_render(conn, "index.html")
   end
 
-  def locale(conn, _params) do
-    render(conn, "locale.html")
+  def locale(conn, params) do
+    render(conn, "locale.html", changeset: LocaleForm.changeset(params))
+  end
+
+  def set_locale(conn, %{"locale_form" => locale_params}) do
+    changeset = LocaleForm.changeset(locale_params)
+
+    if changeset.valid? do
+      locale = Ecto.Changeset.get_field(changeset, :locale)
+      redirect_to = Ecto.Changeset.get_field(changeset, :redirect_to)
+
+      conn
+      |> put_session(:locale, locale)
+      |> redirect(to: redirect_to)
+      |> halt()
+    else
+      conn
+      |> put_flash(:error, gettext("We're sorry, but something went wrong."))
+      |> render("locale.html", changeset: LocaleForm.changeset(locale_params))
+    end
   end
 
   def privacy(conn, _params) do

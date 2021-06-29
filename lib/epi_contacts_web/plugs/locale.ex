@@ -15,11 +15,23 @@ defmodule EpiContactsWeb.Plugs.Locale do
   def call(conn, _opts) do
     locale = get_session(conn, :locale)
 
-    if supported?(locale),
-      do: conn,
-      else: conn |> redirect(to: Routes.page_path(conn, :locale)) |> halt()
+    if supported?(locale) do
+      EpiContacts.Gettext.put_locale(locale)
+      conn
+    else
+      redirect_to_locale_page(conn)
+    end
   end
 
   defp supported?(locale) when locale in @supported_locales, do: true
   defp supported?(_), do: false
+
+  defp redirect_to_locale_page(conn) do
+    redirect_path = "#{conn.request_path}?#{conn.query_string}"
+    locale_path = Routes.page_path(conn, :locale, redirect_to: redirect_path)
+
+    conn
+    |> redirect(to: locale_path)
+    |> halt()
+  end
 end

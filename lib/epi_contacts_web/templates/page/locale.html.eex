@@ -1,1 +1,11 @@
-LOCALE PAGE!!!
+<div>
+  <%= for locale <- EpiContacts.Gettext.known_locales() do %>
+    <div class="locale-picker">
+      <%= form_for @changeset, Routes.page_path(@conn, :set_locale), [id: "locale-picker-#{locale}"], fn f -> %>
+        <%= hidden_input f, :locale, value: locale %>
+        <%= hidden_input f, :redirect_to %>
+        <%= Gettext.with_locale(locale, fn -> submit(gettext("Continue in language..."), id: "submit-#{locale}") end) %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

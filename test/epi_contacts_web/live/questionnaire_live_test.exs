@@ -12,14 +12,20 @@ defmodule EpiContactsWeb.QuestionnaireLiveTest do
   @case_id "00000000-8434-4475-b111-bb3a902b398b"
   @domain "ny-state-covid19"
 
-  setup do
+  setup %{conn: conn} do
     stub(AnalyticsReporterBehaviourMock, :report_page_visit, fn page_identifier: _page_identifier,
                                                                 patient_case: _patient_case,
                                                                 timestamp: _timestamp ->
       :ok
     end)
 
-    :ok
+    conn =
+      conn
+      |> init_test_session(%{})
+      |> fetch_session()
+      |> put_session(:locale, "en")
+
+    [conn: conn]
   end
 
   test "convert a component atom to a module" do
