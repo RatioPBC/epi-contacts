@@ -99,7 +99,15 @@ defmodule EpiContactsWeb.QuestionnaireView do
     from = gettext("from")
     to = gettext("to")
 
-    ~E(<%= from %> <span class="date" data-tid="start-date"><%= start_date %></span> <%= to %> <span class="date" data-tid="end-date"><%= end_date %></span>)
+    ~E"""
+    <%= from %>
+    &nbsp;
+    <span class="date" data-tid="start-date"><%= start_date %></span>
+    &nbsp;
+    <%= to %>
+    &nbsp;
+    <span class="date" data-tid="end-date"><%= end_date %></span>
+    """
   end
 
   @spec prep_header(map()) :: Phoenix.HTML.safe()
