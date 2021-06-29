@@ -109,7 +109,8 @@ defmodule EpiContactsWeb.QuestionnaireLive do
     analytics_reporter().report_page_visit(
       page_identifier: socket.assigns.live_action,
       patient_case: socket.assigns.patient_case,
-      timestamp: DateTime.utc_now()
+      timestamp: DateTime.utc_now(),
+      locale: Gettext.get_locale()
     )
 
     socket

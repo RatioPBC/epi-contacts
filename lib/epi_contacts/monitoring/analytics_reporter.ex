@@ -127,7 +127,12 @@ defmodule EpiContacts.Monitoring.AnalyticsReporter do
   def report_contacts_submission(contacts_count: _, patient_case: _, timestamp: _), do: :error
 
   @impl AnalyticsReporterBehaviour
-  def report_page_visit(page_identifier: page_identifier, patient_case: patient_case, timestamp: timestamp)
+  def report_page_visit(
+        page_identifier: page_identifier,
+        patient_case: patient_case,
+        timestamp: timestamp,
+        locale: locale
+      )
       when is_map(patient_case) do
     smc_trigger_reason = PatientCase.smc_trigger_reason(patient_case)
 
@@ -137,12 +142,13 @@ defmodule EpiContacts.Monitoring.AnalyticsReporter do
       meta: %{
         page: page_identifier,
         timestamp: timestamp,
-        reason: smc_trigger_reason
+        reason: smc_trigger_reason,
+        locale: locale
       }
     )
   end
 
-  def report_page_visit(page_identifier: _, patient_case: _, timestamp: _), do: :error
+  def report_page_visit(page_identifier: _, patient_case: _, timestamp: _, locale: _), do: :error
 
   @impl AnalyticsReporterBehaviour
   def report_unauthenticated_page_visit(page_identifier: page_identifier, timestamp: timestamp, locale: locale) do

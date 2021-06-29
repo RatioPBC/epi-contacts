@@ -12,9 +12,10 @@ defmodule EpiContacts.Monitoring.AnalyticsReporterTest do
   @domain "domain"
   @environment "test"
   @external_id "http://commcare/domain/case/case-123"
+  @locale "en"
   @page :homepage
-  @timestamp "2021-01-19T22:46:02.194Z"
   @reason "pre_ci"
+  @timestamp "2021-01-19T22:46:02.194Z"
 
   describe "setup" do
     test "when analytics client configuration is missing, it logs an error" do
@@ -268,7 +269,8 @@ defmodule EpiContacts.Monitoring.AnalyticsReporterTest do
                AnalyticsReporter.report_page_visit(
                  page_identifier: @page,
                  patient_case: patient_case,
-                 timestamp: timestamp
+                 timestamp: timestamp,
+                 locale: @locale
                )
 
       expected_external_id = patient_case |> PatientCase.external_id()
@@ -282,7 +284,8 @@ defmodule EpiContacts.Monitoring.AnalyticsReporterTest do
                         domain: ^expected_domain,
                         commcare_case_id: ^expected_commcare_case_id,
                         timestamp: ^timestamp,
-                        reason: @reason
+                        reason: @reason,
+                        locale: @locale
                       }}
     end
 
@@ -291,7 +294,8 @@ defmodule EpiContacts.Monitoring.AnalyticsReporterTest do
                AnalyticsReporter.report_page_visit(
                  page_identifier: nil,
                  patient_case: nil,
-                 timestamp: nil
+                 timestamp: nil,
+                 locale: nil
                )
     end
   end

@@ -13,11 +13,13 @@ defmodule EpiContactsWeb.QuestionnaireLiveTest do
   @domain "ny-state-covid19"
 
   setup %{conn: conn} do
-    stub(AnalyticsReporterBehaviourMock, :report_page_visit, fn page_identifier: _page_identifier,
-                                                                patient_case: _patient_case,
-                                                                timestamp: _timestamp ->
-      :ok
-    end)
+    stub(
+      AnalyticsReporterBehaviourMock,
+      :report_page_visit,
+      fn page_identifier: _page_identifier, patient_case: _patient_case, timestamp: _timestamp, locale: _ ->
+        :ok
+      end
+    )
 
     conn =
       conn
@@ -46,10 +48,12 @@ defmodule EpiContactsWeb.QuestionnaireLiveTest do
 
       expect(AnalyticsReporterBehaviourMock, :report_page_visit, 1, fn page_identifier: page_identifier,
                                                                        patient_case: patient_case,
-                                                                       timestamp: timestamp ->
+                                                                       timestamp: timestamp,
+                                                                       locale: locale ->
         assert page_identifier == :confirm_identity
         assert patient_case["case_id"] == @case_id
         assert DateTime.diff(timestamp, DateTime.utc_now()) < 2
+        assert locale == "en"
         :ok
       end)
 
