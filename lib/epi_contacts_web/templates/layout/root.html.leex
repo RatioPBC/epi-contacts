@@ -31,10 +31,10 @@
     </main>
 
     <footer>
-        <div class="revision"><%= gettext("Revised: %{revision_month_and_year}", revision_month_and_year: revision_month_and_year()) %></div>
-        <div class="site-links">
-          <%= link gettext("Privacy Policy"), to: Routes.page_path(@conn, :privacy) %>
-        </div>
+      <div class="revision"><%= gettext("Revised: %{revision_month_and_year}", revision_month_and_year: revision_month_and_year()) %></div>
+      <div class="site-links">
+        <%= link gettext("Privacy Policy"), to: Routes.page_path(@conn, :privacy) %>
+      </div>
     </footer>
   </body>
 </html>
