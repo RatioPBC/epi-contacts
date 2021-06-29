@@ -11,14 +11,11 @@ defmodule EpiContactsWeb.QuestionnaireView do
   alias EpiContacts.{Contact, PatientCase}
 
   def format(%Date{} = date, opts \\ []) do
-    locale = opts[:locale] || EpiContacts.Gettext.default_locale()
+    locale = opts[:locale] || get_locale() || default_locale()
 
     Gettext.with_locale(locale, fn ->
-      weekday = Timex.format!(date, "{WDfull}")
-      weekday = Gettext.gettext(EpiContacts.Gettext, weekday)
-
-      month = Timex.format!(date, "{Mfull}")
-      month = Gettext.gettext(EpiContacts.Gettext, month)
+      weekday = Timex.lformat!(date, "{WDfull}", locale)
+      month = Timex.lformat!(date, "{Mfull}", locale)
 
       day = Timex.format!(date, "{D}")
 
@@ -92,7 +89,7 @@ defmodule EpiContactsWeb.QuestionnaireView do
 
   @spec infectious_period(map()) :: Phoenix.HTML.safe()
   def infectious_period(patient_case, opts \\ []) do
-    locale = opts[:locale] || EpiContacts.Gettext.default_locale()
+    locale = opts[:locale] || get_locale() || default_locale()
 
     start_date = patient_case |> start_of_infectious_period() |> format(locale: locale)
     end_date = patient_case |> end_of_infectious_period() |> display_end_of_historical_infectious_period()
@@ -101,12 +98,9 @@ defmodule EpiContactsWeb.QuestionnaireView do
 
     ~E"""
     <%= from %>
-    &nbsp;
     <span class="date" data-tid="start-date"><%= start_date %></span>
-    &nbsp;
     <%= to %>
-    &nbsp;
-    <span class="date" data-tid="end-date"><%= end_date %></span>
+    <span class="date" data-tid="end-date"><%= end_date %></span>:
     """
   end
 
@@ -132,7 +126,7 @@ defmodule EpiContactsWeb.QuestionnaireView do
     infectious_period = infectious_period(patient_case)
 
     ~E"""
-      <%= prelude %> <%= infectious_period %>:
+      <%= prelude %> <%= infectious_period %>
     """
   end
 
@@ -147,7 +141,7 @@ defmodule EpiContactsWeb.QuestionnaireView do
 
   def exposed_on_select_options(patient_case, opts \\ []) do
     now = opts[:now] || Date.utc_today()
-    locale = opts[:locale] || EpiContacts.Gettext.default_locale()
+    locale = opts[:locale] || get_locale() || default_locale()
 
     start_of_infectious_period = PatientCase.start_of_infectious_period(patient_case)
 
@@ -162,17 +156,16 @@ defmodule EpiContactsWeb.QuestionnaireView do
     start_of_infectious_period
     |> Date.range(end_of_range)
     |> Enum.map(fn date ->
-      Gettext.with_locale(locale, fn ->
-        weekday = Timex.lformat!(date, "{WDfull}", locale)
+      weekday = Timex.lformat!(date, "{WDfull}", locale)
+      short_month = Timex.lformat!(date, "{Mshort}", locale)
+      day = Timex.format!(date, "{D}")
 
-        short_month = Timex.lformat!(date, "{Mshort}", locale)
+      text =
+        Gettext.with_locale(locale, fn ->
+          gettext("Friday, Sep 13 - %{weekday}, %{month} %{day}", weekday: weekday, month: short_month, day: day)
+        end)
 
-        day = Timex.format!(date, "{D}")
-
-        text = gettext("Friday, Sep 13 - %{weekday}, %{month} %{day}", weekday: weekday, month: short_month, day: day)
-
-        {text, Date.to_iso8601(date)}
-      end)
+      {text, Date.to_iso8601(date)}
     end)
   end
 end
