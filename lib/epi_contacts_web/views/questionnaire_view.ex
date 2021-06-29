@@ -163,11 +163,9 @@ defmodule EpiContactsWeb.QuestionnaireView do
     |> Date.range(end_of_range)
     |> Enum.map(fn date ->
       Gettext.with_locale(locale, fn ->
-        weekday = Timex.format!(date, "{WDfull}")
-        weekday = Gettext.gettext(EpiContacts.Gettext, weekday)
+        weekday = Timex.lformat!(date, "{WDfull}", locale)
 
-        short_month = Timex.format!(date, "{Mshort}")
-        short_month = Gettext.gettext(EpiContacts.Gettext, short_month)
+        short_month = Timex.lformat!(date, "{Mshort}", locale)
 
         day = Timex.format!(date, "{D}")
 
