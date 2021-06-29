@@ -6,9 +6,11 @@ defmodule EpiContactsWeb.LayoutHelpers do
   import EpiContacts.Gettext
 
   def revision_month_and_year(opts \\ []) do
+    locale = opts[:locale] || default_locale()
+
     with {:ok, seconds} <- revision_date_epoch_seconds(opts[:revision]),
          {:ok, dt} <- DateTime.from_unix(seconds),
-         {:ok, time} <- Timex.format(dt, "%B %Y", :strftime) do
+         {:ok, time} <- Timex.lformat(dt, "%B %Y", locale, :strftime) do
       time
     else
       {:error, error} ->
@@ -18,13 +20,16 @@ defmodule EpiContactsWeb.LayoutHelpers do
 
   defp capture_message_and_return_unknown(message, opts) do
     result = opts[:sentry_result] || :async
+    locale = opts[:locale] || default_locale()
 
     Sentry.capture_message(to_string(message),
       extra: %{revision_date_epoch_seconds: revision_date_epoch_seconds_value()},
       result: result
     )
 
-    gettext("Unknown")
+    Gettext.with_locale(locale, fn ->
+      gettext("Unknown")
+    end)
   end
 
   defp revision_date_epoch_seconds_value do

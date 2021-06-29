@@ -22,12 +22,17 @@ defmodule EpiContactsWeb.LayoutHelpersTest do
     test "says the full name of the month and year of the epoch provided" do
       assert H.revision_month_and_year(revision: "1601918940") == "October 2020"
       assert H.revision_month_and_year(revision: 1_601_918_940) == "October 2020"
+      assert H.revision_month_and_year(revision: "1601918940", locale: "es") == "Octubre 2020"
+      assert H.revision_month_and_year(revision: 1_601_918_940, locale: "es") == "Octubre 2020"
       refute H.revision_month_and_year(revision: "1601218940") == "October 2020"
       refute H.revision_month_and_year(revision: 1_601_218_940) == "October 2020"
     end
 
     test "does something when epoch isn't provided" do
       assert H.revision_month_and_year(revision: nil) == "Unknown"
+
+      assert H.revision_month_and_year(revision: nil, locale: "es") ==
+               Gettext.with_locale("es", fn -> gettext("Unknown") end)
     end
 
     @tag revision: "1601918940"
