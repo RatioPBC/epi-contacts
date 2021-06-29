@@ -116,6 +116,7 @@ msgid "Skip question"
 msgstr ""
 
 #, elixir-format
+#: lib/epi_contacts_web/controllers/page_controller.ex:45
 #: lib/epi_contacts_web/templates/page/error.html.eex:1
 msgid "We're sorry, but something went wrong."
 msgstr ""
@@ -415,17 +416,17 @@ msgid "to"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:107
+#: lib/epi_contacts_web/views/questionnaire_view.ex:115
 msgid "Now, you'll be asked to add contacts you've seen"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:119
+#: lib/epi_contacts_web/views/questionnaire_view.ex:127
 msgid "Who else have you seen"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:113
+#: lib/epi_contacts_web/views/questionnaire_view.ex:121
 msgid "Who has been in your house with you"
 msgstr ""
 
@@ -848,7 +849,7 @@ msgid "Unknown"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:166
+#: lib/epi_contacts_web/views/questionnaire_view.ex:174
 msgid "Friday, Sep 13 - %{weekday}, %{month} %{day}"
 msgstr ""
 

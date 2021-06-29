@@ -117,6 +117,7 @@ msgid "Skip question"
 msgstr "Saltar pregunta"
 
 #, elixir-format
+#: lib/epi_contacts_web/controllers/page_controller.ex:45
 #: lib/epi_contacts_web/templates/page/error.html.eex:1
 msgid "We're sorry, but something went wrong."
 msgstr "Lo sentimos, pero algo salió mal."
@@ -139,7 +140,7 @@ msgstr "¿Olvidó a alguien?"
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:1
 msgid "Review your contacts"
-msgstr "Revisa tus contactos"
+msgstr "Revisa sus contactos"
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:25
@@ -154,7 +155,7 @@ msgstr "Reuniones o eventos sociales"
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/social.html.leex:13
 msgid "Gym or exercise class"
-msgstr "Gimnasios o clases de ejercicio"
+msgstr "Gimnasios o clase de ejercicio"
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/social.html.leex:5
@@ -184,7 +185,7 @@ msgstr "Eventos deportivos, conciertos"
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/social.html.leex:9
 msgid "Volunteer activities"
-msgstr "Actividades de voluntariado"
+msgstr "Actividades de voluntario"
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/social.html.leex:7
@@ -333,17 +334,17 @@ msgstr "Número de teléfono"
 #, elixir-format
 #: lib/epi_contacts_web/templates/page/unable_to_verify.html.eex:2
 msgid "To add additional contacts, contact the Department of Health at "
-msgstr "Para agregar contactos adicionales, comuníquese con el Departamento de Salud al "
+msgstr "Para agregar contactos adicionales, llame el Departamento de Salud al "
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/error/404.html.eex:28
 msgid "We're sorry, but that page cannot be found."
-msgstr "Lo sentimos, pero esa página no se puede encontrar."
+msgstr "Lo sentimos, pero no se puede encontrar esa página."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/error/500.html.eex:28
 msgid "We're sorry, but that page cannot be loaded."
-msgstr ""
+msgstr "Lo sentimos, pero no se puede cargar esa página."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/page/unable_to_verify.html.eex:1
@@ -388,7 +389,7 @@ msgstr "Incluya solo a las personas que estuvieron a menos de 6 pies de usted po
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/social.html.leex:8
 msgid "Meals at other homes"
-msgstr "Comidas en otras residencias"
+msgstr "Comidas en su casa o otros hogares"
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:19
@@ -416,17 +417,17 @@ msgid "to"
 msgstr "a"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:107
+#: lib/epi_contacts_web/views/questionnaire_view.ex:115
 msgid "Now, you'll be asked to add contacts you've seen"
 msgstr "Ahora le pediremos añadir a las personas a las que ha visto desde"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:119
+#: lib/epi_contacts_web/views/questionnaire_view.ex:127
 msgid "Who else have you seen"
-msgstr "A quien mas has visto"
+msgstr "¿A quién más vio que estaba a menos de 6 pies de distancia durante más de 10 minutos"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:113
+#: lib/epi_contacts_web/views/questionnaire_view.ex:121
 msgid "Who has been in your house with you"
 msgstr "¿Quiénes han estado en su vivienda con usted"
 
@@ -849,7 +850,7 @@ msgid "Unknown"
 msgstr "Desconocido"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:166
+#: lib/epi_contacts_web/views/questionnaire_view.ex:174
 msgid "Friday, Sep 13 - %{weekday}, %{month} %{day}"
 msgstr "%{weekday} %{day} de %{month}"
 
