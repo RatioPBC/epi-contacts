@@ -9,6 +9,7 @@ defmodule EpiContactsWeb.PageViewTest do
 
       assert html =~ "www.ny.gov/coronavirus"
       assert html =~ "833-227-5045"
+      assert html =~ "If you have any questions, please contact us"
       assert html |> Floki.parse_fragment!() |> Floki.find(~s{a[href^="tel"]})
     end
   end

@@ -11,8 +11,9 @@ defmodule EpiContactsWeb.PageView do
         phone_number: safe_to_string(tel_link),
         web_link: safe_to_string(web_link)
       )
-      |> raw()
 
-    content_tag(:p, text)
+    ~E"""
+    <p><%= text %></p>
+    """
   end
 end
