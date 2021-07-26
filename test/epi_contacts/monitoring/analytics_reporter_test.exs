@@ -93,7 +93,8 @@ defmodule EpiContacts.Monitoring.AnalyticsReporterTest do
                  commcare_case_id: @commcare_case_id,
                  application: @application,
                  environment: @environment,
-                 reason: @reason
+                 reason: @reason,
+                 locale: @locale
                }
 
         assert timestamp == @timestamp
@@ -107,7 +108,8 @@ defmodule EpiContacts.Monitoring.AnalyticsReporterTest do
         timestamp: @timestamp,
         domain: @domain,
         commcare_case_id: @commcare_case_id,
-        reason: @reason
+        reason: @reason,
+        locale: @locale
       }
 
       assert :ok = AnalyticsReporter.handle_event(event_type, "some measurements", meta, "some config")
@@ -123,7 +125,8 @@ defmodule EpiContacts.Monitoring.AnalyticsReporterTest do
                  page: @page,
                  application: @application,
                  environment: @environment,
-                 distinct_id: "unauthenticated"
+                 distinct_id: "unauthenticated",
+                 locale: @locale
                }
 
         assert timestamp == @timestamp
@@ -133,7 +136,8 @@ defmodule EpiContacts.Monitoring.AnalyticsReporterTest do
 
       meta = %{
         page: @page,
-        timestamp: @timestamp
+        timestamp: @timestamp,
+        locale: @locale
       }
 
       assert :ok = AnalyticsReporter.handle_event(event_type, "some measurements", meta, "some config")

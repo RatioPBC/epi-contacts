@@ -49,7 +49,8 @@ defmodule EpiContacts.Monitoring.AnalyticsReporter do
       commcare_domain: meta[:domain],
       commcare_case_id: meta[:commcare_case_id],
       page: meta[:page],
-      reason: meta[:reason]
+      reason: meta[:reason],
+      locale: meta[:locale]
     }
 
     report_event(event_type, event_metadata, meta[:timestamp])
@@ -58,7 +59,8 @@ defmodule EpiContacts.Monitoring.AnalyticsReporter do
   def handle_event(@unauthenticated_page_visit_event = event_type, _measure, meta, _config) do
     event_metadata = %{
       page: meta[:page],
-      distinct_id: "unauthenticated"
+      distinct_id: "unauthenticated",
+      locale: meta[:locale]
     }
 
     report_event(event_type, event_metadata, meta[:timestamp])
