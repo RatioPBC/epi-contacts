@@ -8,7 +8,7 @@ defmodule EpiContacts.Contacts do
     PostContactWorker.enqueue_contacts(%{contacts: contacts, patient_case: patient_case})
 
     analytics_reporter().report_contacts_submission(
-      contacts_count: contacts |> length(),
+      contacts_count: length(contacts),
       patient_case: patient_case,
       timestamp: DateTime.utc_now()
     )

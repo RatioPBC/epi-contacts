@@ -13,12 +13,6 @@ defmodule EpiContacts.ContactsTest do
 
   describe "submitting contacts" do
     setup do
-      stub(AnalyticsReporterBehaviourMock, :report_contacts_submission, fn contacts_count: _contacts_count,
-                                                                           patient_case: _patient_case,
-                                                                           timestamp: _timestamp ->
-        :ok
-      end)
-
       contacts = [%Contact{first_name: "Bob"}, %Contact{first_name: "Jane"}]
 
       patient_case =
@@ -30,32 +24,38 @@ defmodule EpiContacts.ContactsTest do
     end
 
     test "enqueues a job to post the contacts to commcare", %{contacts: contacts, patient_case: patient_case} do
+      stub(AnalyticsReporterBehaviourMock, :report_contacts_submission, fn contacts_count: _contacts_count,
+                                                                           patient_case: _patient_case,
+                                                                           timestamp: _timestamp ->
+        :ok
+      end)
+
       Contacts.submit_contacts(contacts, patient_case)
 
       # all_enqueued returns jobs most recently inserted first
       assert [
                %{
                  args: %{
-                   "contact" => %{"first_name" => "Bob"},
+                   "contact" => %{"first_name" => "Jane"},
                    "patient_case" => patient_case
                  }
                },
                %{
                  args: %{
-                   "contact" => %{"first_name" => "Jane"},
+                   "contact" => %{"first_name" => "Bob"},
                    "patient_case" => patient_case
                  }
                }
-             ] = all_enqueued(worker: PostContactWorker) |> Enum.reverse()
+             ] = all_enqueued(worker: PostContactWorker)
     end
 
     test "reports a metric that contacts have been submitted", %{contacts: contacts, patient_case: patient_case} do
-      expect(AnalyticsReporterBehaviourMock, :report_contacts_submission, 1, fn contacts_count: contacts_count,
-                                                                                patient_case: patient_case,
-                                                                                timestamp: timestamp ->
-        assert contacts_count == 2
-        assert patient_case["case_id"] == @test_case_id
-        assert DateTime.diff(timestamp, DateTime.utc_now()) < 2
+      expect(AnalyticsReporterBehaviourMock, :report_contacts_submission, fn contacts_count: 2,
+                                                                             patient_case: %{"case_id" => case_id},
+                                                                             timestamp: timestamp ->
+        assert case_id == @test_case_id
+        assert_datetime_approximate(DateTime.utc_now(), timestamp)
+
         :ok
       end)
 
