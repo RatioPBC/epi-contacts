@@ -105,18 +105,18 @@ defmodule EpiContactsWeb.QuestionnaireLive do
 
   defp assign_skip_path(socket, _params), do: socket
 
-  defp log_page_view(%{:connected? => true} = socket) do
-    analytics_reporter().report_page_visit(
-      page_identifier: socket.assigns.live_action,
-      patient_case: socket.assigns.patient_case,
-      timestamp: DateTime.utc_now(),
-      locale: Gettext.get_locale()
-    )
+  defp log_page_view(socket) do
+    if connected?(socket) do
+      analytics_reporter().report_page_visit(
+        page_identifier: socket.assigns.live_action,
+        patient_case: socket.assigns.patient_case,
+        timestamp: DateTime.utc_now(),
+        locale: Gettext.get_locale()
+      )
+    end
 
     socket
   end
-
-  defp log_page_view(socket), do: socket
 
   defp analytics_reporter, do: Application.get_env(:epi_contacts, :analytics_reporter)
 
