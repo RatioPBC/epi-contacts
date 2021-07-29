@@ -2,6 +2,7 @@ defmodule EpiContacts.PatientCaseTest do
   use ExUnit.Case, async: true
 
   alias EpiContacts.PatientCase
+  alias Euclid.Extra.Random
 
   describe "initials/1" do
     test "returns initials from CommCare" do
@@ -283,7 +284,7 @@ defmodule EpiContacts.PatientCaseTest do
   end
 
   test "transaction_id/1" do
-    txn_id = Euclid.Extra.Random.string()
+    txn_id = Random.string()
 
     patient_case = %{
       "properties" => %{
