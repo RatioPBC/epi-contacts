@@ -402,6 +402,7 @@
     "self_isolate_have_food_help": "no",
     "self_isolate_need_help": "no",
     "self_isolate_possible": "somewhat",
+    "smc_transaction_id": "00000000888e447589e04beb57040000",
     "symptom_count": "2",
     "symptom_onset_date": "2020-05-08",
     "symptomatic": "yes",

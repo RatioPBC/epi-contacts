@@ -281,4 +281,16 @@ defmodule EpiContacts.PatientCaseTest do
       end
     end
   end
+
+  test "transaction_id/1" do
+    txn_id = Euclid.Extra.Random.string()
+
+    patient_case = %{
+      "properties" => %{
+        "smc_transaction_id" => txn_id
+      }
+    }
+
+    assert PatientCase.transaction_id(patient_case) == txn_id
+  end
 end

@@ -94,6 +94,9 @@ defmodule EpiContacts.PatientCase do
   def smc_trigger_reason(patient_case),
     do: property(patient_case, "smc_trigger_reason")
 
+  def transaction_id(patient_case),
+    do: property(patient_case, "smc_transaction_id")
+
   def investigation?(patient_case),
     do: property(patient_case, "investigation")
 

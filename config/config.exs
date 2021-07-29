@@ -40,6 +40,7 @@ config :epi_contacts, Oban,
   queues: [default: 10],
   plugins: [
     Oban.Plugins.Gossip,
+    Oban.Pro.Plugins.BatchManager,
     Oban.Pro.Plugins.Lifeline,
     Oban.Web.Plugins.Stats
   ]
