@@ -64,7 +64,7 @@ defmodule EpiContacts.MixProject do
       {:httpoison, "~> 1.6"},
       {:jason, "~> 1.0"},
       {:kcl, "~> 1.3.2"},
-      {:logger_json, "~> 4.0"},
+      {:logger_json, "~> 4.2"},
       {:mix_audit, "~> 0.1", only: [:dev, :test], runtime: false},
       {:oban_pro, "~> 0.8", organization: "oban"},
       {:oban_web, "~> 2.7", organization: "oban"},
