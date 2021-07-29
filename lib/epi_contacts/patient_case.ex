@@ -165,8 +165,8 @@ defmodule EpiContacts.PatientCase do
     do: property(patient_case, "transfer_status")
 
   def external_id(patient_case) do
-    with domain when not is_nil(domain) <- domain(patient_case),
-         case_id when not is_nil(case_id) <- case_id(patient_case) do
+    with domain when is_binary(domain) <- domain(patient_case),
+         case_id when is_binary(case_id) <- case_id(patient_case) do
       "gid://commcare/domain/#{domain}/case/#{case_id}"
     else
       _ -> nil
