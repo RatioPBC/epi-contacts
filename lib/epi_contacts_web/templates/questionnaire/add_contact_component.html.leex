@@ -32,16 +32,19 @@
   <div class="dropdown-group">
     <h4><%= gettext("What is their relationship to you?") %></h4>
     <%= select f, :relationship, EpiContacts.Relationships.options(), prompt: gettext("Select one") %>
+    <%= error_tag f, :relationship %>
   </div>
 
   <div class="dropdown-group">
     <h4><%= gettext("Where did you come in contact?") %></h4>
     <%= select f, :contact_location, EpiContacts.Locations.options(), prompt: gettext("Select one") %>
+    <%= error_tag f, :contact_location %>
   </div>
 
   <div class="dropdown-group">
     <h4><%= gettext("What is their primary language?") %></h4>
     <%= select f, :primary_language, EpiContacts.Languages.options(), prompt: gettext("Select one") %>
+    <%= error_tag f, :primary_language %>
   </div>
 
   <div class="button-group">

@@ -424,7 +424,7 @@ msgstr ""
 #, elixir-format
 #: lib/epi_contacts_web/views/questionnaire_view.ex:127
 msgid "Who else have you seen"
-msgstr "Who else did you see who was less than 6 feet away for more than 10 minutes %{infectious_period} to today?"
+msgstr "Who else did you see who was less than 6 feet away for more than 10 minutes"
 
 #, elixir-format
 #: lib/epi_contacts_web/views/questionnaire_view.ex:121

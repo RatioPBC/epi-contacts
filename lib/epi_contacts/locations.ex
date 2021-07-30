@@ -2,11 +2,14 @@ defmodule EpiContacts.Locations do
   @moduledoc false
 
   import EpiContacts.Gettext
-  import EpiContacts.Utils, only: [collect_first_elements: 1]
+  import EpiContacts.Utils
 
   @spec locations() :: list(binary())
   def locations,
     do: options() |> collect_first_elements()
+
+  @spec values() :: list(binary())
+  def values, do: options() |> collect_second_elements()
 
   @spec options() :: list({binary(), binary()})
   def options,

@@ -3,9 +3,7 @@ defmodule EpiContacts.ContactsTest do
 
   import Mox
 
-  alias EpiContacts.Contact
-  alias EpiContacts.Contacts
-  alias EpiContacts.PostContactsBatch
+  alias EpiContacts.{Contact, Contacts, PatientCase, PostContactsBatch}
 
   setup :verify_on_exit!
 
@@ -33,6 +31,8 @@ defmodule EpiContacts.ContactsTest do
 
     test "enqueues a job to post the contacts to commcare", %{contacts: contacts, patient_case: patient_case} do
       stub_analytics_reporter()
+      case_id = PatientCase.case_id(patient_case)
+      domain = PatientCase.domain(patient_case)
 
       Contacts.submit_contacts(contacts, patient_case)
 
@@ -42,14 +42,18 @@ defmodule EpiContacts.ContactsTest do
                  args: %{
                    "batch_id" => batch_id,
                    "contact" => %{"first_name" => "Jane"},
-                   "patient_case" => patient_case
+                   "patient_case" => patient_case,
+                   "case_id" => ^case_id,
+                   "domain" => ^domain
                  }
                },
                %{
                  args: %{
                    "batch_id" => _,
                    "contact" => %{"first_name" => "Bob"},
-                   "patient_case" => patient_case
+                   "patient_case" => patient_case,
+                   "case_id" => ^case_id,
+                   "domain" => ^domain
                  }
                }
              ] = all_enqueued(worker: PostContactsBatch)

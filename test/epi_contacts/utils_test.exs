@@ -7,9 +7,21 @@ defmodule EpiContacts.UtilsTest do
     test "returns an empty list when given an empty list" do
       assert Utils.collect_first_elements([]) == []
     end
+
     test "returns list of first elements of sub-collections" do
       list = [{"a", 1}, {"b", 2}]
       assert Utils.collect_first_elements(list) == ["a", "b"]
+    end
+  end
+
+  describe "collect_second_elements/1" do
+    test "returns an empty list when given an empty list" do
+      assert Utils.collect_second_elements([]) == []
+    end
+
+    test "returns list of second elements of sub-collections" do
+      list = [{"a", 1}, {"b", 2}]
+      assert Utils.collect_second_elements(list) == [1, 2]
     end
   end
 end
