@@ -5,19 +5,11 @@ defmodule EpiContacts.ContactsTest do
 
   alias EpiContacts.Contact
   alias EpiContacts.Contacts
-  alias EpiContacts.PostContactsBatch
+  alias EpiContacts.PostContactWorker
 
   setup :verify_on_exit!
 
   @test_case_id "00000000-8434-4475-b111-bb3a902b398b"
-
-  defp stub_analytics_reporter do
-    stub(AnalyticsReporterBehaviourMock, :report_contacts_submission, fn contacts_count: _contacts_count,
-                                                                         patient_case: _patient_case,
-                                                                         timestamp: _timestamp ->
-      :ok
-    end)
-  end
 
   describe "submitting contacts" do
     setup do
@@ -32,7 +24,11 @@ defmodule EpiContacts.ContactsTest do
     end
 
     test "enqueues a job to post the contacts to commcare", %{contacts: contacts, patient_case: patient_case} do
-      stub_analytics_reporter()
+      stub(AnalyticsReporterBehaviourMock, :report_contacts_submission, fn contacts_count: _contacts_count,
+                                                                           patient_case: _patient_case,
+                                                                           timestamp: _timestamp ->
+        :ok
+      end)
 
       Contacts.submit_contacts(contacts, patient_case)
 
@@ -40,21 +36,17 @@ defmodule EpiContacts.ContactsTest do
       assert [
                %{
                  args: %{
-                   "batch_id" => batch_id,
                    "contact" => %{"first_name" => "Jane"},
                    "patient_case" => patient_case
                  }
                },
                %{
                  args: %{
-                   "batch_id" => _,
                    "contact" => %{"first_name" => "Bob"},
                    "patient_case" => patient_case
                  }
                }
-             ] = all_enqueued(worker: PostContactsBatch)
-
-      assert match?("00000000888e447589e04beb57040000-" <> _, batch_id)
+             ] = all_enqueued(worker: PostContactWorker)
     end
 
     test "reports a metric that contacts have been submitted", %{contacts: contacts, patient_case: patient_case} do
