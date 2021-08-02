@@ -29,7 +29,12 @@ defmodule EpiContacts.PostContactWorker do
   defp log_insert({:ok, _job}, contact, patient_case) do
     domain = PatientCase.domain(patient_case)
     case_id = PatientCase.case_id(patient_case)
-    Logger.info("contact_enqueued", %{domain: domain, case_id: case_id, contact_id: contact.contact_id})
+
+    Logger.info("contact_enqueued", %{
+      commcare_domain: domain,
+      commcare_case_id: case_id,
+      contact_id: contact.contact_id
+    })
   end
 
   defp log_insert({:error, changeset}, contact, patient_case) do
@@ -38,8 +43,8 @@ defmodule EpiContacts.PostContactWorker do
     case_id = PatientCase.case_id(patient_case)
 
     Logger.error("contact_not_enqueued", %{
-      domain: domain,
-      case_id: case_id,
+      commcare_domain: domain,
+      commcare_case_id: case_id,
       contact_id: contact.contact_id,
       errors: errors
     })
