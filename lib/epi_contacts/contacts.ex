@@ -4,14 +4,11 @@ defmodule EpiContacts.Contacts do
   """
   require Logger
 
-  alias EpiContacts.{PatientCase, PostContactWorker}
+  alias EpiContacts.PostContactWorker
 
   def submit_contacts(contacts, patient_case) do
     contacts_count = length(contacts)
-    domain = PatientCase.domain(patient_case)
-    case_id = PatientCase.case_id(patient_case)
-
-    Logger.info("submit_contacts", %{contacts_count: contacts_count, commcare_domain: domain, commcare_case_id: case_id})
+    Logger.info("submit_contacts", %{contacts_count: contacts_count})
 
     PostContactWorker.enqueue_contacts(%{contacts: contacts, patient_case: patient_case})
 
