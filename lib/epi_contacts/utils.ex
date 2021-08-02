@@ -7,4 +7,9 @@ defmodule EpiContacts.Utils do
   def collect_first_elements(list) do
     Enum.map(list, &elem(&1, 0))
   end
+
+  @spec collect_second_elements(list()) :: list()
+  def collect_second_elements(list) do
+    Enum.map(list, &elem(&1, 1))
+  end
 end

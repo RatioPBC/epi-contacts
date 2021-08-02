@@ -24,7 +24,19 @@ defmodule EpiContacts.Contact do
 
   def change(contact, attrs, patient_case \\ nil) do
     contact
-    |> cast(attrs, [
+    |> changeset(attrs)
+    |> validate_required([:first_name, :last_name])
+    |> validate_contact_location()
+    |> validate_relationship()
+    |> validate_primary_language()
+    |> validate_exposure(patient_case)
+    |> validate_required([:phone, :contact_location, :primary_language, :exposed_on])
+    |> validate_email_format(:email)
+    |> validate_phone_format(:phone)
+  end
+
+  def changeset(contact, attrs) do
+    cast(contact, attrs, [
       :phone,
       :email,
       :is_minor,
@@ -35,14 +47,6 @@ defmodule EpiContacts.Contact do
       :primary_language,
       :exposed_on
     ])
-    |> validate_required([:first_name, :last_name])
-    |> validate_contact_location()
-    |> validate_relationship()
-    |> validate_primary_language()
-    |> validate_exposure(patient_case)
-    |> validate_required([:phone, :contact_location, :primary_language, :exposed_on])
-    |> validate_email_format(:email)
-    |> validate_phone_format(:phone)
   end
 
   def initials(contact) do

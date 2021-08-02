@@ -2,10 +2,13 @@ defmodule EpiContacts.Languages do
   @moduledoc false
 
   import EpiContacts.Gettext
-  import EpiContacts.Utils, only: [collect_first_elements: 1]
+  import EpiContacts.Utils
 
   @spec languages() :: list(binary())
   def languages, do: options() |> collect_first_elements()
+
+  @spec values() :: list(binary())
+  def values, do: options() |> collect_second_elements()
 
   @spec options() :: list({binary(), binary()})
   def options,

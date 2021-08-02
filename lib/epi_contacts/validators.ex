@@ -25,7 +25,7 @@ defmodule EpiContacts.Validators do
     if changeset |> get_field(:contact_location) |> is_nil() do
       put_change(changeset, :contact_location, "unknown")
     else
-      validate_inclusion(changeset, :contact_location, EpiContacts.Locations.locations())
+      validate_inclusion(changeset, :contact_location, EpiContacts.Locations.values())
     end
   end
 
@@ -33,7 +33,7 @@ defmodule EpiContacts.Validators do
     if changeset |> get_field(:relationship) |> is_nil() do
       put_change(changeset, :relationship, "na")
     else
-      validate_inclusion(changeset, :relationship, EpiContacts.Relationships.relationships())
+      validate_inclusion(changeset, :relationship, EpiContacts.Relationships.values())
     end
   end
 
@@ -41,7 +41,7 @@ defmodule EpiContacts.Validators do
     if changeset |> get_field(:primary_language) |> is_nil() do
       put_change(changeset, :primary_language, "other")
     else
-      validate_inclusion(changeset, :primary_language, EpiContacts.Languages.languages())
+      validate_inclusion(changeset, :primary_language, EpiContacts.Languages.values())
     end
   end
 
