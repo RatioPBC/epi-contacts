@@ -20,8 +20,28 @@ defmodule EpiContacts.PostContactWorker do
       %{patient_case: patient_case, contact: contact}
       |> __MODULE__.new()
       |> Oban.insert()
+      |> log_insert(contact, patient_case)
     end
 
     :ok
+  end
+
+  defp log_insert({:ok, _job}, contact, patient_case) do
+    domain = PatientCase.domain(patient_case)
+    case_id = PatientCase.case_id(patient_case)
+    Logger.info("contact_enqueued", %{domain: domain, case_id: case_id, contact_id: contact.contact_id})
+  end
+
+  defp log_insert({:error, changeset}, contact, patient_case) do
+    errors = EpiContacts.Utils.traverse_errors(changeset)
+    domain = PatientCase.domain(patient_case)
+    case_id = PatientCase.case_id(patient_case)
+
+    Logger.error("contact_not_enqueued", %{
+      domain: domain,
+      case_id: case_id,
+      contact_id: contact.contact_id,
+      errors: errors
+    })
   end
 end
