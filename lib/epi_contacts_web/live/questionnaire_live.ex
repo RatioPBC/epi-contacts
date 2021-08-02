@@ -115,10 +115,16 @@ defmodule EpiContactsWeb.QuestionnaireLive do
       )
     end
 
+    log_contacts_count(socket)
+
     socket
   end
 
   defp analytics_reporter, do: Application.get_env(:epi_contacts, :analytics_reporter)
 
   defp commcare_client, do: Application.get_env(:epi_contacts, :commcare_client)
+
+  defp log_contacts_count(%{assigns: %{contacts: contacts}}) do
+    Logger.info("page_view", %{contacts_count: length(contacts)})
+  end
 end
