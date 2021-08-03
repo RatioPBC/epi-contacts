@@ -18,7 +18,10 @@ config :epi_contacts, EpiContactsWeb.Endpoint,
   server: true
 
 # Do not print debug messages in production
-config :logger, level: :info, backends: [LoggerJSON]
+config :logger,
+  level: :info,
+  backends: [LoggerJSON],
+  metadata: [:commcare_case_id, :commcare_domain, :contact_id, :contacts_count, :errors, :request_id, :secure_id]
 
 # ## SSL Support
 #
