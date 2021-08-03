@@ -20,7 +20,7 @@ defmodule EpiContactsWeb.Plugs.CommcareInfoLoader do
     case EpiContacts.SecureId.decode(secure_id) do
       {:ok, %{"d" => domain, "c" => case_id} = data} ->
         put_txn_id_on_logger(data)
-        Logger.info("decoded_secure_id", %{commcare_domain: domain, commcare_case_id: case_id})
+        Logger.info("decoded_secure_id")
 
         put_info_on_session(conn, case_id, domain)
 
