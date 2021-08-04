@@ -13,6 +13,7 @@ defmodule EpiContactsWeb.QuestionnaireLive do
   @impl true
   def mount(_params, %{"domain" => domain, "case_id" => case_id, "locale" => locale}, socket) do
     Gettext.put_locale(locale)
+    Logger.metadata(commcare_case_id: case_id, commcare_domain: domain)
 
     with {:patient_or_contacts_missing, socket} <- has_patient_case_and_assigns(socket),
          {:ok, patient_case} <- commcare_client().get_case(domain, case_id),
