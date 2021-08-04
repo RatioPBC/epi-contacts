@@ -22,9 +22,6 @@ config :logger,
   level: :info,
   backends: [LoggerJSON]
 
-config :logger_json, :backend,
-  metadata: [:commcare_case_id, :commcare_domain, :contact_id, :contacts_count, :errors, :request_id, :secure_id]
-
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
