@@ -65,7 +65,6 @@ config :epi_contacts, EpiContactsWeb.Endpoint,
     ]
   ]
 
-# Do not include metadata nor timestamps in development logs
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:commcare_case_id, :commcare_domain, :contact_id, :contacts_count, :errors, :request_id, :secure_id]
