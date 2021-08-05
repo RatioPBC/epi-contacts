@@ -24,7 +24,7 @@ defmodule EpiContacts.Languages do
       {gettext("Bengali"), "bengali"},
       {gettext("Korean"), "korean"},
       {gettext("Arabic"), "arabic"},
-      {gettext("France"), "fra"},
+      {gettext("French"), "fra"},
       {gettext("Italian"), "italian"},
       {gettext("Yiddish"), "yiddish"},
       {gettext("Polish"), "polish"},

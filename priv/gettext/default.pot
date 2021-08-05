@@ -116,7 +116,7 @@ msgid "Skip question"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/controllers/page_controller.ex:45
+#: lib/epi_contacts_web/controllers/page_controller.ex:46
 #: lib/epi_contacts_web/templates/page/error.html.eex:1
 msgid "We're sorry, but something went wrong."
 msgstr ""
@@ -223,8 +223,8 @@ msgid "New York State Covid-19 Response - Share My Contacts"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:36
-#: lib/epi_contacts_web/views/questionnaire_view.ex:37
+#: lib/epi_contacts_web/views/questionnaire_view.ex:33
+#: lib/epi_contacts_web/views/questionnaire_view.ex:34
 msgid "today"
 msgstr ""
 
@@ -276,8 +276,8 @@ msgid "This person is under 18 years old."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:52
-#: lib/epi_contacts_web/views/questionnaire_view.ex:62
+#: lib/epi_contacts_web/views/questionnaire_view.ex:49
+#: lib/epi_contacts_web/views/questionnaire_view.ex:59
 msgid "Use this questionnaire to add people you haven’t told us about."
 msgstr ""
 
@@ -366,17 +366,17 @@ msgid "If you've experienced any COVID-19 symptoms..."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:63
+#: lib/epi_contacts_web/views/questionnaire_view.ex:60
 msgid "If you have already spoken with us..."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:64
+#: lib/epi_contacts_web/views/questionnaire_view.ex:61
 msgid "Contact's initials"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:65
+#: lib/epi_contacts_web/views/questionnaire_view.ex:62
 msgid "Last 4 digits of phone"
 msgstr ""
 
@@ -406,27 +406,27 @@ msgid "Year"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:99
+#: lib/epi_contacts_web/views/questionnaire_view.ex:96
 msgid "from"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:100
+#: lib/epi_contacts_web/views/questionnaire_view.ex:97
 msgid "to"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:115
+#: lib/epi_contacts_web/views/questionnaire_view.ex:109
 msgid "Now, you'll be asked to add contacts you've seen"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:127
+#: lib/epi_contacts_web/views/questionnaire_view.ex:121
 msgid "Who else have you seen"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:121
+#: lib/epi_contacts_web/views/questionnaire_view.ex:115
 msgid "Who has been in your house with you"
 msgstr ""
 
@@ -640,163 +640,158 @@ msgid "Wednesday"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:23
+#: lib/epi_contacts/languages.ex:26
 msgid "Arabic"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:21
+#: lib/epi_contacts/languages.ex:24
 msgid "Bengali"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:15
+#: lib/epi_contacts/languages.ex:18
 msgid "Chinese Cantonese"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:16
+#: lib/epi_contacts/languages.ex:19
 msgid "Chinese Mandarin"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:13
+#: lib/epi_contacts/languages.ex:16
 msgid "English"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:24
-msgid "France"
-msgstr ""
-
-#, elixir-format
-#: lib/epi_contacts/languages.ex:18
+#: lib/epi_contacts/languages.ex:21
 msgid "Haitian Creole"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:19
+#: lib/epi_contacts/languages.ex:22
 msgid "Hebrew"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:20
+#: lib/epi_contacts/languages.ex:23
 msgid "Hindi"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:25
+#: lib/epi_contacts/languages.ex:28
 msgid "Italian"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:22
+#: lib/epi_contacts/languages.ex:25
 msgid "Korean"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:29 lib/epi_contacts/locations.ex:21
-#: lib/epi_contacts/relationships.ex:21
+#: lib/epi_contacts/languages.ex:32 lib/epi_contacts/locations.ex:24
+#: lib/epi_contacts/relationships.ex:24
 msgid "Other"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:27
+#: lib/epi_contacts/languages.ex:30
 msgid "Polish"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:17
+#: lib/epi_contacts/languages.ex:20
 msgid "Russian"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:14
+#: lib/epi_contacts/languages.ex:17
 msgid "Spanish"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:28
+#: lib/epi_contacts/languages.ex:31
 msgid "Swahili"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/languages.ex:26
+#: lib/epi_contacts/languages.ex:29
 msgid "Yiddish"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/relationships.ex:16
+#: lib/epi_contacts/relationships.ex:19
 msgid "Co-worker"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/relationships.ex:13
+#: lib/epi_contacts/relationships.ex:16
 msgid "Family"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/relationships.ex:14
+#: lib/epi_contacts/relationships.ex:17
 msgid "Friend"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/relationships.ex:18
+#: lib/epi_contacts/relationships.ex:21
 msgid "Healthcare worker"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/relationships.ex:17
+#: lib/epi_contacts/relationships.ex:20
 msgid "Neighbor"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/relationships.ex:15
+#: lib/epi_contacts/relationships.ex:18
 msgid "Partner or roommate"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/relationships.ex:20
+#: lib/epi_contacts/relationships.ex:23
 msgid "Service provider"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/relationships.ex:19
+#: lib/epi_contacts/relationships.ex:22
 msgid "Teacher/childcare"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/locations.ex:15
+#: lib/epi_contacts/locations.ex:18
 msgid "At home (caretaker)"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/locations.ex:14
+#: lib/epi_contacts/locations.ex:17
 msgid "At home (household member or friend)"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/locations.ex:17
+#: lib/epi_contacts/locations.ex:20
 msgid "Healthcare facility"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/locations.ex:18
+#: lib/epi_contacts/locations.ex:21
 msgid "Nursing/Assisted living"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/locations.ex:16
+#: lib/epi_contacts/locations.ex:19
 msgid "Place of worship"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/locations.ex:19
+#: lib/epi_contacts/locations.ex:22
 msgid "School setting"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts/locations.ex:20
+#: lib/epi_contacts/locations.ex:23
 msgid "Workplace"
 msgstr ""
 
@@ -844,16 +839,21 @@ msgid "New York State Department of Health"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/layout_helpers.ex:27
+#: lib/epi_contacts_web/views/layout_helpers.ex:31
 msgid "Unknown"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:174
+#: lib/epi_contacts_web/views/questionnaire_view.ex:165
 msgid "Friday, Sep 13 - %{weekday}, %{month} %{day}"
 msgstr ""
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/page/locale.html.eex:7
 msgid "Continue in language..."
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts/languages.ex:27
+msgid "French"
 msgstr ""
