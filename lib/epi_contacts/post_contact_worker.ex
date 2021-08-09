@@ -10,8 +10,15 @@ defmodule EpiContacts.PostContactWorker do
   alias EpiContacts.Commcare.Client, as: CommcareClient
 
   @impl Oban.Worker
-  def perform(%_{args: %{"patient_case" => patient_case, "contact" => contact}}),
-    do: CommcareClient.post_contact(patient_case, Contact.from_string_map(contact))
+  def perform(%_{args: %{"patient_case" => patient_case, "contact" => contact}, attempt: attempt}) do
+    case CommcareClient.post_contact(patient_case, Contact.from_string_map(contact)) do
+      {:error, :timeout} ->
+        {:snooze, (1 + attempt) * 60}
+
+      response ->
+        response
+    end
+  end
 
   def enqueue_contacts(%{contacts: contacts, patient_case: patient_case}) do
     for contact <- contacts do

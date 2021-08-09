@@ -2,6 +2,9 @@ defmodule EpiContacts.Commcare.Api do
   @moduledoc """
   This module provides an interface to the Commcare API.
   """
+
+  require Logger
+
   @timeout 20_000
   @recv_timeout 45_000
 
@@ -59,8 +62,6 @@ defmodule EpiContacts.Commcare.Api do
   end
 
   defp parse_response({:ok, %{status_code: 201, body: body}} = response) do
-    require Logger
-
     if post_success?(body) do
       :ok
     else
@@ -74,5 +75,6 @@ defmodule EpiContacts.Commcare.Api do
   defp parse_response({:ok, %{status_code: 401}}), do: {:error, :commcare_authorization_error}
   defp parse_response({:ok, %{status_code: 403}}), do: {:error, :commcare_forbidden}
   defp parse_response({:ok, %{status_code: 404}}), do: {:error, :not_found}
+  defp parse_response({:error, %HTTPoison.Error{reason: :timeout}}), do: {:error, :timeout}
   defp parse_response({:error, _} = response), do: response
 end

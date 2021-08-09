@@ -68,14 +68,24 @@ defmodule EpiContacts.Commcare.ApiTest do
                Api.post_case("some data", @test_domain)
     end
 
+    test "with timeout" do
+      Mox.expect(EpiContacts.HTTPoisonMock, :post, 1, fn url, body, _headers, _opt ->
+        assert url == "https://www.commcarehq.org/a/#{@test_domain}/receiver/"
+        assert body == "some data"
+        {:error, %HTTPoison.Error{id: nil, reason: :timeout}}
+      end)
+
+      assert {:error, :timeout} == Api.post_case("some data", @test_domain)
+    end
+
     test "with error response, returns error tuple containing http error response details" do
       Mox.expect(EpiContacts.HTTPoisonMock, :post, 1, fn url, body, _headers, _opt ->
         assert url == "https://www.commcarehq.org/a/#{@test_domain}/receiver/"
         assert body == "some data"
-        {:error, :http_timeout}
+        {:error, :some_error}
       end)
 
-      assert {:error, :http_timeout} == Api.post_case("some data", @test_domain)
+      assert {:error, :some_error} == Api.post_case("some data", @test_domain)
     end
   end
 

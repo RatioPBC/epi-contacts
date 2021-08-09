@@ -90,6 +90,13 @@ defmodule EpiContacts.PostContactWorkerTest do
                         perform_job(PostContactWorker, @valid_job_args)
              end) =~ "bad response from commcare"
     end
+
+    test "snoozes upload if there's a timeout" do
+      mock_timeout()
+      assert {:snooze, 60} == perform_job(PostContactWorker, @valid_job_args)
+      mock_timeout()
+      assert {:snooze, 180} == perform_job(PostContactWorker, @valid_job_args, attempt: 2)
+    end
   end
 
   # ====================================================================================================================
@@ -98,6 +105,12 @@ defmodule EpiContacts.PostContactWorkerTest do
     expect(HTTPoisonMock, :post, fn _url, _body, _headers, _opts ->
       body = File.read!("test/fixtures/commcare/post-response_success.xml")
       {:ok, %{status_code: 201, body: body}}
+    end)
+  end
+
+  defp mock_timeout do
+    expect(HTTPoisonMock, :post, fn _url, _body, _headers, _opts ->
+      {:error, %HTTPoison.Error{id: nil, reason: :timeout}}
     end)
   end
 
