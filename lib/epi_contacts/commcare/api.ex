@@ -2,8 +2,8 @@ defmodule EpiContacts.Commcare.Api do
   @moduledoc """
   This module provides an interface to the Commcare API.
   """
-  @timeout 10_000
-  @recv_timeout 30_000
+  @timeout 20_000
+  @recv_timeout 45_000
 
   def get_case(case_id, domain) do
     commcare_api_case_url(domain, case_id)
