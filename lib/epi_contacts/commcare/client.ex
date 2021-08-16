@@ -61,6 +61,8 @@ defmodule EpiContacts.Commcare.Client do
   def format_date(date), do: Timex.format!(date, "{YYYY}-{M}-{D}")
 
   def build_contact(patient_case, contact, opts \\ []) do
+    case_id = opts[:case_id] || UUID.uuid4()
+
     case_data = %{
       first_name: Contact.first_name(contact),
       last_name: Contact.last_name(contact),
@@ -111,7 +113,7 @@ defmodule EpiContacts.Commcare.Client do
       update: case_data,
       index: [{:parent, parent_case_metadata, PatientCase.case_id(patient_case)}]
     ]
-    |> build(UUID.uuid4(), opts)
+    |> build(case_id, opts)
   end
 
   def post_contact(patient_case, contact, envelope_id) do

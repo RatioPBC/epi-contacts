@@ -65,7 +65,7 @@ defmodule EpiContacts.Commcare.ClientTest do
   end
 
   describe "build_contact" do
-    setup do
+    setup context do
       {:ok, true} = FunWithFlags.enable(:feb_17_commcare_release, [])
       now_as_string = "2021-08-16 01:02:03Z"
       {:ok, now, _} = DateTime.from_iso8601(now_as_string)
@@ -95,7 +95,12 @@ defmodule EpiContacts.Commcare.ClientTest do
 
       envelope_id = Ecto.UUID.generate()
 
-      xml = CommcareClient.build_contact(patient_case, contact, envelope_id: envelope_id, envelope_timestamp: now)
+      xml =
+        CommcareClient.build_contact(patient_case, contact,
+          case_id: context[:case_id],
+          envelope_id: envelope_id,
+          envelope_timestamp: now
+        )
 
       doc = xml |> Floki.parse_document!()
 
@@ -114,6 +119,11 @@ defmodule EpiContacts.Commcare.ClientTest do
       assert Test.Xml.attr(doc, "case:nth-of-type(1)", "user_id") == "abc123"
       assert Test.Xml.text(doc, "case:nth-of-type(1) create case_name") == "Joe Smith"
       assert Test.Xml.text(doc, "case:nth-of-type(1) create case_type") == "contact"
+    end
+
+    @tag case_id: "our-case_id"
+    test "xml contains our case_id", %{case_id: case_id, doc: doc} do
+      assert Test.Xml.attr(doc, "case:nth-of-type(1)", "case_id") == case_id
     end
 
     test "xml index field contains info about the parent case", %{doc: doc} do
