@@ -34,7 +34,8 @@ defmodule EpiContacts.PostContactWorkerTest do
       "first_name" => "Contact 1",
       "last_name" => "last name",
       "phone" => "123-456-7890"
-    }
+    },
+    "envelope_id" => "some-uuid"
   }
 
   describe "enqueue_contacts" do

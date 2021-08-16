@@ -10,8 +10,11 @@ defmodule EpiContacts.PostContactWorker do
   alias EpiContacts.Commcare.Client, as: CommcareClient
 
   @impl Oban.Worker
-  def perform(%_{args: %{"patient_case" => patient_case, "contact" => contact}, attempt: attempt}) do
-    case CommcareClient.post_contact(patient_case, Contact.from_string_map(contact)) do
+  def perform(%_{
+        args: %{"patient_case" => patient_case, "contact" => contact, "envelope_id" => envelope_id},
+        attempt: attempt
+      }) do
+    case CommcareClient.post_contact(patient_case, Contact.from_string_map(contact), envelope_id: envelope_id) do
       {:error, :timeout} ->
         {:snooze, (1 + attempt) * 60}
 
@@ -23,8 +26,9 @@ defmodule EpiContacts.PostContactWorker do
   def enqueue_contacts(%{contacts: contacts, patient_case: patient_case}) do
     for contact <- contacts do
       contact = %Contact{contact | contact_id: PatientCase.generate_contact_id(patient_case)}
+      envelope_id = Ecto.UUID.generate()
 
-      %{patient_case: patient_case, contact: contact}
+      %{patient_case: patient_case, contact: contact, envelope_id: envelope_id}
       |> __MODULE__.new()
       |> Oban.insert()
       |> log_insert(contact)
