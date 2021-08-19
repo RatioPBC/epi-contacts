@@ -174,6 +174,8 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
             "dob" => dob
           }
           |> Map.put(key_to_test, failure_value)
+          |> Map.put("key_to_test", key_to_test)
+          |> Map.put("failure_value", failure_value)
 
         patient_case = Map.put(@manually_triggered_patient_case, "properties", properties)
 
