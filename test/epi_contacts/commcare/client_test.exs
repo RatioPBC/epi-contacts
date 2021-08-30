@@ -32,7 +32,7 @@ defmodule EpiContacts.Commcare.ClientTest do
 
     assert CommcareClient.build_update(@test_case_id, %{some: "property", other: "value"}, opts) == """
            <?xml version="1.0" encoding="UTF-8"?>\
-           <data xmlns="http://dev.commcarehq.org/jr/xforms">\
+           <data xmlns="http://ratiopbc.com/epi-contacts">\
            <case case_id="test case id" user_id="abc123" xmlns="http://commcarehq.org/case/transaction/v2">\
            <update>\
            <other>value</other>\
@@ -49,7 +49,7 @@ defmodule EpiContacts.Commcare.ClientTest do
 
     assert CommcareClient.build_update(@test_case_id, [kwlist: "also works"], opts) == """
            <?xml version="1.0" encoding="UTF-8"?>\
-           <data xmlns="http://dev.commcarehq.org/jr/xforms">\
+           <data xmlns="http://ratiopbc.com/epi-contacts">\
            <case case_id="test case id" user_id="abc123" xmlns="http://commcarehq.org/case/transaction/v2">\
            <update>\
            <kwlist>also works</kwlist>\
@@ -112,7 +112,7 @@ defmodule EpiContacts.Commcare.ClientTest do
     end
 
     test "xml contains base data", %{doc: doc} do
-      assert Test.Xml.attr(doc, "data", "xmlns") == "http://dev.commcarehq.org/jr/xforms"
+      assert Test.Xml.attr(doc, "data", "xmlns") == "http://ratiopbc.com/epi-contacts"
       assert Test.Xml.attr(doc, "case:nth-of-type(1)", "xmlns") == "http://commcarehq.org/case/transaction/v2"
       assert Test.Xml.attr(doc, "case:nth-of-type(1)", "case_id") |> Parsers.valid_uuid?()
       # expected value of user_id comes from COMMCARE_USER_ID from .env.test

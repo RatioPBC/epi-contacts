@@ -36,7 +36,7 @@ defmodule EpiContacts.Commcare.Client do
     envelope_id = opts[:envelope_id] || Ecto.UUID.generate()
     envelope_timestamp = Keyword.get_lazy(opts, :envelope_timestamp, fn -> DateTime.utc_now() end)
 
-    element(:data, %{xmlns: "http://dev.commcarehq.org/jr/xforms"}, [
+    element(:data, %{xmlns: "http://ratiopbc.com/epi-contacts"}, [
       element(
         :case,
         %{case_id: id, user_id: user_id(), xmlns: "http://commcarehq.org/case/transaction/v2"},
