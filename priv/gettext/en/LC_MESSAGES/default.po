@@ -59,7 +59,7 @@ msgstr ""
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/prep.html.leex:14
 msgid "You only have to include close contacts -- people who were within 6 feet of you for more than 10 minutes."
-msgstr ""
+msgstr "You only have to include close contacts -- people who were within 6 feet of you for more than 15 minutes."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:1
@@ -269,7 +269,7 @@ msgstr ""
 #: lib/epi_contacts_web/templates/page/minor.html.eex:13
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
 msgid "As discussed during our call..."
-msgstr "To help limit the spread of COVID-19, please begin to identify any people you may have come within 6 ft for 10 minutes or more. If you have had symptoms, start 2 days before your first symptom OR, if you have had no symptoms, then start 2 days before your test date (this is your start date)."
+msgstr "To help limit the spread of COVID-19, please begin to identify any people you may have come within 6 ft for 15 minutes or more. If you have had symptoms, start 2 days before your first symptom OR, if you have had no symptoms, then start 2 days before your test date (this is your start date)."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:23
@@ -384,7 +384,7 @@ msgstr ""
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:2
 msgid "Only include people who were within 6 feet of you for more than 10 minutes. Please only add a person's name, not a location."
-msgstr ""
+msgstr "Only include people who were within 6 feet of you for more than 15 minutes. Please only add a person's name, not a location."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/social.html.leex:8
@@ -424,7 +424,7 @@ msgstr ""
 #, elixir-format
 #: lib/epi_contacts_web/views/questionnaire_view.ex:121
 msgid "Who else have you seen"
-msgstr "Who else did you see who was less than 6 feet away for more than 10 minutes"
+msgstr "Who else did you see who was less than 6 feet away for more than 15 minutes"
 
 #, elixir-format
 #: lib/epi_contacts_web/views/questionnaire_view.ex:115
