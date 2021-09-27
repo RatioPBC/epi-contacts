@@ -269,7 +269,7 @@ msgstr "Gracias por ayudarnos a detener la propagación de la COVID-19."
 #: lib/epi_contacts_web/templates/page/minor.html.eex:13
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
 msgid "As discussed during our call..."
-msgstr "Para ayudar a limitar la propagación de la COVID-19, por favor empiece a identificar a las personas que hayan estado a menos de 6 pies de usted por 15 minutos o más. Si ha presentado síntomas, comience 2 días antes de su primer síntoma O, si no ha presentado síntomas, comience 2 días antes de la fecha de su prueba (esta es su fecha de inicio)."
+msgstr "Para ayudar a limitar la propagación de la COVID-19, por favor empiece a identificar a las personas que hayan estado a menos de 6 pies de usted por 15 minutos o más durante un período de 24 horas. Si ha presentado síntomas, comience 2 días antes de su primer síntoma O, si no ha presentado síntomas, comience 2 días antes de la fecha de su prueba (esta es su fecha de inicio)."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:23

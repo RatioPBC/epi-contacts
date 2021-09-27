@@ -269,7 +269,7 @@ msgstr ""
 #: lib/epi_contacts_web/templates/page/minor.html.eex:13
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
 msgid "As discussed during our call..."
-msgstr "To help limit the spread of COVID-19, please begin to identify any people you may have come within 6 ft for 15 minutes or more. If you have had symptoms, start 2 days before your first symptom OR, if you have had no symptoms, then start 2 days before your test date (this is your start date)."
+msgstr "To help limit the spread of COVID-19, please begin to identify any people you may have come within 6 ft of for 15 minutes or more over a 24 hour period. If you have had symptoms, start 2 days before your first symptom OR, if you have had no symptoms, then start 2 days before your test date (this is your start date)."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:23
