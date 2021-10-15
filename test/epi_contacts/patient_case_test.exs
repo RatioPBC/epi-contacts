@@ -102,6 +102,16 @@ defmodule EpiContacts.PatientCaseTest do
     end
   end
 
+  test "isolation_start_date/1" do
+    patient_case = %{
+      "properties" => %{
+        "isolation_start_date" => "2021-10-15"
+      }
+    }
+
+    assert ~D[2021-10-15] == PatientCase.isolation_start_date(patient_case)
+  end
+
   describe "start_of_infectious_period/1" do
     test "defaults to isolation_start_date" do
       patient_case = %{
