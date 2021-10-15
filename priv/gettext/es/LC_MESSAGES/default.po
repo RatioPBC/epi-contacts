@@ -91,7 +91,7 @@ msgstr "Lo que debe hacer a continuación:"
 #: lib/epi_contacts_web/templates/page/minor.html.eex:7
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:9
 msgid "Self-isolate until..."
-msgstr "Aislarse hasta la mañana del %{end_of_isolation_period}."
+msgstr "Aislarse hasta la mañana del %{release_from_isolation_date}."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/page/minor.html.eex:11

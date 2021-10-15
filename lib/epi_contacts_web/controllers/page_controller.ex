@@ -59,14 +59,14 @@ defmodule EpiContactsWeb.PageController do
     {:ok, patient_case} = commcare_client().get_case(domain, case_id)
     initials = PatientCase.initials(patient_case)
 
-    end_of_infectious_period =
+    release_from_isolation_date =
       patient_case
-      |> PatientCase.end_of_infectious_period()
+      |> PatientCase.release_from_isolation_date()
       |> to_string()
 
     clear_session_and_render(conn, "minor.html",
       case_initials: initials,
-      end_of_infectious_period: end_of_infectious_period
+      release_from_isolation_date: release_from_isolation_date
     )
   end
 

@@ -91,7 +91,7 @@ msgstr ""
 #: lib/epi_contacts_web/templates/page/minor.html.eex:7
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:9
 msgid "Self-isolate until..."
-msgstr "Self-isolate until the morning of %{end_of_isolation_period}."
+msgstr "Self-isolate until the morning of %{release_from_isolation_date}."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/page/minor.html.eex:11
