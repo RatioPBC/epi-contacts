@@ -112,6 +112,39 @@ defmodule EpiContacts.PatientCaseTest do
     assert ~D[2021-10-15] == PatientCase.isolation_start_date(patient_case)
   end
 
+  describe "isolation_end_date/1" do
+    test "returns 10 days after isolation_start_date" do
+      patient_case = %{
+        "properties" => %{
+          "isolation_start_date" => "2021-10-10",
+          "new_lab_result_specimen_collection_date" => "2021-09-20"
+        }
+      }
+
+      assert ~D[2021-10-20] == PatientCase.isolation_end_date(patient_case)
+    end
+
+    test "returns 10 days after new_lab_result_specimen_collection_date when isolation_start_date is missing" do
+      patient_case = %{
+        "properties" => %{
+          "new_lab_result_specimen_collection_date" => "2021-09-10"
+        }
+      }
+
+      assert ~D[2021-09-20] == PatientCase.isolation_end_date(patient_case)
+    end
+  end
+
+  test "release_from_isolation_date/1" do
+    patient_case = %{
+      "properties" => %{
+        "isolation_start_date" => "2021-10-10"
+      }
+    }
+
+    assert ~D[2021-10-21] == PatientCase.release_from_isolation_date(patient_case)
+  end
+
   describe "start_of_infectious_period/1" do
     test "defaults to isolation_start_date" do
       patient_case = %{
