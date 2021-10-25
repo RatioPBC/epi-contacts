@@ -87,7 +87,6 @@ msgid "What you should do next:"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:7
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:9
 msgid "Self-isolate until..."
 msgstr ""
@@ -856,4 +855,9 @@ msgstr ""
 #, elixir-format
 #: lib/epi_contacts/languages.ex:27
 msgid "French"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:7
+msgid "Self-isolate minor until..."
 msgstr ""

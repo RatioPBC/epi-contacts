@@ -88,10 +88,9 @@ msgid "What you should do next:"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:7
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:9
 msgid "Self-isolate until..."
-msgstr "Self-isolate until the morning of %{release_from_isolation_date}."
+msgstr "Self-isolate until the morning of %{end_of_isolation_period}."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/page/minor.html.eex:11
@@ -858,3 +857,8 @@ msgstr "Click to continue in English"
 #: lib/epi_contacts/languages.ex:27
 msgid "French"
 msgstr ""
+
+#, elixir-format, fuzzy
+#: lib/epi_contacts_web/templates/page/minor.html.eex:7
+msgid "Self-isolate minor until..."
+msgstr "Self-isolate until the morning of %{release_from_isolation_date}. The isolation end date is an approximate date and subject to change. This is not an isolation notice and cannot be used as proof to an employer or school to return to work/school."

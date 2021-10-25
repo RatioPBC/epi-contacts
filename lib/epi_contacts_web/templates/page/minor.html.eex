@@ -4,7 +4,7 @@
 
 <p><%= gettext("What you should do next:") %></p>
 
-<p><%= gettext("Self-isolate until...", release_from_isolation_date: @release_from_isolation_date) %></p>
+<p><%= gettext("Self-isolate minor until...", release_from_isolation_date: @release_from_isolation_date) %></p>
 
 <p><%= gettext("Protect your family and the other people you live with by...", web_link: "https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/") %></p>
 
