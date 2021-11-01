@@ -31,7 +31,7 @@ defmodule EpiContactsWeb.PageView do
     """
   end
 
-  def more_info_web_link() do
+  def more_info_web_link do
     case EpiContacts.Gettext.get_locale() do
       "es" -> "https://espanol.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html"
       _ -> "https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/"
