@@ -17,4 +17,24 @@ defmodule EpiContactsWeb.PageView do
     <p><%= text %></p>
     """
   end
+
+  def protect_your_family_blurb do
+    url = more_info_web_link()
+    web_link = link(url, to: url)
+
+    text =
+      gettext("Protect your family and the other people you live with by...", web_link: safe_to_string(web_link))
+      |> raw()
+
+    ~E"""
+    <p><%= text %></p>
+    """
+  end
+
+  def more_info_web_link() do
+    case EpiContacts.Gettext.get_locale() do
+      "es" -> "https://espanol.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/index.html"
+      _ -> "https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/"
+    end
+  end
 end

@@ -6,10 +6,10 @@
 
 <p><%= gettext("Self-isolate minor until...", release_from_isolation_date: @release_from_isolation_date) %></p>
 
-<p><%= gettext("Protect your family and the other people you live with by...", web_link: "https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/") %></p>
+<%= protect_your_family_blurb() %>
 
 <p><%= gettext("Monitor your symptoms. If you have...") %></p>
 
 <p><%= gettext("As discussed during our call...") %></p>
 
-<p><%= gettext("If you have any questions, please contact us...", phone_number: "833-227-5045", web_link: "https://www.ny.gov/coronavirus") %></p>
+<%= contact_blurb() %>

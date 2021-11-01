@@ -96,7 +96,7 @@ msgstr "Aislarse hasta la mañana del %{end_of_isolation_period}."
 #: lib/epi_contacts_web/templates/page/minor.html.eex:11
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:16
 msgid "Monitor your symptoms. If you have..."
-msgstr "Preste atención a sus síntomas. Si tiene problemas para respirar, dolor persistente opresión en el pecho, confusión de nueva aparición, incapacidad para despertar, o piel, labios o uñas con coloración pálida, grisácea o azulada, dependiendo de su tono de piel, llame al 911 o busque atención médica de emergencia inmediatamente."
+msgstr "Preste atención a sus síntomas. Si tiene dificultad para respirar, dolor persistente u opresión en el pecho, confusión de nueva aparición, incapacidad para despertar, o piel, labios o uñas con coloración pálida, grisácea o azulada, dependiendo de su tono de piel, llame al 911 o busque atención médica de emergencia inmediatamente."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:20
@@ -268,7 +268,7 @@ msgstr "Gracias por ayudarnos a detener la propagación de la COVID-19."
 #: lib/epi_contacts_web/templates/page/minor.html.eex:13
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
 msgid "As discussed during our call..."
-msgstr "Para ayudar a limitar la propagación de la COVID-19, por favor empiece a identificar a las personas que hayan estado a menos de 6 pies de usted por 15 minutos o más durante un período de 24 horas. Si ha presentado síntomas, comience 2 días antes de su primer síntoma O, si no ha presentado síntomas, comience 2 días antes de la fecha de su prueba (esta es su fecha de inicio)."
+msgstr "Para ayudar a limitar la propagación de COVID-19, por favor trate de identificar a las personas que hayan estado a menos de 6 pies de distancia de usted por 15 minutos o más, durante un período de 24 horas. Si ha presentado síntomas, comience 2 días antes de su primer síntoma O, si no ha presentado síntomas, comience 2 días antes de la fecha de su prueba (esta será su fecha de inicio)."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:23
@@ -798,12 +798,12 @@ msgstr "Lugar de trabajo"
 #, elixir-format
 #: lib/epi_contacts_web/templates/page/minor.html.eex:9
 msgid "Protect your family and the other people you live with by..."
-msgstr "Proteger a su familia y a las otras personas con las que vive, para lo que debe separarse de ellas lo más posible, usar mascarilla y permanecer a 6 pies de otras personas que estén en la misma habitación, lavarse las manos con frecuencia, toser y estornudar en su codo o en un pañuelo, y poner los pañuelos usados en la basura de inmediato. Puede encontrar información adicional en: %{web_link}"
+msgstr "Proteger a su familia y a las otras personas con las que vive, por lo que debe mantenerse separado de ellas en la medida de lo posible, usar mascarilla, permanecer a 6 pies de otras personas que estén en la misma habitación, lavarse las manos con frecuencia, toser y estornudar en su codo o en un pañuelo, y desechar los pañuelos utilizados en la basura de inmediato. Puede encontrar información adicional en: %{web_link}"
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/page/minor.html.eex:3
 msgid "Your COVID-19 test came back, and you tested positive. You should immediately tell your parent/guardian."
-msgstr "Su prueba de COVID-19 tuvo un resultado positivo. Debe informarlo de inmediato a su padre, madre o tutor."
+msgstr "Su prueba de COVID-19 resultó positiva. Debe informarlo de inmediato a su padre, madre o tutor."
 
 #, elixir-format
 #: lib/epi_contacts_web/templates/error/404.html.eex:23
@@ -861,4 +861,4 @@ msgstr "Francés"
 #, elixir-format, fuzzy
 #: lib/epi_contacts_web/templates/page/minor.html.eex:7
 msgid "Self-isolate minor until..."
-msgstr "Aislarse hasta la mañana del %{release_from_isolation_date}. La fecha de finalización del aislamiento es una fecha aproximada y puede cambiar. Este no es un aviso de aislamiento y no se puede usar como prueba a empleador o escuela para que regrese al trabajo o la escuela."
+msgstr "Mantenerse aislado hasta el día %{release_from_isolation_date} en la mañana. La fecha de finalización del aislamiento es una fecha aproximada y puede cambiar. Esto no es un aviso de aislamiento y no puede ser usado como prueba a empleador o escuela para que regrese al trabajo/escuela."
