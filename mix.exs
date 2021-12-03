@@ -66,8 +66,9 @@ defmodule EpiContacts.MixProject do
       {:kcl, "~> 1.3"},
       {:logger_json, "~> 4.2"},
       {:mix_audit, "~> 0.1", only: [:dev, :test], runtime: false},
+      {:oban, "~> 2.8.0"},
       {:oban_pro, "~> 0.8", organization: "oban"},
-      {:oban_web, "~> 2.7", organization: "oban"},
+      {:oban_web, "~> 2.7.1", organization: "oban"},
       {:paseto, "~> 1.3"},
       {:phoenix, "~> 1.5"},
       {:phoenix_ecto, "~> 4.1"},
@@ -87,7 +88,7 @@ defmodule EpiContacts.MixProject do
       {:timex, "~> 3.5"},
       {:uuid, "~> 1.1"},
       {:vapor, "~> 0.8"},
-      {:wallaby, "~> 0.24", runtime: false, only: :test},
+      {:wallaby, "~> 0.24.0", runtime: false, only: :test},
       {:xml_builder, "~> 2.1"},
       {:nimble_totp, "~> 0.1"}
     ]
