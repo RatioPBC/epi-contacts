@@ -1,6 +1,6 @@
 <div class="button-group">
-  <%= live_patch gettext("Add new contact"), to: questionnaire_path(@socket, :add_contact), id: "add-contact-button", class: "button button-outline" %>
-  <%= live_patch gettext("Next question"), to: questionnaire_path(@socket, @skip_path), id: "next-button", class: "button" %>
+  <%= live_patch gettext("Add new contact"), to: Routes.questionnaire_path(@socket, :add_contact), id: "add-contact-button", class: "button button-outline" %>
+  <%= live_patch gettext("Next question"), to: Routes.questionnaire_path(@socket, @skip_path), id: "next-button", class: "button" %>
 </div>
 <h2><%= gettext("Your contacts") %></h2>
 <%= render "_contacts.html", contacts: @contacts %>

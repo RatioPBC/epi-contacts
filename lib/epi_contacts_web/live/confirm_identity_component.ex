@@ -31,7 +31,7 @@ defmodule EpiContactsWeb.ConfirmIdentityComponent do
     socket =
       case ConfirmIdentity.verify_correct_date_of_birth(confirm_identity, confirm_identity_params, patient_case) do
         {:ok, _} ->
-          push_patch(socket, to: questionnaire_path(socket, :test_results))
+          push_patch(socket, to: Routes.questionnaire_path(socket, :test_results))
 
         {:error, :locked_out} ->
           socket

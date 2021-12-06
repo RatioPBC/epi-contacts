@@ -6,5 +6,5 @@
 
 <p><%= gettext("We truly appreciate your help in stopping the spread of COVID-19.") %></p>
 <div class="button-group">
-  <%= live_patch gettext("Take 15 minute questionnaire"), to: questionnaire_path(@socket, :prep), id: "next-button", class: "button" %>
+  <%= live_patch gettext("Take 15 minute questionnaire"), to: Routes.questionnaire_path(@socket, :prep), id: "next-button", class: "button" %>
 </div>

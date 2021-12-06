@@ -95,17 +95,6 @@ defmodule EpiContactsWeb do
       def noreply(socket), do: {:noreply, socket}
       def ok(socket), do: {:ok, socket}
 
-      # This was adapted from phoenix/live_dashboard/helpers/live_helpers.ex:8
-      # Is this necessary?  Shouldn't these functions come for "free" when the routes are defined?
-      # Why am I having to do this???
-      def questionnaire_path(socket, action, params \\ []) do
-        apply(
-          socket.router.__helpers__(),
-          :questionnaire_path,
-          [socket, action, params]
-        )
-      end
-
       @spec days_of_the_week_options() :: list({binary(), binary()})
       def days_of_the_week_options,
         do: [

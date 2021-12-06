@@ -16,6 +16,6 @@
   </ul>
 </div>
 <div class="button-group">
-  <%= live_patch gettext("Add Contacts"), to: questionnaire_path(@socket, :add_contact, %{ skip_path: :review }), id: "add-contact-button", class: "button button-outline" %>
-  <%= live_patch gettext("Skip question"), to: questionnaire_path(@socket, :review), id: "skip-button", class: "button button-clear" %>
+  <%= live_patch gettext("Add Contacts"), to: Routes.questionnaire_path(@socket, :add_contact, %{ skip_path: :review }), id: "add-contact-button", class: "button button-outline" %>
+  <%= live_patch gettext("Skip question"), to: Routes.questionnaire_path(@socket, :review), id: "skip-button", class: "button button-clear" %>
 </div>

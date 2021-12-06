@@ -90,7 +90,7 @@ defmodule EpiContactsWeb.QuestionnaireLive do
   def handle_info({:added_contact, contact = %Contact{}}, %{assigns: %{contacts: contacts}} = socket) do
     socket
     |> assign(:contacts, [contact | contacts])
-    |> push_patch(to: questionnaire_path(socket, :contact_list))
+    |> push_patch(to: Routes.questionnaire_path(socket, :contact_list))
     |> noreply()
   end
 
