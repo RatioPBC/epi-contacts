@@ -40,10 +40,12 @@ defmodule EpiContactsWeb.QuestionnaireLiveTest do
         assert commcare_domain == @domain
         assert case_id == @case_id
 
-        "test/fixtures/commcare/case-with-test-results-and-contacts.json"
-        |> File.read!()
-        |> Jason.decode!()
-        |> (fn json -> {:ok, json} end).()
+        json =
+          "test/fixtures/commcare/case-with-test-results-and-contacts.json"
+          |> File.read!()
+          |> Jason.decode!()
+
+        {:ok, json}
       end)
 
       expect(AnalyticsReporterBehaviourMock, :report_page_visit, fn page_identifier: page_identifier,
@@ -72,10 +74,12 @@ defmodule EpiContactsWeb.QuestionnaireLiveTest do
         assert commcare_domain == @domain
         assert case_id == @case_id
 
-        "test/fixtures/commcare/pre-ci-minor.json"
-        |> File.read!()
-        |> Jason.decode!()
-        |> (fn json -> {:ok, json} end).()
+        json =
+          "test/fixtures/commcare/pre-ci-minor.json"
+          |> File.read!()
+          |> Jason.decode!()
+
+        {:ok, json}
       end)
 
       :ok
@@ -94,10 +98,12 @@ defmodule EpiContactsWeb.QuestionnaireLiveTest do
         assert commcare_domain == @domain
         assert case_id == @case_id
 
-        "test/fixtures/commcare/case-with-test-results-and-contacts.json"
-        |> File.read!()
-        |> Jason.decode!()
-        |> (fn json -> {:ok, json} end).()
+        json =
+          "test/fixtures/commcare/case-with-test-results-and-contacts.json"
+          |> File.read!()
+          |> Jason.decode!()
+
+        {:ok, json}
       end)
 
       :ok
@@ -242,10 +248,12 @@ defmodule EpiContactsWeb.QuestionnaireLiveTest do
         assert commcare_domain == @domain
         assert case_id == @case_id
 
-        "test/fixtures/commcare/case-with-test-results-and-contacts.json"
-        |> File.read!()
-        |> Jason.decode!()
-        |> (fn json -> {:ok, json} end).()
+        json =
+          "test/fixtures/commcare/case-with-test-results-and-contacts.json"
+          |> File.read!()
+          |> Jason.decode!()
+
+        {:ok, json}
       end)
 
       :ok

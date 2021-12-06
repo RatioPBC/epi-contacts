@@ -36,10 +36,12 @@ defmodule EpiContactsWeb.PageControllerTest do
       assert commcare_domain == @domain
       assert case_id == @case_id
 
-      "test/fixtures/commcare/pre-ci-minor.json"
-      |> File.read!()
-      |> Jason.decode!()
-      |> (fn json -> {:ok, json} end).()
+      json =
+        "test/fixtures/commcare/pre-ci-minor.json"
+        |> File.read!()
+        |> Jason.decode!()
+
+      {:ok, json}
     end)
 
     conn =
