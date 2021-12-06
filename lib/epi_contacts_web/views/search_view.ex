@@ -10,8 +10,7 @@ defmodule EpiContactsWeb.SearchView do
 
     [full_name, street, city, state, zip_code, phone]
     |> Enum.reject(&(!&1))
-    |> Enum.map(&"\"#{&1}\"")
-    |> Enum.join(", ")
+    |> Enum.map_join(", ", &"\"#{&1}\"")
   end
 
   def full_name(%{first_name: first_name, middle_name: middle_name, last_name: last_name}) do

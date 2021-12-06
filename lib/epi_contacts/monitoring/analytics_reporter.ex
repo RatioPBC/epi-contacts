@@ -103,7 +103,7 @@ defmodule EpiContacts.Monitoring.AnalyticsReporter do
   end
 
   defp stringify_event_type(event_type) do
-    event_type |> Enum.map(&to_string/1) |> Enum.join(".")
+    Enum.map_join(event_type, ".", &to_string/1)
   end
 
   @impl AnalyticsReporterBehaviour
