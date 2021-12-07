@@ -2,6 +2,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
   use EpiContactsWeb.ConnCase, async: true
 
   alias EpiContactsWeb.QuestionnaireView, as: View
+  alias Phoenix.HTML.Safe
 
   describe "format" do
     test "it formats the date for the user in English" do
@@ -147,7 +148,8 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
 
   defp html_for(safe_string) do
     safe_string
-    |> Phoenix.HTML.safe_to_string()
+    |> Safe.to_iodata()
+    |> IO.iodata_to_binary()
     |> Floki.parse_fragment!()
   end
 

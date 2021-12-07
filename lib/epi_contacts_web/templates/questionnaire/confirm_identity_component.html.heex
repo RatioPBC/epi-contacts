@@ -1,0 +1,29 @@
+<div>
+  <h2><%= gettext("Confirm your identity") %></h2>
+
+  <%= if @is_locked_out do %>
+  <div class="locked-out"><div class="icon_error"><img src="/images/icon-error-exclamation.svg" ></div><p><%= dgettext("errors", "locked out") %></p></div>
+  <% end %>
+
+  <%= form_for @changeset, "#", [id: :confirm_identity, class: "confirm-identity-form", phx_target: @myself, phx_submit: "submit"], fn f -> %>
+    <%= label f, :dob, gettext("Date of birth") |> raw %>
+
+    <div class="date-select-row">
+      <%= date_select f, :dob, builder: fn b -> %>
+        <% this_year = DateTime.utc_now.year %>
+        <% year_range = (this_year - 100)..this_year |> Enum.reverse() %>
+        <%= b.(:year, prompt: gettext("Year"), options: year_range) %>
+        <%= b.(:month, prompt: gettext("Month"), options: months_options()) %>
+        <%= b.(:day, prompt: gettext("Date")) %>
+      <% end %>
+    </div>
+
+    <%= error_tag f, :dob %>
+
+    <p><%= gettext("Your information is completely...") %></p>
+
+    <div class="button-group">
+      <%= submit gettext("Next"), phx_disable_with: gettext("Moving to next page..."), id: "next-button" %>
+    </div>
+  <% end %>
+</div>

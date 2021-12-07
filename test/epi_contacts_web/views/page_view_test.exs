@@ -2,10 +2,11 @@ defmodule EpiContactsWeb.PageViewTest do
   use ExUnit.Case, async: true
 
   alias EpiContactsWeb.PageView, as: View
+  alias Phoenix.HTML.Safe
 
   describe "contact_blurb/0" do
     test "returns tel and web link" do
-      html = View.contact_blurb() |> Phoenix.HTML.safe_to_string()
+      html = View.contact_blurb() |> Safe.to_iodata() |> IO.iodata_to_binary()
 
       assert html =~ "www.ny.gov/coronavirus"
       assert html =~ "833-227-5045"
@@ -16,7 +17,7 @@ defmodule EpiContactsWeb.PageViewTest do
 
   describe "protect_your_family_blurb/0" do
     test "returns web link in content" do
-      html = View.protect_your_family_blurb() |> Phoenix.HTML.safe_to_string()
+      html = View.protect_your_family_blurb() |> Safe.to_iodata() |> IO.iodata_to_binary()
       link = View.more_info_web_link()
 
       assert html =~ "Protect your family"

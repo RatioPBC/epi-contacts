@@ -24,7 +24,7 @@ defmodule EpiContacts.PostContactWorker do
            envelope_id: envelope_id
          ) do
       {:error, :timeout} ->
-        {:snooze, (1 + attempt) * 60}
+        {:snooze, attempt * 60}
 
       response ->
         response
