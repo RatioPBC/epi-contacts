@@ -22,7 +22,7 @@ defmodule EpiContactsWeb.ReviewComponentText do
 
     def render(assigns) do
       ~L"""
-      <%= live_component @socket, ReviewComponent,
+      <%= live_component ReviewComponent,
         id: "test-component",
         patient_case: @patient_case,
         skip_path: @skip_path,

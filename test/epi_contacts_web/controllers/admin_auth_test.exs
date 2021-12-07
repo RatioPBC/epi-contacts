@@ -8,12 +8,7 @@ defmodule EpiContactsWeb.AdminAuthTest do
   @remember_me_cookie "_epi_contacts_web_admin_remember_me"
 
   setup %{conn: conn} do
-    conn =
-      conn
-      |> Map.replace!(:secret_key_base, EpiContactsWeb.Endpoint.config(:secret_key_base))
-      |> init_test_session(%{})
-
-    %{admin: admin_fixture(), conn: conn}
+    %{admin: admin_fixture(), conn: init_conn(conn)}
   end
 
   describe "log_in_admin/3" do
@@ -137,9 +132,10 @@ defmodule EpiContactsWeb.AdminAuthTest do
       assert get_flash(conn, :error) == "You must log in to access this page."
     end
 
-    test "stores the path to redirect to on GET", %{conn: conn} do
+    test "stores the path to redirect to on GET" do
       halted_conn =
-        %{conn | request_path: "/foo", query_string: ""}
+        build_conn(:get, "/foo")
+        |> init_conn()
         |> fetch_flash()
         |> AdminAuth.require_authenticated_admin([])
 
@@ -147,7 +143,8 @@ defmodule EpiContactsWeb.AdminAuthTest do
       assert get_session(halted_conn, :admin_return_to) == "/foo"
 
       halted_conn =
-        %{conn | request_path: "/foo", query_string: "bar=baz"}
+        build_conn(:get, "/foo", bar: "baz")
+        |> init_conn()
         |> fetch_flash()
         |> AdminAuth.require_authenticated_admin([])
 
@@ -155,7 +152,8 @@ defmodule EpiContactsWeb.AdminAuthTest do
       assert get_session(halted_conn, :admin_return_to) == "/foo?bar=baz"
 
       halted_conn =
-        %{conn | request_path: "/foo?bar", method: "POST"}
+        build_conn(:post, "/foo", bar: "baz")
+        |> init_conn()
         |> fetch_flash()
         |> AdminAuth.require_authenticated_admin([])
 
@@ -168,5 +166,11 @@ defmodule EpiContactsWeb.AdminAuthTest do
       refute conn.halted
       refute conn.status
     end
+  end
+
+  defp init_conn(conn) do
+    conn
+    |> Map.replace!(:secret_key_base, EpiContactsWeb.Endpoint.config(:secret_key_base))
+    |> init_test_session(%{})
   end
 end

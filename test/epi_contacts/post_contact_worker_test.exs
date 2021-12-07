@@ -97,7 +97,7 @@ defmodule EpiContacts.PostContactWorkerTest do
       mock_timeout()
       assert {:snooze, 60} == perform_job(PostContactWorker, @valid_job_args)
       mock_timeout()
-      assert {:snooze, 180} == perform_job(PostContactWorker, @valid_job_args, attempt: 2)
+      assert {:snooze, 120} == perform_job(PostContactWorker, @valid_job_args, attempt: 2)
     end
   end
 

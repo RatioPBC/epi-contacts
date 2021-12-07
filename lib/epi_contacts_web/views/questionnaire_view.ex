@@ -46,37 +46,40 @@ defmodule EpiContactsWeb.QuestionnaireView do
   end
 
   def do_existing_contacts_section([]) do
-    use_copy = gettext("Use this questionnaire to add people you haven’t told us about.")
+    assigns = %{use_copy: gettext("Use this questionnaire to add people you haven’t told us about.")}
 
-    ~E"""
+    ~H"""
     <p>
-      <%= use_copy %>
+      <%= @use_copy %>
     </p>
     """
   end
 
   def do_existing_contacts_section(existing_contacts) do
-    use_copy = gettext("Use this questionnaire to add people you haven’t told us about.")
-    spoken_copy = gettext("If you have already spoken with us...")
-    contact_initials_header = gettext("Contact's initials")
-    last_4_header = gettext("Last 4 digits of phone")
+    assigns = %{
+      existing_contacts: existing_contacts,
+      use_copy: gettext("Use this questionnaire to add people you haven’t told us about."),
+      spoken_copy: gettext("If you have already spoken with us..."),
+      contact_initials_header: gettext("Contact's initials"),
+      last_4_header: gettext("Last 4 digits of phone")
+    }
 
-    ~E"""
+    ~H"""
     <p>
-      <%= use_copy %>
+      <%= @use_copy %>
       <br />
-      <%= spoken_copy %>
+      <%= @spoken_copy %>
     </p>
 
     <table>
       <thead>
         <tr>
-          <th><%= contact_initials_header %></th>
-          <th><%= last_4_header %></th>
+          <th><%= @contact_initials_header %></th>
+          <th><%= @last_4_header %></th>
         </tr>
       </thead>
       <tbody>
-      <%= for contact <- existing_contacts do %>
+      <%= for contact <- @existing_contacts do %>
         <tr>
           <td><%= initials(contact) %></td>
           <td><%= phone_number_mask(contact) %></td>
@@ -91,16 +94,18 @@ defmodule EpiContactsWeb.QuestionnaireView do
   def infectious_period(patient_case, opts \\ []) do
     locale = opts[:locale] || get_locale() || default_locale()
 
-    start_date = patient_case |> start_of_infectious_period() |> format(locale: locale)
-    end_date = patient_case |> end_of_infectious_period() |> display_end_of_historical_infectious_period()
-    from = gettext("from")
-    to = gettext("to")
+    assigns = %{
+      start_date: patient_case |> start_of_infectious_period() |> format(locale: locale),
+      end_date: patient_case |> end_of_infectious_period() |> display_end_of_historical_infectious_period(),
+      from: gettext("from"),
+      to: gettext("to")
+    }
 
-    ~E"""
-    <%= from %>
-    <span class="date" data-tid="start-date"><%= start_date %></span>
-    <%= to %>
-    <span class="date" data-tid="end-date"><%= end_date %></span>:
+    ~H"""
+    <%= @from %>
+    <span class="date" data-tid="start-date"><%= @start_date %></span>
+    <%= @to %>
+    <span class="date" data-tid="end-date"><%= @end_date %></span>:
     """
   end
 
@@ -123,10 +128,13 @@ defmodule EpiContactsWeb.QuestionnaireView do
   end
 
   defp infectious_period_header(patient_case, prelude) do
-    infectious_period = infectious_period(patient_case)
+    assigns = %{
+      prelude: prelude,
+      infectious_period: infectious_period(patient_case)
+    }
 
-    ~E"""
-      <%= prelude %> <%= infectious_period %>
+    ~H"""
+      <%= @prelude %> <%= @infectious_period %>
     """
   end
 

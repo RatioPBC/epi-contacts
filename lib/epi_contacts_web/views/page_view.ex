@@ -13,8 +13,10 @@ defmodule EpiContactsWeb.PageView do
       )
       |> raw()
 
-    ~E"""
-    <p><%= text %></p>
+    assigns = %{text: text}
+
+    ~H"""
+    <p><%= @text %></p>
     """
   end
 
@@ -26,8 +28,10 @@ defmodule EpiContactsWeb.PageView do
       gettext("Protect your family and the other people you live with by...", web_link: safe_to_string(web_link))
       |> raw()
 
-    ~E"""
-    <p><%= text %></p>
+    assigns = %{text: text}
+
+    ~H"""
+    <p><%= @text %></p>
     """
   end
 
