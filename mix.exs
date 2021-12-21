@@ -12,6 +12,7 @@ defmodule EpiContacts.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
+      docs: docs(),
       releases: [
         epi_contacts: [
           include_executables_for: [:unix],
@@ -22,7 +23,7 @@ defmodule EpiContacts.MixProject do
       ],
       xref: [exclude: IEx],
       test_coverage: [
-        summary: [ threshold: 0 ]
+        summary: [threshold: 0]
       ]
     ]
   end
@@ -59,6 +60,7 @@ defmodule EpiContacts.MixProject do
       {:euclid, "~> 0.2"},
       {:ex_aws, "~> 2.0"},
       {:ex_aws_cloudwatch, "~> 2.0"},
+      {:ex_doc, "~> 0.21", runtime: false},
       {:floki, ">= 0.0.0"},
       {:fun_with_flags, "~> 1.5"},
       {:fun_with_flags_ui, "~> 0.7"},
@@ -96,6 +98,72 @@ defmodule EpiContacts.MixProject do
     ]
   end
 
+  defp docs do
+    [
+      api_reference: false,
+      main: "epi-contacts",
+      assets: "guides/assets",
+      extra_section: "GUIDES",
+      extras: extras(),
+      formatters: ["html"],
+      source_url: "https://github.com/RatioPBC/epi-contacts",
+      nest_modules_by_prefix: [],
+      before_closing_body_tag: &before_closing_body_tag/1,
+      before_closing_head_tag: &before_closing_head_tag/1,
+      output: "docs"
+    ]
+  end
+
+  defp before_closing_body_tag(:html) do
+    """
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.13.6/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        mermaid.initialize({ startOnLoad: false, theme: "default" });
+        let id = 0;
+        for (const codeEl of document.querySelectorAll("pre code.mermaid")) {
+          const preEl = codeEl.parentElement;
+          const graphDefinition = codeEl.textContent;
+          const graphEl = document.createElement("div");
+          graphEl.classList.add("mermaid-container");
+          const graphId = "mermaid-graph-" + id++;
+          mermaid.render(graphId, graphDefinition, function (svgSource, bindListeners) {
+            graphEl.innerHTML = svgSource;
+            bindListeners && bindListeners(graphEl);
+            preEl.insertAdjacentElement("afterend", graphEl);
+            preEl.remove();
+          });
+        }
+      });
+    </script>
+    """
+  end
+
+  defp before_closing_body_tag(_), do: ""
+
+  defp before_closing_head_tag(:html) do
+    """
+    <style>
+      #content.content-inner {
+        max-width: 1282px;
+      }
+      .mermaid-container {
+        background-color: white;
+      }
+    </style>
+    """
+  end
+
+  defp before_closing_head_tag(_), do: ""
+
+  defp extras do
+    [
+      "README.md": [filename: "epi-contacts", title: "Epi Contacts"],
+      "guides/overview.md": [],
+      LICENSE: []
+    ]
+  end
+
   defp dialyzer do
     [
       plt_add_apps: [:iex],
@@ -112,6 +180,7 @@ defmodule EpiContacts.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
+      docs: ["docs", &copy_images/1],
       setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
@@ -121,5 +190,9 @@ defmodule EpiContacts.MixProject do
 
   defp compile_assets(_) do
     Mix.shell().cmd("npm run build --prefix assets")
+  end
+
+  defp copy_images(_) do
+    File.cp_r("guides/assets", "docs/assets")
   end
 end
