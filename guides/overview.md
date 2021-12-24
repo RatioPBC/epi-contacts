@@ -63,6 +63,53 @@ sequenceDiagram;
 
 ## Performance
 
+The application itself is very fast, as it uses Phoenix LiveView to render the user interface.
+The slowest aspects are fetching patient case data from CommCare and sending contact information
+to CommCare.
+
+Average time to process a forwarded case from CommCare as an SMS trigger is 0.750ms with a standard deviation of 1s.
+
+<div class="details-following-code" data-summary="SQL Code"></div>
+```sql
+WITH d AS (
+
+    SELECT
+        extract(epoch FROM completed_at) * 1000 AS completed_ms,
+        extract(epoch FROM attempted_at) * 1000 AS attempted_ms
+    FROM
+        oban_jobs
+    WHERE
+        state = 'completed'
+        AND worker = 'EpiContacts.CommcareSmsTrigger'
+)
+SELECT
+    avg(completed_ms - attempted_ms) AS average,
+    stddev(completed_ms - attempted_ms) AS sd
+FROM
+    d
+```
+
+Average time to send submitted contacts to CommCare is 1.4s with a standard deviation of 1.7s.
+
+<div class="details-following-code" data-summary="SQL Code"></div>
+```sql
+WITH d AS (
+    SELECT
+        extract(epoch FROM completed_at) * 1000 AS completed_ms,
+        extract(epoch FROM attempted_at) * 1000 AS attempted_ms
+    FROM
+        oban_jobs
+    WHERE
+        state = 'completed'
+        AND worker = 'EpiContacts.PostContactWorker'
+)
+SELECT
+    avg(completed_ms - attempted_ms) AS average,
+    stddev(completed_ms - attempted_ms) AS sd
+FROM
+    d
+```
+
 ## Releases
 
 Please see the [Release log](https://ratiopbc.slab.com/public/posts/6o7z66ec).
