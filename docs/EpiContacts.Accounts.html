@@ -29,6 +29,10 @@
   .details-following-code details.with-code pre {
     display: block;
   }
+
+  details > summary {
+    cursor: pointer;
+  }
 </style>
 
   </head>
@@ -286,10 +290,10 @@ Functions
   <a href="#get_admin!/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Examples
 </h2>
-<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">get_admin!</span><span class="p" data-group-id="9502923341-1">(</span><span class="mi">123</span><span class="p" data-group-id="9502923341-1">)</span><span class="w">
-</span><span class="p" data-group-id="9502923341-2">%</span><span class="nc" data-group-id="9502923341-2">Admin</span><span class="p" data-group-id="9502923341-2">{</span><span class="p" data-group-id="9502923341-2">}</span><span class="w">
+<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">get_admin!</span><span class="p" data-group-id="0822387110-1">(</span><span class="mi">123</span><span class="p" data-group-id="0822387110-1">)</span><span class="w">
+</span><span class="p" data-group-id="0822387110-2">%</span><span class="nc" data-group-id="0822387110-2">Admin</span><span class="p" data-group-id="0822387110-2">{</span><span class="p" data-group-id="0822387110-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">get_admin!</span><span class="p" data-group-id="9502923341-3">(</span><span class="mi">456</span><span class="p" data-group-id="9502923341-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">get_admin!</span><span class="p" data-group-id="0822387110-3">(</span><span class="mi">456</span><span class="p" data-group-id="0822387110-3">)</span><span class="w">
 </span><span class="gt">** (Ecto.NoResultsError)</span></code></pre>
   </section>
 </section>
@@ -316,10 +320,10 @@ Functions
   <a href="#get_admin_by_email/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Examples
 </h2>
-<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">get_admin_by_email</span><span class="p" data-group-id="5151747521-1">(</span><span class="s">&quot;foo@example.com&quot;</span><span class="p" data-group-id="5151747521-1">)</span><span class="w">
-</span><span class="p" data-group-id="5151747521-2">%</span><span class="nc" data-group-id="5151747521-2">Admin</span><span class="p" data-group-id="5151747521-2">{</span><span class="p" data-group-id="5151747521-2">}</span><span class="w">
+<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">get_admin_by_email</span><span class="p" data-group-id="5791295777-1">(</span><span class="s">&quot;foo@example.com&quot;</span><span class="p" data-group-id="5791295777-1">)</span><span class="w">
+</span><span class="p" data-group-id="5791295777-2">%</span><span class="nc" data-group-id="5791295777-2">Admin</span><span class="p" data-group-id="5791295777-2">{</span><span class="p" data-group-id="5791295777-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">get_admin_by_email</span><span class="p" data-group-id="5151747521-3">(</span><span class="s">&quot;unknown@example.com&quot;</span><span class="p" data-group-id="5151747521-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">get_admin_by_email</span><span class="p" data-group-id="5791295777-3">(</span><span class="s">&quot;unknown@example.com&quot;</span><span class="p" data-group-id="5791295777-3">)</span><span class="w">
 </span><span class="no">nil</span></code></pre>
   </section>
 </section>
@@ -346,10 +350,10 @@ Functions
   <a href="#get_admin_by_email_password_and_totp/3-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Examples
 </h2>
-<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">get_admin_by_email_and_password</span><span class="p" data-group-id="7746604362-1">(</span><span class="s">&quot;foo@example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;correct_password&quot;</span><span class="p" data-group-id="7746604362-1">)</span><span class="w">
-</span><span class="p" data-group-id="7746604362-2">%</span><span class="nc" data-group-id="7746604362-2">Admin</span><span class="p" data-group-id="7746604362-2">{</span><span class="p" data-group-id="7746604362-2">}</span><span class="w">
+<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">get_admin_by_email_and_password</span><span class="p" data-group-id="4301537160-1">(</span><span class="s">&quot;foo@example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;correct_password&quot;</span><span class="p" data-group-id="4301537160-1">)</span><span class="w">
+</span><span class="p" data-group-id="4301537160-2">%</span><span class="nc" data-group-id="4301537160-2">Admin</span><span class="p" data-group-id="4301537160-2">{</span><span class="p" data-group-id="4301537160-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">get_admin_by_email_and_password</span><span class="p" data-group-id="7746604362-3">(</span><span class="s">&quot;foo@example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;invalid_password&quot;</span><span class="p" data-group-id="7746604362-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">get_admin_by_email_and_password</span><span class="p" data-group-id="4301537160-3">(</span><span class="s">&quot;foo@example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;invalid_password&quot;</span><span class="p" data-group-id="4301537160-3">)</span><span class="w">
 </span><span class="no">nil</span></code></pre>
   </section>
 </section>
@@ -422,11 +426,11 @@ Functions
   <a href="#register_admin/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Examples
 </h2>
-<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">register_admin</span><span class="p" data-group-id="1275813783-1">(</span><span class="p" data-group-id="1275813783-2">%{</span><span class="ss">field</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="1275813783-2">}</span><span class="p" data-group-id="1275813783-1">)</span><span class="w">
-</span><span class="p" data-group-id="1275813783-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1275813783-4">%</span><span class="nc" data-group-id="1275813783-4">Admin</span><span class="p" data-group-id="1275813783-4">{</span><span class="p" data-group-id="1275813783-4">}</span><span class="p" data-group-id="1275813783-3">}</span><span class="w">
+<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">register_admin</span><span class="p" data-group-id="0078752043-1">(</span><span class="p" data-group-id="0078752043-2">%{</span><span class="ss">field</span><span class="p">:</span><span class="w"> </span><span class="n">value</span><span class="p" data-group-id="0078752043-2">}</span><span class="p" data-group-id="0078752043-1">)</span><span class="w">
+</span><span class="p" data-group-id="0078752043-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0078752043-4">%</span><span class="nc" data-group-id="0078752043-4">Admin</span><span class="p" data-group-id="0078752043-4">{</span><span class="p" data-group-id="0078752043-4">}</span><span class="p" data-group-id="0078752043-3">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">register_admin</span><span class="p" data-group-id="1275813783-5">(</span><span class="p" data-group-id="1275813783-6">%{</span><span class="ss">field</span><span class="p">:</span><span class="w"> </span><span class="n">bad_value</span><span class="p" data-group-id="1275813783-6">}</span><span class="p" data-group-id="1275813783-5">)</span><span class="w">
-</span><span class="p" data-group-id="1275813783-7">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1275813783-8">%</span><span class="nc" data-group-id="1275813783-8">Ecto.Changeset</span><span class="p" data-group-id="1275813783-8">{</span><span class="p" data-group-id="1275813783-8">}</span><span class="p" data-group-id="1275813783-7">}</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="n">register_admin</span><span class="p" data-group-id="0078752043-5">(</span><span class="p" data-group-id="0078752043-6">%{</span><span class="ss">field</span><span class="p">:</span><span class="w"> </span><span class="n">bad_value</span><span class="p" data-group-id="0078752043-6">}</span><span class="p" data-group-id="0078752043-5">)</span><span class="w">
+</span><span class="p" data-group-id="0078752043-7">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0078752043-8">%</span><span class="nc" data-group-id="0078752043-8">Ecto.Changeset</span><span class="p" data-group-id="0078752043-8">{</span><span class="p" data-group-id="0078752043-8">}</span><span class="p" data-group-id="0078752043-7">}</span></code></pre>
   </section>
 </section>
 
@@ -483,17 +487,17 @@ Functions
       });
     }
 
-  for (const d of document.getElementsByClassName("details-following-code")) {
-    const codeBlock = d.nextSibling;
-    const details = document.createElement("details");
-    details.classList.add("with-code");
-    const summary = document.createElement("summary");
-    const summaryText = document.createTextNode(d.dataset.summary);
-    summary.appendChild(summaryText);
-    details.appendChild(summary);
-    details.appendChild(codeBlock);
-    d.appendChild(details);
-  }
+    for (const d of document.getElementsByClassName("details-following-code")) {
+      const codeBlock = d.nextSibling;
+      const details = document.createElement("details");
+      details.classList.add("with-code");
+      const summary = document.createElement("summary");
+      const summaryText = document.createTextNode(d.dataset.summary);
+      summary.appendChild(summaryText);
+      details.appendChild(summary);
+      details.appendChild(codeBlock);
+      d.appendChild(details);
+    }
   });
 </script>
 

@@ -29,6 +29,10 @@
   .details-following-code details.with-code pre {
     display: block;
   }
+
+  details > summary {
+    cursor: pointer;
+  }
 </style>
 
   </head>
@@ -111,15 +115,15 @@ epi_contacts
 your module gains a set of macros for translations, for example:</p><pre><code class="makeup elixir"><span class="kn">import</span><span class="w"> </span><span class="nc">EpiContacts.Gettext</span><span class="w">
 
 </span><span class="c1"># Simple translation</span><span class="w">
-</span><span class="n">gettext</span><span class="p" data-group-id="6266172731-1">(</span><span class="s">&quot;Here is the string to translate&quot;</span><span class="p" data-group-id="6266172731-1">)</span><span class="w">
+</span><span class="n">gettext</span><span class="p" data-group-id="5015754489-1">(</span><span class="s">&quot;Here is the string to translate&quot;</span><span class="p" data-group-id="5015754489-1">)</span><span class="w">
 
 </span><span class="c1"># Plural translation</span><span class="w">
-</span><span class="n">ngettext</span><span class="p" data-group-id="6266172731-2">(</span><span class="s">&quot;Here is the string to translate&quot;</span><span class="p">,</span><span class="w">
+</span><span class="n">ngettext</span><span class="p" data-group-id="5015754489-2">(</span><span class="s">&quot;Here is the string to translate&quot;</span><span class="p">,</span><span class="w">
          </span><span class="s">&quot;Here are the strings to translate&quot;</span><span class="p">,</span><span class="w">
-         </span><span class="mi">3</span><span class="p" data-group-id="6266172731-2">)</span><span class="w">
+         </span><span class="mi">3</span><span class="p" data-group-id="5015754489-2">)</span><span class="w">
 
 </span><span class="c1"># Domain-based translation</span><span class="w">
-</span><span class="n">dgettext</span><span class="p" data-group-id="6266172731-3">(</span><span class="s">&quot;errors&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Here is the error message to translate&quot;</span><span class="p" data-group-id="6266172731-3">)</span></code></pre><p>See the <a href="https://hexdocs.pm/gettext">Gettext Docs</a> for detailed usage.</p>
+</span><span class="n">dgettext</span><span class="p" data-group-id="5015754489-3">(</span><span class="s">&quot;errors&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Here is the error message to translate&quot;</span><span class="p" data-group-id="5015754489-3">)</span></code></pre><p>See the <a href="https://hexdocs.pm/gettext">Gettext Docs</a> for detailed usage.</p>
   </section>
 
 
@@ -1071,17 +1075,17 @@ Functions
       });
     }
 
-  for (const d of document.getElementsByClassName("details-following-code")) {
-    const codeBlock = d.nextSibling;
-    const details = document.createElement("details");
-    details.classList.add("with-code");
-    const summary = document.createElement("summary");
-    const summaryText = document.createTextNode(d.dataset.summary);
-    summary.appendChild(summaryText);
-    details.appendChild(summary);
-    details.appendChild(codeBlock);
-    d.appendChild(details);
-  }
+    for (const d of document.getElementsByClassName("details-following-code")) {
+      const codeBlock = d.nextSibling;
+      const details = document.createElement("details");
+      details.classList.add("with-code");
+      const summary = document.createElement("summary");
+      const summaryText = document.createTextNode(d.dataset.summary);
+      summary.appendChild(summaryText);
+      details.appendChild(summary);
+      details.appendChild(codeBlock);
+      d.appendChild(details);
+    }
   });
 </script>
 

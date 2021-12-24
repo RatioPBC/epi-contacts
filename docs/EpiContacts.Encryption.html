@@ -29,6 +29,10 @@
   .details-following-code details.with-code pre {
     display: block;
   }
+
+  details > summary {
+    cursor: pointer;
+  }
 </style>
 
   </head>
@@ -243,11 +247,11 @@ Functions
   <a href="#decrypt/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Examples
 </h3>
-<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">decrypt</span><span class="p" data-group-id="5402130101-1">(</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;encoded nonce...&quot;</span><span class="p" data-group-id="5402130101-1">)</span><span class="w">
-</span><span class="p" data-group-id="5402130101-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;secret string&quot;</span><span class="p" data-group-id="5402130101-2">}</span><span class="w">
+<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">decrypt</span><span class="p" data-group-id="0069994997-1">(</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;encoded nonce...&quot;</span><span class="p" data-group-id="0069994997-1">)</span><span class="w">
+</span><span class="p" data-group-id="0069994997-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;secret string&quot;</span><span class="p" data-group-id="0069994997-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">decrypt</span><span class="p" data-group-id="5402130101-3">(</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;some other encoded nonce...&quot;</span><span class="p" data-group-id="5402130101-3">)</span><span class="w">
-</span><span class="p" data-group-id="5402130101-4">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;failed to decrypt&quot;</span><span class="p" data-group-id="5402130101-4">}</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="n">decrypt</span><span class="p" data-group-id="0069994997-3">(</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;some other encoded nonce...&quot;</span><span class="p" data-group-id="0069994997-3">)</span><span class="w">
+</span><span class="p" data-group-id="0069994997-4">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;failed to decrypt&quot;</span><span class="p" data-group-id="0069994997-4">}</span></code></pre>
   </section>
 </section>
 <section class="detail" id="encode_nonce/1">
@@ -304,14 +308,14 @@ Functions
   <a href="#encrypt/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Examples
 </h2>
-<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">encrypt</span><span class="p" data-group-id="1460700909-1">(</span><span class="s">&quot;secret string&quot;</span><span class="p" data-group-id="1460700909-1">)</span><span class="w">
-</span><span class="p" data-group-id="1460700909-2">{</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nonce...&quot;</span><span class="p" data-group-id="1460700909-2">}</span><span class="w">
+<pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">encrypt</span><span class="p" data-group-id="9887399978-1">(</span><span class="s">&quot;secret string&quot;</span><span class="p" data-group-id="9887399978-1">)</span><span class="w">
+</span><span class="p" data-group-id="9887399978-2">{</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nonce...&quot;</span><span class="p" data-group-id="9887399978-2">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">encrypt</span><span class="p" data-group-id="1460700909-3">(</span><span class="s">&quot;secret string&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;24 byte nonce&quot;</span><span class="p" data-group-id="1460700909-3">)</span><span class="w">
-</span><span class="p" data-group-id="1460700909-4">{</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;encoded nonce...&quot;</span><span class="p" data-group-id="1460700909-4">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">encrypt</span><span class="p" data-group-id="9887399978-3">(</span><span class="s">&quot;secret string&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;24 byte nonce&quot;</span><span class="p" data-group-id="9887399978-3">)</span><span class="w">
+</span><span class="p" data-group-id="9887399978-4">{</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;encoded nonce...&quot;</span><span class="p" data-group-id="9887399978-4">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="n">encrypt</span><span class="p" data-group-id="1460700909-5">(</span><span class="p" data-group-id="1460700909-6">%{</span><span class="s">&quot;some_key&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;secret string&quot;</span><span class="p" data-group-id="1460700909-6">}</span><span class="p" data-group-id="1460700909-5">)</span><span class="w">
-</span><span class="p" data-group-id="1460700909-7">{</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nonce...&quot;</span><span class="p" data-group-id="1460700909-7">}</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="n">encrypt</span><span class="p" data-group-id="9887399978-5">(</span><span class="p" data-group-id="9887399978-6">%{</span><span class="s">&quot;some_key&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;secret string&quot;</span><span class="p" data-group-id="9887399978-6">}</span><span class="p" data-group-id="9887399978-5">)</span><span class="w">
+</span><span class="p" data-group-id="9887399978-7">{</span><span class="s">&quot;encrypted...&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;nonce...&quot;</span><span class="p" data-group-id="9887399978-7">}</span></code></pre>
   </section>
 </section>
 <section class="detail" id="generate_nonce/0">
@@ -397,17 +401,17 @@ Functions
       });
     }
 
-  for (const d of document.getElementsByClassName("details-following-code")) {
-    const codeBlock = d.nextSibling;
-    const details = document.createElement("details");
-    details.classList.add("with-code");
-    const summary = document.createElement("summary");
-    const summaryText = document.createTextNode(d.dataset.summary);
-    summary.appendChild(summaryText);
-    details.appendChild(summary);
-    details.appendChild(codeBlock);
-    d.appendChild(details);
-  }
+    for (const d of document.getElementsByClassName("details-following-code")) {
+      const codeBlock = d.nextSibling;
+      const details = document.createElement("details");
+      details.classList.add("with-code");
+      const summary = document.createElement("summary");
+      const summaryText = document.createTextNode(d.dataset.summary);
+      summary.appendChild(summaryText);
+      details.appendChild(summary);
+      details.appendChild(codeBlock);
+      d.appendChild(details);
+    }
   });
 </script>
 
