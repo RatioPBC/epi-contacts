@@ -136,17 +136,17 @@ defmodule EpiContacts.MixProject do
           });
         }
 
-      for (const d of document.getElementsByClassName("details-following-code")) {
-        const codeBlock = d.nextSibling;
-        const details = document.createElement("details");
-        details.classList.add("with-code");
-        const summary = document.createElement("summary");
-        const summaryText = document.createTextNode(d.dataset.summary);
-        summary.appendChild(summaryText);
-        details.appendChild(summary);
-        details.appendChild(codeBlock);
-        d.appendChild(details);
-      }
+        for (const d of document.getElementsByClassName("details-following-code")) {
+          const codeBlock = d.nextSibling;
+          const details = document.createElement("details");
+          details.classList.add("with-code");
+          const summary = document.createElement("summary");
+          const summaryText = document.createTextNode(d.dataset.summary);
+          summary.appendChild(summaryText);
+          details.appendChild(summary);
+          details.appendChild(codeBlock);
+          d.appendChild(details);
+        }
       });
     </script>
     """
@@ -170,6 +170,10 @@ defmodule EpiContacts.MixProject do
 
       .details-following-code details.with-code pre {
         display: block;
+      }
+
+      details > summary {
+        cursor: pointer;
       }
     </style>
     """
