@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="project" content="epi_contacts v0.1.0">
+
+    <title>Overview — epi_contacts v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+
+    <script src="dist/sidebar_items-c869010af8.js"></script>
+
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+
+<style>
+  #content.content-inner {
+    max-width: 1282px;
+  }
+  .mermaid-container {
+    background-color: white;
+  }
+
+  .details-following-code ~ pre {
+    display: none;
+  }
+
+  .details-following-code details.with-code pre {
+    display: block;
+  }
+</style>
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="epi-contacts.html" class="sidebar-projectName" translate="no">
+epi_contacts
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">GUIDES</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+Overview
+
+    <a href="https://github.com/RatioPBC/epi-contacts/blob/main/guides/overview.md#L1" title="View Source" class="view-source" rel="help">
+      <span class="icon-code" aria-hidden="true"></span>
+      <span class="sr-only">View Source</span>
+    </a>
+
+</h1>
+
+<p>In NYS, Epi Contacts is deployed by its original name, Share My Contacts.</p><h2 id="sms-trigger-workflow" class="section-heading">
+  <a href="#sms-trigger-workflow" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  SMS Trigger Workflow
+</h2>
+<p>The SMS is a message whose template is stored in CommCare as a conditional alert, which contains a link to the 
+running Epi Contacts application.</p><p>The logic to determine if a patient should receive an SMS message is relatively complex.
+If a patient case meets preconditions, as defined in 
+<a href="EpiContacts.CommcareSmsTrigger.html#case_meets_preconditions?/2"><code class="inline">EpiContacts.CommcareSmsTrigger.case_meets_preconditions?/2</code></a> and conditions as defined in
+<a href="EpiContacts.CommcareSmsTrigger.html#case_meets_conditions?/3"><code class="inline">EpiContacts.CommcareSmsTrigger.case_meets_conditions?/3</code></a>, then the application will send a request to 
+CommCare to send the SMS to the patient.</p><pre><code class="mermaid">sequenceDiagram;    CommCare->>Epi Contacts: case forwarded;    alt case has not been sent SMS before;        Epi Contacts->>Epi Contacts: check preconditions;        Epi Contacts->>Epi Contacts: check conditions;        alt if conditions met;            Epi Contacts-->>CommCare: send SMS;        end;    end;</code></pre><p>There are 3 precondition scenarios to be aware of: <code class="inline">pre_ci</code>, <code class="inline">pre_ci_minor</code> and <code class="inline">post_ci</code>.</p><p><code class="inline">pre_ci</code> and <code class="inline">pre_ci_minor</code> are for when a patient case has been forwarded by CommCare upon create, or very 
+shortly after. We differentiate between adults and minors to avoid sending SMS messages to minors.</p><p><code class="inline">post_ci</code> is for when a Contact Tracer (&quot;CT&quot;) or Case Investigator (&quot;CI&quot;) pushes a button from within 
+CommCare to send the patient an SMS. This still passes through Epi Contacts so the trigger 
+logic can live in a single place.</p><h2 id="contact-elicitation-workflow" class="section-heading">
+  <a href="#contact-elicitation-workflow" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Contact Elicitation Workflow
+</h2>
+<p>Upon clicking the link in the SMS, a patient is presened with the Epi Contacts application.</p><pre><code class="mermaid">sequenceDiagram;    Patient Case->>Epi Contacts: validate token;    alt token valid;        Epi Contacts->>CommCare: get patient case;        CommCare-->>Epi Contacts: patient case;        alt case is minor;            Epi Contacts-->>Patient Case: present minor page;        else;            Epi Contacts-->>Patient Case: confirm identity;            Patient Case->>Patient Case: register contacts;            Patient Case->>Epi Contacts: submit contacts;            Epi Contacts->>CommCare: submit contacts;        end;    else token invalid;        Epi Contacts-->>Patient Case: invalid/expired token;    end;</code></pre><h2 id="performance" class="section-heading">
+  <a href="#performance" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Performance
+</h2>
+<p>The application itself is very fast, as it uses Phoenix LiveView to render the user interface.
+The slowest aspects are fetching patient case data from CommCare and sending contact information
+to CommCare.</p><p>Average time to process a forwarded case from CommCare as an SMS trigger is 0.750ms with a standard deviation of 1s.</p><div class="details-following-code" data-summary="SQL Code"></div><pre><code class="sql">WITH d AS (
+
+    SELECT
+        extract(epoch FROM completed_at) * 1000 AS completed_ms,
+        extract(epoch FROM attempted_at) * 1000 AS attempted_ms
+    FROM
+        oban_jobs
+    WHERE
+        state = 'completed'
+        AND worker = 'EpiContacts.CommcareSmsTrigger'
+)
+SELECT
+    avg(completed_ms - attempted_ms) AS average,
+    stddev(completed_ms - attempted_ms) AS sd
+FROM
+    d</code></pre><p>Average time to send submitted contacts to CommCare is 1.4s with a standard deviation of 1.7s.</p><div class="details-following-code" data-summary="SQL Code"></div><pre><code class="sql">WITH d AS (
+    SELECT
+        extract(epoch FROM completed_at) * 1000 AS completed_ms,
+        extract(epoch FROM attempted_at) * 1000 AS attempted_ms
+    FROM
+        oban_jobs
+    WHERE
+        state = 'completed'
+        AND worker = 'EpiContacts.PostContactWorker'
+)
+SELECT
+    avg(completed_ms - attempted_ms) AS average,
+    stddev(completed_ms - attempted_ms) AS sd
+FROM
+    d</code></pre><h2 id="releases" class="section-heading">
+  <a href="#releases" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Releases
+</h2>
+<p>Please see the <a href="https://ratiopbc.slab.com/public/posts/6o7z66ec">Release log</a>.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="epi-contacts.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Epi Contacts
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="license.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+LICENSE
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@8.13.6/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    mermaid.initialize({ startOnLoad: false, theme: "default" });
+    let id = 0;
+    for (const codeEl of document.querySelectorAll("pre code.mermaid")) {
+      const preEl = codeEl.parentElement;
+      const graphDefinition = codeEl.textContent;
+      const graphEl = document.createElement("div");
+      graphEl.classList.add("mermaid-container");
+      const graphId = "mermaid-graph-" + id++;
+      mermaid.render(graphId, graphDefinition, function (svgSource, bindListeners) {
+        graphEl.innerHTML = svgSource;
+        bindListeners && bindListeners(graphEl);
+        preEl.insertAdjacentElement("afterend", graphEl);
+        preEl.remove();
+      });
+    }
+
+  for (const d of document.getElementsByClassName("details-following-code")) {
+    const codeBlock = d.nextSibling;
+    const details = document.createElement("details");
+    details.classList.add("with-code");
+    const summary = document.createElement("summary");
+    const summaryText = document.createTextNode(d.dataset.summary);
+    summary.appendChild(summaryText);
+    details.appendChild(summary);
+    details.appendChild(codeBlock);
+    d.appendChild(details);
+  }
+  });
+</script>
+
+  </body>
+</html>

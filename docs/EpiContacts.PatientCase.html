@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="project" content="epi_contacts v0.1.0">
+
+    <title>EpiContacts.PatientCase — epi_contacts v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+
+    <script src="dist/sidebar_items-c869010af8.js"></script>
+
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+
+<style>
+  #content.content-inner {
+    max-width: 1282px;
+  }
+  .mermaid-container {
+    background-color: white;
+  }
+
+  .details-following-code ~ pre {
+    display: none;
+  }
+
+  .details-following-code details.with-code pre {
+    display: block;
+  }
+</style>
+
+  </head>
+  <body data-type="modules">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="epi-contacts.html" class="sidebar-projectName" translate="no">
+epi_contacts
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">GUIDES</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+  <span translate="no">EpiContacts.PatientCase</span> 
+  <small class="app-vsn" translate="no">(epi_contacts v0.1.0)</small>
+
+    <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L1" title="View Source" class="view-source" rel="help">
+      <span class="icon-code" aria-hidden="true"></span>
+      <span class="sr-only">View Source</span>
+    </a>
+
+
+</h1>
+
+
+  <section id="moduledoc">
+<p>utilities for working with patient case map data</p>
+  </section>
+
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <span class="icon-link" aria-hidden="true"></span>
+        <span class="sr-only">Link to this section</span>
+      </a>
+      Summary
+    </h1>
+
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#age/2" translate="no">age(patient_case, as_of \\ Timex.local())</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#case_id/1" translate="no">case_id(arg1)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#case_type/1" translate="no">case_type(commcare_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#child_cases/1" translate="no">child_cases(map)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#current_status/1" translate="no">current_status(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#date_of_birth/1" translate="no">date_of_birth(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#days_between_open_and_modified/1" translate="no">days_between_open_and_modified(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#doh_mpi_id/1" translate="no">doh_mpi_id(patient)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#domain/1" translate="no">domain(arg1)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#end_of_infectious_period/1" translate="no">end_of_infectious_period(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#existing_contacts/1" translate="no">existing_contacts(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#external_id/1" translate="no">external_id(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#first_name/1" translate="no">first_name(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#full_name/1" translate="no">full_name(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#generate_contact_id/1" translate="no">generate_contact_id(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#has_date_of_birth?/1" translate="no">has_date_of_birth?(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#has_phone_number?/1" translate="no">has_phone_number?(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#infectious_period/1" translate="no">infectious_period(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#initials/1" translate="no">initials(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#interview_attempted_or_completed?/1" translate="no">interview_attempted_or_completed?(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#investigation?/1" translate="no">investigation?(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#investigation_case_id/1" translate="no">investigation_case_id(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#investigation_id/1" translate="no">investigation_id(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#investigation_name/1" translate="no">investigation_name(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#is_contact?/1" translate="no">is_contact?(commcare_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#is_minor?/2" translate="no">is_minor?(patient_case, as_of \\ Timex.local())</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#is_patient?/1" translate="no">is_patient?(commcare_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#is_stub?/1" translate="no">is_stub?(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#isolation_end_date/1" translate="no">isolation_end_date(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#isolation_start_date/1" translate="no">isolation_start_date(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#last_name/1" translate="no">last_name(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#minimum_age/0" translate="no">minimum_age()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#new_lab_result_specimen_collection_date/1" translate="no">new_lab_result_specimen_collection_date(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#owner_id/1" translate="no">owner_id(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#parse_date/1" translate="no">parse_date(date_string)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#patient_type/1" translate="no">patient_type(commcare_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#phone/1" translate="no">phone(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#primary_language/1" translate="no">primary_language(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#properties/1" translate="no">properties(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#property/3" translate="no">property(patient_case, property, default \\ nil)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#release_from_isolation_date/1" translate="no">release_from_isolation_date(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#secure_id/1" translate="no">secure_id(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#secure_id_property/0" translate="no">secure_id_property()</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#smc_opt_in?/1" translate="no">smc_opt_in?(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#smc_trigger_reason/1" translate="no">smc_trigger_reason(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#start_of_infectious_period/1" translate="no">start_of_infectious_period(patient_case)</a>
+
+        </div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#transfer_status/1" translate="no">transfer_status(patient_case)</a>
+
+        </div>
+
+      </div>
+
+  </div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <span class="icon-link" aria-hidden="true"></span>
+        <span class="sr-only">Link to this section</span>
+      </a>
+Functions
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="age/2">
+
+    <span id="age/1"></span>
+
+  <div class="detail-header">
+    <a href="#age/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">age(patient_case, as_of \\ Timex.local())</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L12" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre translate="no">age(patient_case :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>(), as_of :: <a href="https://hexdocs.pm/elixir/DateTime.html#t:t/0">DateTime.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pos_integer</a>() | nil</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="case_id/1">
+
+  <div class="detail-header">
+    <a href="#case_id/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">case_id(arg1)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L48" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="case_type/1">
+
+  <div class="detail-header">
+    <a href="#case_type/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">case_type(commcare_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L134" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="child_cases/1">
+
+  <div class="detail-header">
+    <a href="#child_cases/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">child_cases(map)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L51" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="current_status/1">
+
+  <div class="detail-header">
+    <a href="#current_status/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">current_status(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L53" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="date_of_birth/1">
+
+  <div class="detail-header">
+    <a href="#date_of_birth/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">date_of_birth(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L27" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="days_between_open_and_modified/1">
+
+  <div class="detail-header">
+    <a href="#days_between_open_and_modified/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">days_between_open_and_modified(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L194" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="doh_mpi_id/1">
+
+  <div class="detail-header">
+    <a href="#doh_mpi_id/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">doh_mpi_id(patient)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L155" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="domain/1">
+
+  <div class="detail-header">
+    <a href="#domain/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">domain(arg1)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L45" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="end_of_infectious_period/1">
+
+  <div class="detail-header">
+    <a href="#end_of_infectious_period/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">end_of_infectious_period(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L128" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="existing_contacts/1">
+
+  <div class="detail-header">
+    <a href="#existing_contacts/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">existing_contacts(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L181" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="external_id/1">
+
+  <div class="detail-header">
+    <a href="#external_id/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">external_id(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L172" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="first_name/1">
+
+  <div class="detail-header">
+    <a href="#first_name/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">first_name(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L62" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="full_name/1">
+
+  <div class="detail-header">
+    <a href="#full_name/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">full_name(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L59" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="generate_contact_id/1">
+
+  <div class="detail-header">
+    <a href="#generate_contact_id/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">generate_contact_id(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L148" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="has_date_of_birth?/1">
+
+  <div class="detail-header">
+    <a href="#has_date_of_birth?/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">has_date_of_birth?(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L71" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="has_phone_number?/1">
+
+  <div class="detail-header">
+    <a href="#has_phone_number?/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">has_phone_number?(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L75" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="infectious_period/1">
+
+  <div class="detail-header">
+    <a href="#infectious_period/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">infectious_period(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L131" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="initials/1">
+
+  <div class="detail-header">
+    <a href="#initials/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">initials(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L81" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="interview_attempted_or_completed?/1">
+
+  <div class="detail-header">
+    <a href="#interview_attempted_or_completed?/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">interview_attempted_or_completed?(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L206" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="investigation?/1">
+
+  <div class="detail-header">
+    <a href="#investigation?/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">investigation?(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L97" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="investigation_case_id/1">
+
+  <div class="detail-header">
+    <a href="#investigation_case_id/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">investigation_case_id(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L103" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="investigation_id/1">
+
+  <div class="detail-header">
+    <a href="#investigation_id/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">investigation_id(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L106" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="investigation_name/1">
+
+  <div class="detail-header">
+    <a href="#investigation_name/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">investigation_name(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L100" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="is_contact?/1">
+
+  <div class="detail-header">
+    <a href="#is_contact?/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_contact?(commcare_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L135" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="is_minor?/2">
+
+    <span id="is_minor?/1"></span>
+
+  <div class="detail-header">
+    <a href="#is_minor?/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_minor?(patient_case, as_of \\ Timex.local())</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L138" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="is_patient?/1">
+
+  <div class="detail-header">
+    <a href="#is_patient?/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_patient?(commcare_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L136" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="is_stub?/1">
+
+  <div class="detail-header">
+    <a href="#is_stub?/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">is_stub?(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L166" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="isolation_end_date/1">
+
+  <div class="detail-header">
+    <a href="#isolation_end_date/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">isolation_end_date(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L112" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="isolation_start_date/1">
+
+  <div class="detail-header">
+    <a href="#isolation_start_date/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">isolation_start_date(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L109" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="last_name/1">
+
+  <div class="detail-header">
+    <a href="#last_name/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">last_name(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L65" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="minimum_age/0">
+
+  <div class="detail-header">
+    <a href="#minimum_age/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">minimum_age()</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L141" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="new_lab_result_specimen_collection_date/1">
+
+  <div class="detail-header">
+    <a href="#new_lab_result_specimen_collection_date/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">new_lab_result_specimen_collection_date(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L120" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="owner_id/1">
+
+  <div class="detail-header">
+    <a href="#owner_id/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">owner_id(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L56" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="parse_date/1">
+
+  <div class="detail-header">
+    <a href="#parse_date/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">parse_date(date_string)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L36" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="patient_type/1">
+
+  <div class="detail-header">
+    <a href="#patient_type/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">patient_type(commcare_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L143" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="phone/1">
+
+  <div class="detail-header">
+    <a href="#phone/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">phone(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L68" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="primary_language/1">
+
+  <div class="detail-header">
+    <a href="#primary_language/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">primary_language(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L163" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="properties/1">
+
+  <div class="detail-header">
+    <a href="#properties/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">properties(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L30" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="property/3">
+
+    <span id="property/2"></span>
+
+  <div class="detail-header">
+    <a href="#property/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">property(patient_case, property, default \\ nil)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L33" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="release_from_isolation_date/1">
+
+  <div class="detail-header">
+    <a href="#release_from_isolation_date/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">release_from_isolation_date(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L117" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="secure_id/1">
+
+  <div class="detail-header">
+    <a href="#secure_id/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">secure_id(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L86" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="secure_id_property/0">
+
+  <div class="detail-header">
+    <a href="#secure_id_property/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">secure_id_property()</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L89" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="smc_opt_in?/1">
+
+  <div class="detail-header">
+    <a href="#smc_opt_in?/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">smc_opt_in?(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L91" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="smc_trigger_reason/1">
+
+  <div class="detail-header">
+    <a href="#smc_trigger_reason/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">smc_trigger_reason(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L94" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="start_of_infectious_period/1">
+
+  <div class="detail-header">
+    <a href="#start_of_infectious_period/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">start_of_infectious_period(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L123" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="transfer_status/1">
+
+  <div class="detail-header">
+    <a href="#transfer_status/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">transfer_status(patient_case)</h1>
+
+      <a href="https://github.com/RatioPBC/epi-contacts/blob/main/lib/epi_contacts/patient_case.ex#L169" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@8.13.6/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    mermaid.initialize({ startOnLoad: false, theme: "default" });
+    let id = 0;
+    for (const codeEl of document.querySelectorAll("pre code.mermaid")) {
+      const preEl = codeEl.parentElement;
+      const graphDefinition = codeEl.textContent;
+      const graphEl = document.createElement("div");
+      graphEl.classList.add("mermaid-container");
+      const graphId = "mermaid-graph-" + id++;
+      mermaid.render(graphId, graphDefinition, function (svgSource, bindListeners) {
+        graphEl.innerHTML = svgSource;
+        bindListeners && bindListeners(graphEl);
+        preEl.insertAdjacentElement("afterend", graphEl);
+        preEl.remove();
+      });
+    }
+
+  for (const d of document.getElementsByClassName("details-following-code")) {
+    const codeBlock = d.nextSibling;
+    const details = document.createElement("details");
+    details.classList.add("with-code");
+    const summary = document.createElement("summary");
+    const summaryText = document.createTextNode(d.dataset.summary);
+    summary.appendChild(summaryText);
+    details.appendChild(summary);
+    details.appendChild(codeBlock);
+    d.appendChild(details);
+  }
+  });
+</script>
+
+  </body>
+</html>

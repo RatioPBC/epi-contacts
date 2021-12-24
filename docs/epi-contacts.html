@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.26.0">
+    <meta name="project" content="epi_contacts v0.1.0">
+
+    <title>Epi Contacts — epi_contacts v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-b5076885a795c65e636c.css" />
+
+    <script src="dist/sidebar_items-c869010af8.js"></script>
+
+    <script async src="dist/app-a404e1e870b77c874f9e.js"></script>
+
+<style>
+  #content.content-inner {
+    max-width: 1282px;
+  }
+  .mermaid-container {
+    background-color: white;
+  }
+
+  .details-following-code ~ pre {
+    display: none;
+  }
+
+  .details-following-code details.with-code pre {
+    display: block;
+  }
+</style>
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="epi-contacts.html" class="sidebar-projectName" translate="no">
+epi_contacts
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.1.0
+      </strong>
+    </div>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">GUIDES</a></li>
+
+      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+Epi Contacts
+
+    <a href="https://github.com/RatioPBC/epi-contacts/blob/main/README.md#L1" title="View Source" class="view-source" rel="help">
+      <span class="icon-code" aria-hidden="true"></span>
+      <span class="sr-only">View Source</span>
+    </a>
+
+</h1>
+
+<p>Epi Contacts is a software application designed to elicit contact
+information from positive COVID-19 cases to help case investigation and
+contact tracing teams operate more efficiently. Epi Contacts receives
+positive COVID-19 case information, triggers SMS messages to be sent to
+eligible cases, and presents cases with a mobile-friendly web form that
+provides isolation instructions and enables submission of close contact
+information. Data received from cases is automatically and securely
+uploaded to the corresponding case record in the case management system.
+Event data -- including both user and API interactions -- are logged
+to enable downstream analytics around system utilization.</p><p>Epi Contacts was designed for and is deployed in production for the New
+York State Department of Health integrated with NY-CDCMS, a contact
+tracing system built on <a href="https://dimagi.com/commcare/">CommCare</a> from
+<a href="https://dimagi.com/">Dimagi</a>.</p><p>The development of Epi Contacts is sponsored by <a href="https://resolvetosavelives.org/">Resolve to Save Lives,
+an initiative of Vital Strategies</a>.</p><h2 id="transition" class="section-heading">
+  <a href="#transition" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Transition
+</h2>
+<p>This application was originally called <code class="inline">Share My Contacts</code> and that's
+how it's currently deployed in New York. It was renamed to <code class="inline">Epi Contacts</code>
+during a rebranding but the code lagged until open sourcing in June 2021.</p><p>There are references to <code class="inline">Share My Contacts</code> in content and metrics
+to maintain backwards compaibility, for now.</p><h1>Usage</h1><p>The source code is published here to inspire others to do similar work,
+but it is not expected that the code be reusable in any other settings
+than those for which it was written. Anyone interested in studying the
+code should be able to download it and run the test suite.</p><p>The software is being actively developed on MacOS and Linux.</p><p>The application currently depends on <a href="https://getoban.pro">Oban
+Pro</a>, which is a commercial plugin to the queue manager
+<a href="https://hexdocs.pm/oban">Oban</a>,
+and a (very affordable) license is required to complete the
+installation and run the test suite. We are working on making Oban Pro
+optional in the future.</p><h1>Contributing</h1><p>Epi Contacts is not open-contribution. It was built for one user, and
+it's being maintained for that user only. Also, in order to keep Epi
+Contacts in the public domain and ensure that the code does not become
+contaminated with proprietary or licensed content, the project does not
+accept pull requests or patches from unknown persons.</p><h2 id="copyright-and-license" class="section-heading">
+  <a href="#copyright-and-license" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Copyright and license
+</h2>
+<p>Copyright (c) 2021 <a href="https://ratiopbc.com">Ratio PBC, Inc</a>.
+The code is made available under the Apache License, Version 2.0.
+See also <a href="license.html">LICENSE</a>.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="overview.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Overview
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.26.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire" translate="no">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button display-settings">
+            Settings
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@8.13.6/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    mermaid.initialize({ startOnLoad: false, theme: "default" });
+    let id = 0;
+    for (const codeEl of document.querySelectorAll("pre code.mermaid")) {
+      const preEl = codeEl.parentElement;
+      const graphDefinition = codeEl.textContent;
+      const graphEl = document.createElement("div");
+      graphEl.classList.add("mermaid-container");
+      const graphId = "mermaid-graph-" + id++;
+      mermaid.render(graphId, graphDefinition, function (svgSource, bindListeners) {
+        graphEl.innerHTML = svgSource;
+        bindListeners && bindListeners(graphEl);
+        preEl.insertAdjacentElement("afterend", graphEl);
+        preEl.remove();
+      });
+    }
+
+  for (const d of document.getElementsByClassName("details-following-code")) {
+    const codeBlock = d.nextSibling;
+    const details = document.createElement("details");
+    details.classList.add("with-code");
+    const summary = document.createElement("summary");
+    const summaryText = document.createTextNode(d.dataset.summary);
+    summary.appendChild(summaryText);
+    details.appendChild(summary);
+    details.appendChild(codeBlock);
+    d.appendChild(details);
+  }
+  });
+</script>
+
+  </body>
+</html>
