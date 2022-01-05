@@ -113,7 +113,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
         |> View.infectious_period()
         |> html_for()
 
-      assert_infectious_period(html, "Tuesday, June 15", "Friday, June 25")
+      assert_infectious_period(html, "Tuesday, June 15", "Sunday, June 20")
     end
 
     test "renders start & end date in Spanish" do
@@ -128,7 +128,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
         |> View.infectious_period()
         |> html_for()
 
-      assert_infectious_period(html, "Tuesday, June 15", "Friday, June 25")
+      assert_infectious_period(html, "Tuesday, June 15", "Sunday, June 20")
     end
   end
 
@@ -196,7 +196,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
       raw_html = Floki.raw_html(html)
 
       assert raw_html =~ escaped_text(prelude)
-      assert_infectious_period(html, "Tuesday, June 15", "Friday, June 25")
+      assert_infectious_period(html, "Tuesday, June 15", "Sunday, June 20")
     end
   end
 
@@ -210,7 +210,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
       patient_case = %{"properties" => %{"isolation_start_date" => "2020-12-20"}}
 
       options = View.exposed_on_select_options(patient_case)
-      assert Enum.count(options) == 11
+      assert Enum.count(options) == 6
     end
 
     test "handles English" do
@@ -225,12 +225,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
                  {"Sunday, Dec 20", "2020-12-20"},
                  {"Monday, Dec 21", "2020-12-21"},
                  {"Tuesday, Dec 22", "2020-12-22"},
-                 {"Wednesday, Dec 23", "2020-12-23"},
-                 {"Thursday, Dec 24", "2020-12-24"},
-                 {"Friday, Dec 25", "2020-12-25"},
-                 {"Saturday, Dec 26", "2020-12-26"},
-                 {"Sunday, Dec 27", "2020-12-27"},
-                 {"Monday, Dec 28", "2020-12-28"}
+                 {"Wednesday, Dec 23", "2020-12-23"}
                ],
                options
              )
@@ -248,12 +243,7 @@ defmodule EpiContactsWeb.QuestionnaireViewTest do
                  {"Domingo 20 de Dic", "2020-12-20"},
                  {"Lunes 21 de Dic", "2020-12-21"},
                  {"Martes 22 de Dic", "2020-12-22"},
-                 {"Miércoles 23 de Dic", "2020-12-23"},
-                 {"Jueves 24 de Dic", "2020-12-24"},
-                 {"Viernes 25 de Dic", "2020-12-25"},
-                 {"Sábado 26 de Dic", "2020-12-26"},
-                 {"Domingo 27 de Dic", "2020-12-27"},
-                 {"Lunes 28 de Dic", "2020-12-28"}
+                 {"Miércoles 23 de Dic", "2020-12-23"}
                ],
                options
              )

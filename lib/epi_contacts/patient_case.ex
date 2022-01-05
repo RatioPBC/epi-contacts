@@ -109,10 +109,12 @@ defmodule EpiContacts.PatientCase do
   def isolation_start_date(patient_case),
     do: patient_case |> property("isolation_start_date") |> parse_date()
 
+  @isolation_span 5
+
   def isolation_end_date(patient_case),
     do:
       (isolation_start_date(patient_case) || new_lab_result_specimen_collection_date(patient_case))
-      |> Timex.shift(days: 10)
+      |> Timex.shift(days: @isolation_span)
 
   def release_from_isolation_date(patient_case),
     do: patient_case |> isolation_end_date() |> Timex.shift(days: 1)
@@ -126,7 +128,7 @@ defmodule EpiContacts.PatientCase do
       |> Timex.shift(days: -2)
 
   def end_of_infectious_period(patient_case),
-    do: patient_case |> start_of_infectious_period() |> Timex.shift(days: 10)
+    do: patient_case |> start_of_infectious_period() |> Timex.shift(days: @isolation_span)
 
   def infectious_period(patient_case),
     do: Date.range(start_of_infectious_period(patient_case), end_of_infectious_period(patient_case))
