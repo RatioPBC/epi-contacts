@@ -12,6 +12,7 @@ config :epi_contacts, EpiContactsWeb.Endpoint,
   url: [scheme: "https"]
 
 config :epi_contacts, EpiContacts.Repo,
+  pool_size: "POOL_SIZE" |> System.get_env("20") |> String.to_integer(),
   ssl: System.get_env("DBSSL", "true") == "true",
   show_sensitive_data_on_connection_error: false
 
