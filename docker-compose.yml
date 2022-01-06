@@ -9,7 +9,16 @@ services:
     ports:
       - 5432:5432
   epi_contacts:
-    image: epi_contacts
+    build:
+      args:
+        OBAN_KEY: ${OBAN_KEY}
+        UID: ${UID}
+        USER: ${USER}
+      context: docker
+      target: local
+    command: elixir --name server@epi_contacts --cookie foo -S mix phx.server
+    # image: epi_contacts
+    init: true
     ports:
       - 4000:4000
     environment:
@@ -35,3 +44,14 @@ services:
 
     depends_on:
       - postgres
+
+    volumes:
+      - .:/epi-contacts:cached
+      - epi_contacts_node_modules:/epi-contacts/assets/node_modules
+      - epi_contacts_build:/epi-contacts/_build
+      - epi_contacts_deps:/epi-contacts/deps
+
+volumes:
+  epi_contacts_build:
+  epi_contacts_deps:
+  epi_contacts_node_modules:
