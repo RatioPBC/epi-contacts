@@ -13,7 +13,7 @@ defmodule EpiContacts.Repo do
         bindings: [
           {:hostname, "POSTGRES_HOST", default: "localhost"},
           {:database_url, "DATABASE_SECRET", default: "{}"},
-          {:pool_size, "POOL_SIZE", default: "20"}
+          {:pool_size, "POOL_SIZE", default: "60"}
         ]
       }
     ]
