@@ -30,6 +30,7 @@ defmodule EpiContacts.CommcareSmsTrigger do
 
   @sms_trigger_feature_flag :commcare_secure_id
   @pre_ci_feature_flag :pre_ci
+  @pre_ci_surge_feature_flag :pre_ci_surge
   @maximum_pre_ci_case_age 10
 
   # years old; don't send to minors
@@ -38,6 +39,7 @@ defmodule EpiContacts.CommcareSmsTrigger do
 
   def sms_trigger_feature_flag, do: @sms_trigger_feature_flag
   def pre_ci_feature_flag, do: @pre_ci_feature_flag
+  def pre_ci_surge_feature_flag, do: @pre_ci_surge_feature_flag
   def minimum_age_feature_flag, do: @minimum_age_feature_flag
 
   @doc """
@@ -74,17 +76,27 @@ defmodule EpiContacts.CommcareSmsTrigger do
     }
   end
 
+  defp determine_trigger_reason_for_logging(:pre_ci) do
+    if FunWithFlags.enabled?(@pre_ci_surge_feature_flag),
+      do: :pre_ci_surge,
+      else: :pre_ci
+  end
+
+  defp determine_trigger_reason_for_logging(reason),
+    do: reason
+
   @impl Oban.Worker
   def perform(%_{args: %{"encrypted_patient_case" => encrypted_patient_case, "nonce" => nonce}}) do
     with {:ok, patient_case} <- Encryption.decrypt(encrypted_patient_case, nonce),
          transaction_id = Ecto.UUID.generate(),
          log_transaction(patient_case, transaction_id, "sms_trigger_starting"),
          {true, trigger_decision} <- case_meets_preconditions?(patient_case, transaction_id),
+         loggable_trigger_reason <- determine_trigger_reason_for_logging(trigger_decision),
          true <- case_meets_conditions?(patient_case, transaction_id, trigger_decision),
-         {:ok, trigger_reason} <- trigger_sms(trigger_decision, patient_case, transaction_id) do
+         {:ok, _trigger_reason} <- trigger_sms(loggable_trigger_reason, patient_case, transaction_id) do
       analytics_reporter().report_sms_triggered(
         patient_case: patient_case,
-        reason: trigger_reason,
+        reason: loggable_trigger_reason,
         timestamp: DateTime.utc_now()
       )
 
@@ -234,15 +246,16 @@ defmodule EpiContacts.CommcareSmsTrigger do
   defp check_property(check, patient_case, transaction_id) do
     result = check.(patient_case)
 
-    if FunWithFlags.enabled?(:commcare_secure_id_check_logging) do
-      check_info = Function.info(check)
-      check_name = Keyword.get(check_info, :name)
+    # if FunWithFlags.enabled?(:commcare_secure_id_check_logging) do
+    check_info = Function.info(check)
+    check_name = Keyword.get(check_info, :name)
 
-      log_transaction(patient_case, transaction_id, "sms_trigger_check_property", %{
-        check_name: check_name,
-        result: result
-      })
-    end
+    log_transaction(patient_case, transaction_id, "sms_trigger_check_property", %{
+      check_name: check_name,
+      result: result
+    })
+
+    # end
 
     result
   end

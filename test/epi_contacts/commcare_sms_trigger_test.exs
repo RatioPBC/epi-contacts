@@ -12,6 +12,7 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
   @callout_property_name Commcare.PatientCase.callout_property_name()
   @sms_trigger_feature_flag CommcareSmsTrigger.sms_trigger_feature_flag()
   @pre_ci_feature_flag CommcareSmsTrigger.pre_ci_feature_flag()
+  @pre_ci_surge_feature_flag CommcareSmsTrigger.pre_ci_surge_feature_flag()
   @id_property_name PatientCase.secure_id_property()
   @test_domain "test_domain"
   @test_case_id "test_case_id"
@@ -316,7 +317,13 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
 
       stub(CommcareClientBehaviourMock, :update_properties!, fn _, _, _ -> :ok end)
 
-      :ok
+      [
+        pre_ci_patient_case: %{
+          "case_id" => @test_case_id,
+          "domain" => @test_domain,
+          "properties" => %{}
+        }
+      ]
     end
 
     test "updates commcare when all required properties are set & feature flags allow case to be updated" do
@@ -389,6 +396,25 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
       enable_pre_ci_feature_flag(for_actor: TestFunWithFlagsActor.new(@test_domain))
 
       assert :ok == perform_trigger_job(@manually_triggered_patient_case)
+    end
+
+    test "reports :pre_ci_surge when surge feature flag enabled", %{pre_ci_patient_case: pre_ci_patient_case} do
+      patient_case =
+        pre_ci_patient_case
+        |> put_in(["properties", "dob"], "2000-01-01")
+        |> put_in(["properties", "has_phone_number"], "yes")
+
+      enable_sms_trigger_feature_flag(for_actor: TestFunWithFlagsActor.new(@test_domain))
+      enable_pre_ci_feature_flag(for_actor: TestFunWithFlagsActor.new(@test_domain))
+      enable_pre_ci_surge_feature_flag()
+      assert_analytics_event(reason: :pre_ci_surge)
+
+      assert :ok == perform_trigger_job(patient_case)
+
+      disable_pre_ci_surge_feature_flag()
+      assert_analytics_event(reason: :pre_ci)
+
+      assert :ok == perform_trigger_job(patient_case)
     end
 
     def perform_trigger_job(params) do
@@ -495,5 +521,13 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
 
   defp disable_pre_ci_feature_flag do
     {:ok, false} = FunWithFlags.disable(@pre_ci_feature_flag, [])
+  end
+
+  defp enable_pre_ci_surge_feature_flag(opts \\ []) do
+    {:ok, true} = FunWithFlags.enable(@pre_ci_surge_feature_flag, opts)
+  end
+
+  defp disable_pre_ci_surge_feature_flag do
+    {:ok, false} = FunWithFlags.disable(@pre_ci_surge_feature_flag, [])
   end
 end
