@@ -1,9 +1,6 @@
 defmodule EpiContacts.Repo do
   use Ecto.Repo, otp_app: :epi_contacts, adapter: Ecto.Adapters.Postgres
 
-  alias Vapor.Provider.Dotenv
-  alias Vapor.Provider.Env
-
   def init(_, opts), do: {:ok, load_system_env(opts)}
 
   defp load_system_env(opts) do
