@@ -1,10 +1,6 @@
 defmodule EpiContactsWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :epi_contacts
 
-  alias EpiContacts.Config.JsonEnv
-  alias Vapor.Provider.Dotenv
-  alias Vapor.Provider.Env
-
   @secure_session_cookies Application.compile_env!(:epi_contacts, :secure_session_cookies)
 
   # The session will be stored in the cookie and signed,
@@ -94,46 +90,17 @@ defmodule EpiContactsWeb.Endpoint do
   end
 
   defp load_system_env(opts) do
-    providers = [
-      %Dotenv{},
-      %Env{
-        bindings: [
-          {:basic_auth_username, "BASIC_AUTH_USERNAME", default: ""},
-          {:basic_auth_password, "BASIC_AUTH_PASSWORD", default: ""},
-          {:webhook_user, "WEBHOOK_USER", default: ""},
-          {:webhook_pass, "WEBHOOK_PASS", default: ""},
-          {:canonical_host, "CANONICAL_HOST", default: "localhost"},
-          {:live_view_signing_salt, "LIVE_VIEW_SIGNING_SALT", default: ""},
-          {:port, "PORT", default: "4000"},
-          {:secret_key_base, "SECRET_KEY_BASE", default: ""}
-        ]
-      },
-      %JsonEnv{
-        variable: "SECRETS",
-        bindings: [
-          {:basic_auth_password, "BASIC_AUTH_PASSWORD"},
-          {:basic_auth_username, "BASIC_AUTH_USERNAME"},
-          {:webhook_user, "WEBHOOK_USER"},
-          {:webhook_pass, "WEBHOOK_PASS"},
-          {:canonical_host, "CANONICAL_HOST"},
-          {:live_view_signing_salt, "LIVE_VIEW_SIGNING_SALT"},
-          {:port, "PORT"},
-          {:secret_key_base, "SECRET_KEY_BASE"}
-        ]
-      }
+    env_opts = [
+      basic_auth_username: System.get_env("BASIC_AUTH_USERNAME", ""),
+      basic_auth_password: System.get_env("BASIC_AUTH_PASSWORD", ""),
+      webhook_user: System.get_env("WEBHOOK_USER", ""),
+      webhook_pass: System.get_env("WEBHOOK_PASS", ""),
+      url: [host: System.get_env("CANONICAL_HOST", "localhost")],
+      live_view: [signing_salt: System.get_env("LIVE_VIEW_SIGNING_SALT", "")],
+      http: [port: System.get_env("PORT", "4000") |> String.to_integer()],
+      secret_key_base: System.get_env("SECRET_KEY_BASE", "")
     ]
 
-    config = Vapor.load!(providers, [])
-
-    Keyword.merge(opts,
-      basic_auth_password: config.basic_auth_password,
-      basic_auth_username: config.basic_auth_username,
-      webhook_user: config.webhook_user,
-      webhook_pass: config.webhook_pass,
-      http: [port: config.port],
-      live_view: [signing_salt: config.live_view_signing_salt],
-      secret_key_base: config.secret_key_base,
-      url: [host: config.canonical_host]
-    )
+    Keyword.merge(opts, env_opts)
   end
 end

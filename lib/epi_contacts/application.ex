@@ -3,8 +3,6 @@ defmodule EpiContacts.Application do
   use Application
   require Cachex.Spec
   alias EpiContacts.Monitoring.AnalyticsReporter
-  alias EpiContacts.Config.JsonEnv
-  alias Vapor.Provider.{Dotenv, Env}
 
   defmodule SentryConfig do
     @moduledoc false
@@ -50,11 +48,7 @@ defmodule EpiContacts.Application do
   end
 
   defp load_system_env do
-    providers = [
-      %Env{bindings: [{:revision_date_epoch_seconds, "REVISION_DATE_EPOCH_SECONDS", required: false}]}
-    ]
-
-    %{revision_date_epoch_seconds: revision_date_epoch_seconds} = Vapor.load!(providers)
+    revision_date_epoch_seconds = System.get_env("REVISION_DATE_EPOCH_SECONDS")
     Application.put_env(:epi_contacts, :revision_date_epoch_seconds, revision_date_epoch_seconds)
   end
 
@@ -69,10 +63,7 @@ defmodule EpiContacts.Application do
       {:encryption_key, "ENCRYPTION_KEY"}
     ]
 
-    config = config_from_vapor(env_var_atom_bindings)
-
-    env_var_atom_bindings
-    |> Enum.each(fn {key, _} -> Application.put_env(:epi_contacts, key, Map.get(config, key)) end)
+    Enum.each(env_var_atom_bindings, &app_put_env/1)
   end
 
   defp load_commcare_env do
@@ -82,24 +73,11 @@ defmodule EpiContacts.Application do
       {:commcare_user_id, "COMMCARE_USER_ID"}
     ]
 
-    config = config_from_vapor(secret_bindings)
-
-    Application.put_env(:epi_contacts, :commcare_api_token, config.commcare_api_token)
-    Application.put_env(:epi_contacts, :commcare_user_id, config.commcare_user_id)
-    Application.put_env(:epi_contacts, :commcare_username, config.commcare_username)
+    Enum.each(secret_bindings, &app_put_env/1)
   end
 
-  defp config_from_vapor(secret_bindings) do
-    providers = [
-      %Dotenv{},
-      %JsonEnv{
-        variable: "SECRETS",
-        bindings: secret_bindings
-      }
-    ]
-
-    Vapor.load!(providers)
-  end
+  defp app_put_env({key, env_var}), do:
+    Application.put_env(:epi_contacts, key, System.get_env(env_var, ""))
 
   def merge_env(app, key, new_values) when is_list(new_values) do
     merged =

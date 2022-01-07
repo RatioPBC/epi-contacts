@@ -4,7 +4,7 @@ MAKEFLAGS += --no-print-directory
 export UID := $(shell id -u)
 export USER := $(shell id -u -n)
 
-.PHONY: console logs mix new test
+.PHONY: console logs mix new restart test
 
 default: new
 
@@ -36,6 +36,11 @@ new:
 	@$(DKC_RUN) mix ecto.migrate
 	@docker-compose up -d epi_contacts
 
+restart:
+	@docker-compose stop epi_contacts
+	@docker-compose rm -f epi_contacts
+	@docker-compose up -d epi_contacts
+
 test: build-test
 	@docker run --rm -it \
 		--network epi-contacts_default \
@@ -43,7 +48,7 @@ test: build-test
 		-v epi-contacts_epi_contacts_build:/epi-contacts/_build \
 		-v epi-contacts_epi_contacts_deps:/epi-contacts/deps \
 		-v epi-contacts_epi_contacts_node_modules:/epi-contacts/assets/node_modules \
+		--env-file env.test \
 		-e DATABASE_SECRET='{"password": "abc123", "dbname": "epi_contacts_dev", "engine": "postgres", "port": 5432, "host": "postgres", "username": "cc"}' \
 		epi_contacts:test \
 		mix test
-

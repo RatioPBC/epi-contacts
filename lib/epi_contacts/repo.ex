@@ -7,28 +7,14 @@ defmodule EpiContacts.Repo do
   def init(_, opts), do: {:ok, load_system_env(opts)}
 
   defp load_system_env(opts) do
-    providers = [
-      %Dotenv{},
-      %Env{
-        bindings: [
-          {:hostname, "POSTGRES_HOST", default: "localhost"},
-          {:database_url, "DATABASE_SECRET", default: "{}"},
-          {:pool_size, "POOL_SIZE", default: "20"}
-        ]
-      }
-    ]
-
-    translations = [
-      pool_size: &String.to_integer(&1),
-      database_url: &to_url(&1)
-    ]
-
-    config = Vapor.load!(providers, translations)
+    hostname = System.get_env("POSTGRES_HOST", "localhost")
+    database_url = System.get_env("DATABASE_SECRET", "{}") |> to_url()
+    pool_size = System.get_env("POOL_SIZE", "20") |> String.to_integer()
 
     Keyword.merge(opts,
-      hostname: config.hostname,
-      pool_size: config.pool_size,
-      url: config.database_url
+      hostname: hostname,
+      pool_size: pool_size,
+      url: database_url
     )
   end
 
