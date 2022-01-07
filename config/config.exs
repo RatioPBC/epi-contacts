@@ -41,7 +41,15 @@ config :epi_contacts, Oban,
   plugins: [
     Oban.Plugins.Gossip,
     Oban.Pro.Plugins.Lifeline,
-    Oban.Web.Plugins.Stats
+    Oban.Web.Plugins.Stats,
+    {
+      Oban.Pro.Plugins.DynamicPruner,
+      state_overrides: [
+        cancelled: {:max_age, {1, :hour}},
+        completed: {:max_age, {2, :weeks}},
+        discarded: {:max_age, {1, :day}}
+      ]
+    }
   ]
 
 # Configures the endpoint
