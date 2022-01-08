@@ -48,9 +48,9 @@ config :epi_contacts, Oban,
         cancelled: {:max_age, {1, :hour}},
         completed: {:max_age, {2, :weeks}},
         discarded: {:max_age, {1, :day}}
-      ]
-    },
-    limit: 50_000
+      ],
+      limit: 50_000
+    }
   ]
 
 # Configures the endpoint
