@@ -1,7 +1,6 @@
 # --- base
 
 FROM elixir:1.13-alpine AS base
-# FROM elixir:1.13-slim AS base
 
 RUN apk add --no-cache \
     bash \
@@ -16,17 +15,6 @@ RUN apk add --no-cache \
 
 RUN ln -s /usr/share/zoneinfo/UTC /etc/localtime
 
-# RUN apt update
-# RUN apt install -y \
-#     bash \
-#     build-essential \
-#     inotify-tools \
-#     libsodium-dev \
-#     make \
-#     nodejs \
-#     npm \
-#     openssl
-
 # --- local
 
 FROM base AS local
@@ -34,7 +22,6 @@ FROM base AS local
 ARG UID
 ARG USER
 RUN adduser -u $UID -D -h /home/$USER -s /bin/bash $USER
-# RUN useradd -u $UID -d /home/$USER -m -s /bin/bash $USER
 
 RUN mkdir -p /epi-contacts/assets/node_modules && \
     mkdir -p /epi-contacts/_build && \
@@ -60,6 +47,5 @@ RUN mix hex.organization auth oban --key $OBAN_KEY
 FROM local AS test
 USER root
 RUN apk add --no-cache chromium-chromedriver
-# RUN apt install -y chromium-driver
 ARG USER
 USER $USER
