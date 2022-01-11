@@ -246,16 +246,15 @@ defmodule EpiContacts.CommcareSmsTrigger do
   defp check_property(check, patient_case, transaction_id) do
     result = check.(patient_case)
 
-    # if FunWithFlags.enabled?(:commcare_secure_id_check_logging) do
-    check_info = Function.info(check)
-    check_name = Keyword.get(check_info, :name)
+    if FunWithFlags.enabled?(:commcare_secure_id_check_logging) do
+      check_info = Function.info(check)
+      check_name = Keyword.get(check_info, :name)
 
-    log_transaction(patient_case, transaction_id, "sms_trigger_check_property", %{
-      check_name: check_name,
-      result: result
-    })
-
-    # end
+      log_transaction(patient_case, transaction_id, "sms_trigger_check_property", %{
+        check_name: check_name,
+        result: result
+      })
+    end
 
     result
   end
