@@ -102,7 +102,7 @@ msgstr ""
 msgid "invalid email format"
 msgstr ""
 
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:3
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.heex:5
 msgid "locked out"
 msgstr "You have exceeded the number of incorrect attempts. Please try again in 15 minutes."
 

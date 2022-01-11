@@ -12,32 +12,32 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:11
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.heex:9
 msgid "Date of birth"
 msgstr "Fecha de nacimiento"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:15
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.heex:12
 msgid "Please confirm that you agree..."
 msgstr "Confirme que acepta compartir la información de sus contactos con el Departamento de Salud del Estado de Nueva York y que demos seguimiento a sus contactos. No le proporcionaremos su nombre a sus contactos Esa información es confidencial y solo se usará para ayudar a combatir la COVID-19."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:1
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.heex:2
 msgid "Confirm your identity"
 msgstr "Confirme su identidad"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:18
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.heex:15
 msgid "I agree"
 msgstr "Acepto"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:28
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.heex:26
 msgid "Moving to next page..."
 msgstr "Pasando a la página siguiente..."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:28 lib/epi_contacts_web/templates/questionnaire/prep.html.leex:18
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.heex:26 lib/epi_contacts_web/templates/questionnaire/prep.html.leex:18
 msgid "Next"
 msgstr "Próximo"
 
@@ -62,7 +62,7 @@ msgid "You only have to include close contacts -- people who were within 6 feet 
 msgstr "Incluya a las personas que estuvieron a menos de 6 pies de usted por más de 15 minutos."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:1
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:2
 msgid "Add contact"
 msgstr "Añadir contacto"
 
@@ -72,7 +72,7 @@ msgid "Add new contact"
 msgstr "Añadir nuevo contacto"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:18
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:15
 msgid "Email address"
 msgstr "Dirección de correo electrónico"
 
@@ -93,7 +93,7 @@ msgid "Self-isolate until..."
 msgstr "Aislarse hasta la mañana del %{end_of_isolation_period}."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:11
+#: lib/epi_contacts_web/templates/page/minor.html.eex:19
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:16
 msgid "Monitor your symptoms. If you have..."
 msgstr "Preste atención a sus síntomas. Si tiene dificultad para respirar, dolor persistente u opresión en el pecho, confusión de nueva aparición, incapacidad para despertar, o piel, labios o uñas con coloración pálida, grisácea o azulada, dependiendo de su tono de piel, llame al 911 o busque atención médica de emergencia inmediatamente."
@@ -132,17 +132,17 @@ msgid "Include people who live..."
 msgstr "Incluya a las personas que vivan en su hogar y a las personas que lo hayan visitado, como amigos, una niñera o cualquier persona que preste servicios en el hogar."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:5
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.heex:6
 msgid "Did you forget anyone?"
 msgstr "¿Olvidó a alguien?"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:1
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.heex:2
 msgid "Review your contacts"
 msgstr "Revisa sus contactos"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:25
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.heex:22
 msgid "Submit"
 msgstr "Enviar"
 
@@ -229,18 +229,17 @@ msgid "today"
 msgstr "hoy"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:15
 #: lib/epi_contacts_web/views/page_view.ex:10
 msgid "If you have any questions, please contact us..."
 msgstr "Si tiene alguna pregunta, llámenos al %{phone_number} o visite la página de COVID-19 del Departamento de Salud del Estado de Nueva York para ver más información: %{web_link}."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:48
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:45
 msgid "Save contact"
 msgstr "Guardar contacto"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:48
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:45
 msgid "Saving contact..."
 msgstr "Guardando contacto..."
 
@@ -250,12 +249,12 @@ msgid "Protect household members by..."
 msgstr "Proteger a los miembros de su hogar separándose de ellos lo más posible y limpiando y desinfectando las superficies de alto contacto. Puede encontrar información %{web_link}"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:25
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.heex:23
 msgid "Your information is completely..."
 msgstr "Su información es completamente privada y confidencial. La información que proporcione solamente se usará para comunicarnos con usted en referencia a la COVID-19. Nunca divulgaremos su información a personas fuera del departamento de salud."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/review_component.html.leex:6
+#: lib/epi_contacts_web/templates/questionnaire/review_component.html.heex:7
 msgid "Add a contact"
 msgstr "Añade un contacto"
 
@@ -265,19 +264,19 @@ msgid "Thank you for helping us stop the spread of COVID-19."
 msgstr "Gracias por ayudarnos a detener la propagación de la COVID-19."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:13
+#: lib/epi_contacts_web/templates/page/minor.html.eex:21
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
 msgid "As discussed during our call..."
 msgstr "Para ayudar a limitar la propagación de COVID-19, por favor trate de identificar a las personas que hayan estado a menos de 6 pies de distancia de usted por 15 minutos o más, durante un período de 24 horas. Si ha presentado síntomas, comience 2 días antes de su primer síntoma O, si no ha presentado síntomas, comience 2 días antes de la fecha de su prueba (esta será su fecha de inicio)."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:23
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:20
 msgid "This person is under 18 years old."
 msgstr "Esta persona tiene menos de 18 años de edad."
 
 #, elixir-format
 #: lib/epi_contacts_web/views/questionnaire_view.ex:49
-#: lib/epi_contacts_web/views/questionnaire_view.ex:59
+#: lib/epi_contacts_web/views/questionnaire_view.ex:61
 msgid "Use this questionnaire to add people you haven’t told us about."
 msgstr "Utilice este cuestionario para proporcionar los nombres y números de teléfono de las personas con las que ha estado en contacto. Añada solo el nombre de una persona, y no un lugar. Solamente incluya los contactos que no le ha proporcionado al departamento de salud."
 
@@ -287,20 +286,20 @@ msgid "Your name will never be disclosed to people we call."
 msgstr "Nunca divulgaremos su nombre a las personas a las que llamemos."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:33
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:30
 msgid "What is their relationship to you?"
 msgstr "¿Cuál es su relación con usted?"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:38
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:35
 msgid "Where did you come in contact?"
 msgstr "¿En dónde estuvieron en contacto?"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:28
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:34
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:39
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:44
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:25
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:31
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:36
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:41
 msgid "Select one"
 msgstr "Seleccione uno"
 
@@ -316,17 +315,17 @@ msgid "We're sorry, but the link has expired."
 msgstr "Lo sentimos, pero el enlace ha expirado."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:9
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:6
 msgid "First Name (Required)"
 msgstr "Nombre"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:12
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:9
 msgid "Last Name (Required)"
 msgstr "Apellido"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:15
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:12
 msgid "Phone number (Required)"
 msgstr "Número de teléfono"
 
@@ -351,12 +350,12 @@ msgid "We're sorry, but we're unable to verify your identity."
 msgstr "Lo sentimos, pero no podemos verificar su identidad."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:43
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:40
 msgid "What is their primary language?"
 msgstr "¿Cuál es su idioma de preferencia?"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:27
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:24
 msgid "When did you most recently see them?"
 msgstr "¿Cuándo vio a esta persona?"
 
@@ -366,22 +365,22 @@ msgid "If you've experienced any COVID-19 symptoms..."
 msgstr "Primero incluya a las personas que vivan en su hogar y a todas las personas que presten servicios en el hogar, como una niñera. Después incluya a las personas con las que ha pasado tiempo desde su fecha de inicio, como familiares, amigos, vecinos y compañeros de trabajo."
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:60
+#: lib/epi_contacts_web/views/questionnaire_view.ex:62
 msgid "If you have already spoken with us..."
 msgstr "Si ya ha hablado con nosotros, no es necesario que incluya estos contactos informados anteriormente a continuación"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:61
+#: lib/epi_contacts_web/views/questionnaire_view.ex:63
 msgid "Contact's initials"
 msgstr "Iniciales del contacto"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:62
+#: lib/epi_contacts_web/views/questionnaire_view.ex:64
 msgid "Last 4 digits of phone"
 msgstr "Últimos 4 dígitos del número de teléfono"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.leex:2
+#: lib/epi_contacts_web/templates/questionnaire/add_contact_component.html.heex:3
 msgid "Only include people who were within 6 feet of you for more than 10 minutes. Please only add a person's name, not a location."
 msgstr "Incluya solo a las personas que estuvieron a menos de 6 pies de usted por más de 15 minutos. Añada solo el nombre de una persona, y no un lugar."
 
@@ -391,42 +390,42 @@ msgid "Meals at other homes"
 msgstr "Comidas en su casa o otros hogares"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:19
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.heex:17
 msgid "Date"
 msgstr "Fecha"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:18
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.heex:16
 msgid "Month"
 msgstr "Mes"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.leex:17
+#: lib/epi_contacts_web/templates/questionnaire/confirm_identity_component.html.heex:15
 msgid "Year"
 msgstr "Año"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:96
+#: lib/epi_contacts_web/views/questionnaire_view.ex:100
 msgid "from"
 msgstr "de"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:97
+#: lib/epi_contacts_web/views/questionnaire_view.ex:101
 msgid "to"
 msgstr "a"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:109
+#: lib/epi_contacts_web/views/questionnaire_view.ex:114
 msgid "Now, you'll be asked to add contacts you've seen"
 msgstr "Ahora le pediremos añadir a las personas a las que ha visto desde"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:121
+#: lib/epi_contacts_web/views/questionnaire_view.ex:126
 msgid "Who else have you seen"
 msgstr "¿A quién más vio que estaba a menos de 6 pies de distancia durante más de 15 minutos"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:115
+#: lib/epi_contacts_web/views/questionnaire_view.ex:120
 msgid "Who has been in your house with you"
 msgstr "¿Quiénes han estado en su vivienda con usted"
 
@@ -796,7 +795,7 @@ msgid "Workplace"
 msgstr "Lugar de trabajo"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:9
+#: lib/epi_contacts_web/views/page_view.ex:28
 msgid "Protect your family and the other people you live with by..."
 msgstr "Proteger a su familia y a las otras personas con las que vive, por lo que debe mantenerse separado de ellas en la medida de lo posible, usar mascarilla, permanecer a 6 pies de otras personas que estén en la misma habitación, lavarse las manos con frecuencia, toser y estornudar en su codo o en un pañuelo, y desechar los pañuelos utilizados en la basura de inmediato. Puede encontrar información adicional en: %{web_link}"
 
@@ -844,7 +843,7 @@ msgid "Unknown"
 msgstr "Desconocido"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/questionnaire_view.ex:165
+#: lib/epi_contacts_web/views/questionnaire_view.ex:173
 msgid "Friday, Sep 13 - %{weekday}, %{month} %{day}"
 msgstr "%{weekday} %{day} de %{month}"
 
@@ -858,7 +857,22 @@ msgstr "Haga clic aquí para continuar en español"
 msgid "French"
 msgstr "Francés"
 
-#, elixir-format, fuzzy
-#: lib/epi_contacts_web/templates/page/minor.html.eex:7
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:8
 msgid "Self-isolate minor until..."
 msgstr "Mantenerse aislado hasta el día %{release_from_isolation_date} en la mañana. La fecha de finalización del aislamiento es una fecha aproximada y puede cambiar. Esto no es un aviso de aislamiento y no puede ser usado como prueba a empleador o escuela para que regrese al trabajo/escuela."
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:10
+msgid "OR"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:12
+msgid "if you are immunocompromised"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/templates/page/minor.html.eex:14
+msgid "Please visit the CDC website for further details: %{web_link}"
+msgstr ""

@@ -53,6 +53,8 @@ defmodule EpiContactsWeb.PageController do
   end
 
   def minor(conn, _params) do
+    import Phoenix.HTML, only: [safe_to_string: 1]
+    import Phoenix.HTML.Link, only: [link: 2]
     case_id = Plug.Conn.get_session(conn, :case_id)
     domain = Plug.Conn.get_session(conn, :domain)
 
@@ -64,9 +66,18 @@ defmodule EpiContactsWeb.PageController do
       |> PatientCase.release_from_isolation_date()
       |> to_string()
 
+    release_extra_from_isolation_date =
+      patient_case
+      |> PatientCase.release_from_isolation_date(shift_days: 6)
+      |> to_string()
+
+    web_link = "https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html"
+
     clear_session_and_render(conn, "minor.html",
       case_initials: initials,
-      release_from_isolation_date: release_from_isolation_date
+      release_from_isolation_date: release_from_isolation_date,
+      release_extra_from_isolation_date: release_extra_from_isolation_date,
+      web_link: link(web_link, to: web_link) |> safe_to_string()
     )
   end
 

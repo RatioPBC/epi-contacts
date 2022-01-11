@@ -135,7 +135,7 @@ defmodule EpiContacts.PatientCaseTest do
     end
   end
 
-  test "release_from_isolation_date/1" do
+  test "release_from_isolation_date/2" do
     patient_case = %{
       "properties" => %{
         "isolation_start_date" => "2021-10-10"
@@ -143,6 +143,7 @@ defmodule EpiContacts.PatientCaseTest do
     }
 
     assert ~D[2021-10-16] == PatientCase.release_from_isolation_date(patient_case)
+    assert ~D[2021-10-20] == PatientCase.release_from_isolation_date(patient_case, shift_days: 5)
   end
 
   describe "start_of_infectious_period/1" do

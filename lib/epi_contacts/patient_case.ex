@@ -116,8 +116,10 @@ defmodule EpiContacts.PatientCase do
       (isolation_start_date(patient_case) || new_lab_result_specimen_collection_date(patient_case))
       |> Timex.shift(days: @isolation_span)
 
-  def release_from_isolation_date(patient_case),
-    do: patient_case |> isolation_end_date() |> Timex.shift(days: 1)
+  def release_from_isolation_date(patient_case, opts \\ []) do
+    shift = opts[:shift_days] || 1
+    patient_case |> isolation_end_date() |> Timex.shift(days: shift)
+  end
 
   def new_lab_result_specimen_collection_date(patient_case),
     do: patient_case |> property("new_lab_result_specimen_collection_date") |> parse_date()
