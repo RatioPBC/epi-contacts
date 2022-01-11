@@ -4,13 +4,7 @@
 
 <p><%= gettext("What you should do next:") %></p>
 
-<p>
-  <%= gettext("Self-isolate minor until...", release_from_isolation_date: @release_from_isolation_date) %>
-  <span><strong><%= gettext("OR") %></strong></span>
-  <%= gettext("if you are immunocompromised", release_extra_from_isolation_date: @release_extra_from_isolation_date) %>
-</p>
-
-<p><%= gettext("Please visit the CDC website for further details: %{web_link}", web_link: @web_link) |> raw() %></p>
+<%= self_isolate_blurb(@patient_case) %>
 
 <%= protect_your_family_blurb() %>
 

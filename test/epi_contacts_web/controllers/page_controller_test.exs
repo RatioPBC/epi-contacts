@@ -51,9 +51,8 @@ defmodule EpiContactsWeb.PageControllerTest do
 
     assert html_response(conn, 200) =~ "You should immediately tell your parent/guardian"
     assert html_response(conn, 200) =~ "Z.Z."
-    assert html_response(conn, 200) =~ "2021-05-11"
-    assert html_response(conn, 200) =~ "isolation end date is an approximate date and subject to change"
-    assert html_response(conn, 200) =~ "2021-05-15"
+    assert html_response(conn, 200) =~ "May 11"
+    assert html_response(conn, 200) =~ "May 16"
   end
 
   test "GET /privacy", %{conn: conn} do

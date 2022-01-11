@@ -93,7 +93,7 @@ msgid "Self-isolate until..."
 msgstr "Self-isolate until the morning of %{end_of_isolation_period}."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:19
+#: lib/epi_contacts_web/templates/page/minor.html.eex:11
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:16
 msgid "Monitor your symptoms. If you have..."
 msgstr "Monitor your symptoms. If you have trouble breathing, persistent pain or pressure in the chest, new confusion, inability to wake, or pale, gray, or blue-colored skin, lips, or nail beds, depending on skin tone, call 911 or seek emergency medical care immediately."
@@ -229,7 +229,7 @@ msgid "today"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/page_view.ex:10
+#: lib/epi_contacts_web/views/page_view.ex:11
 msgid "If you have any questions, please contact us..."
 msgstr "If you have any questions, please contact us at %{phone_number} or visit NYSDOH COVID-19 webpage for more information at: %{web_link}."
 
@@ -264,7 +264,7 @@ msgid "Thank you for helping us stop the spread of COVID-19."
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:21
+#: lib/epi_contacts_web/templates/page/minor.html.eex:13
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
 msgid "As discussed during our call..."
 msgstr "To help limit the spread of COVID-19, please begin to identify any people you may have come within 6 ft of for 15 minutes or more over a 24 hour period. If you have had symptoms, start 2 days before your first symptom OR, if you have had no symptoms, then start 2 days before your test date (this is your start date)."
@@ -795,7 +795,7 @@ msgid "Workplace"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/views/page_view.ex:28
+#: lib/epi_contacts_web/views/page_view.ex:29
 msgid "Protect your family and the other people you live with by..."
 msgstr "Protect your family and the other people you live with by separating yourself from them as much as possible, wearing a mask and staying 6 feet from others when you are in the same room, wash your hands frequently, coughing and sneezing into your elbow or a tissue and putting used tissues in the trash immediately. Additional information can be found at: %{web_link}"
 
@@ -858,21 +858,26 @@ msgid "French"
 msgstr ""
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:8
-msgid "Self-isolate minor until..."
-msgstr "Self-isolate at least until the morning of %{release_from_isolation_date} followed by 5 days of wearing a well-fitting mask when around others"
-
-#, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:10
+#: lib/epi_contacts_web/views/page_view.ex:52
 msgid "OR"
 msgstr "OR"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:12
-msgid "if you are immunocompromised"
-msgstr "if you are immunocompromised, or unable to wear a well-fitting mask, isolate until %{release_extra_from_isolation_date}."
+#: lib/epi_contacts_web/views/page_view.ex:55
+msgid "Please visit the CDC website"
+msgstr "Please visit the CDC website for more details:"
+
+#, elixir-format, fuzzy
+#: lib/epi_contacts_web/views/page_view.ex:53
+msgid "Self-isolate..."
+msgstr "Self-isolate at least until the morning of"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:14
-msgid "Please visit the CDC website for further details: %{web_link}"
+#: lib/epi_contacts_web/views/page_view.ex:50
+msgid "followed by 5 days of wearing a well-fitting mask when around others"
+msgstr ""
+
+#, elixir-format
+#: lib/epi_contacts_web/views/page_view.ex:51
+msgid "if you are immunocompromised, or unable to wear a well-fitting mask, isolate until"
 msgstr ""

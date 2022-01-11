@@ -93,7 +93,7 @@ msgid "Self-isolate until..."
 msgstr "Aislarse hasta la mañana del %{end_of_isolation_period}."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:19
+#: lib/epi_contacts_web/templates/page/minor.html.eex:11
 #: lib/epi_contacts_web/templates/questionnaire/confirmation.html.leex:16
 msgid "Monitor your symptoms. If you have..."
 msgstr "Preste atención a sus síntomas. Si tiene dificultad para respirar, dolor persistente u opresión en el pecho, confusión de nueva aparición, incapacidad para despertar, o piel, labios o uñas con coloración pálida, grisácea o azulada, dependiendo de su tono de piel, llame al 911 o busque atención médica de emergencia inmediatamente."
@@ -229,7 +229,7 @@ msgid "today"
 msgstr "hoy"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/page_view.ex:10
+#: lib/epi_contacts_web/views/page_view.ex:11
 msgid "If you have any questions, please contact us..."
 msgstr "Si tiene alguna pregunta, llámenos al %{phone_number} o visite la página de COVID-19 del Departamento de Salud del Estado de Nueva York para ver más información: %{web_link}."
 
@@ -264,7 +264,7 @@ msgid "Thank you for helping us stop the spread of COVID-19."
 msgstr "Gracias por ayudarnos a detener la propagación de la COVID-19."
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:21
+#: lib/epi_contacts_web/templates/page/minor.html.eex:13
 #: lib/epi_contacts_web/templates/questionnaire/test_results.html.leex:2
 msgid "As discussed during our call..."
 msgstr "Para ayudar a limitar la propagación de COVID-19, por favor trate de identificar a las personas que hayan estado a menos de 6 pies de distancia de usted por 15 minutos o más, durante un período de 24 horas. Si ha presentado síntomas, comience 2 días antes de su primer síntoma O, si no ha presentado síntomas, comience 2 días antes de la fecha de su prueba (esta será su fecha de inicio)."
@@ -795,7 +795,7 @@ msgid "Workplace"
 msgstr "Lugar de trabajo"
 
 #, elixir-format
-#: lib/epi_contacts_web/views/page_view.ex:28
+#: lib/epi_contacts_web/views/page_view.ex:29
 msgid "Protect your family and the other people you live with by..."
 msgstr "Proteger a su familia y a las otras personas con las que vive, por lo que debe mantenerse separado de ellas en la medida de lo posible, usar mascarilla, permanecer a 6 pies de otras personas que estén en la misma habitación, lavarse las manos con frecuencia, toser y estornudar en su codo o en un pañuelo, y desechar los pañuelos utilizados en la basura de inmediato. Puede encontrar información adicional en: %{web_link}"
 
@@ -858,21 +858,26 @@ msgid "French"
 msgstr "Francés"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:8
-msgid "Self-isolate minor until..."
-msgstr "Mantenerse aislado hasta el día %{release_from_isolation_date} en la mañana. La fecha de finalización del aislamiento es una fecha aproximada y puede cambiar. Esto no es un aviso de aislamiento y no puede ser usado como prueba a empleador o escuela para que regrese al trabajo/escuela."
-
-#, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:10
+#: lib/epi_contacts_web/views/page_view.ex:52
 msgid "OR"
-msgstr ""
+msgstr "O"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:12
-msgid "if you are immunocompromised"
-msgstr ""
+#: lib/epi_contacts_web/views/page_view.ex:55
+msgid "Please visit the CDC website"
+msgstr "Visite el sitio de internet de los CDC para ver más detalles:"
+
+#, elixir-format, fuzzy
+#: lib/epi_contacts_web/views/page_view.ex:53
+msgid "Self-isolate..."
+msgstr "Aíslese por lo menos hasta la mañana del"
 
 #, elixir-format
-#: lib/epi_contacts_web/templates/page/minor.html.eex:14
-msgid "Please visit the CDC website for further details: %{web_link}"
-msgstr ""
+#: lib/epi_contacts_web/views/page_view.ex:50
+msgid "followed by 5 days of wearing a well-fitting mask when around others"
+msgstr "y durante los siguientes 5 días use una mascarilla ajustada cuando esté con otras personas"
+
+#, elixir-format
+#: lib/epi_contacts_web/views/page_view.ex:51
+msgid "if you are immunocompromised, or unable to wear a well-fitting mask, isolate until"
+msgstr "si está inmunocomprometido o no puede usar una máscara que le quede bien, aíslese hasta"

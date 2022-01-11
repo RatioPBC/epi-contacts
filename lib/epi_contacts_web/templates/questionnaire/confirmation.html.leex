@@ -5,10 +5,9 @@
 <div class="tip">
   <img src="/images/icon-home.png" />
   <div>
-    <% end_of_isolation_period = "<span id=\"end-of-isolation-period\">#{@patient_case |> end_of_infectious_period() |> display_end_of_isolation_period()}</span>" %>
-    <p><%= gettext("Self-isolate until...", end_of_isolation_period: end_of_isolation_period) |> raw() %></p>
-    <% protect_web_link = "<a href=\"https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/ \">https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/ </a>" %>
-    <p><%= gettext("Protect household members by...", web_link: protect_web_link) |> raw() %></p>
+    <%= EpiContactsWeb.PageView.self_isolate_blurb(@patient_case) %>
+
+    <%= EpiContactsWeb.PageView.protect_your_family_blurb() %>
   </div>
 </div>
 <div class="tip">
