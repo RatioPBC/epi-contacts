@@ -3,7 +3,7 @@
 <% else %>
   <ul class="contacts">
     <%= for {contact, index} <- Enum.with_index(@contacts) do %>
-      <li class="contact" id="contact-<%= index %>">
+      <li class="contact" id={ "contact-#{index}" }>
         <div class="icon">
           <img src="/images/icon-human.svg" >
         </div>
@@ -13,7 +13,7 @@
           <div class="contact-email"><%= contact.email %></div>
         </div>
         <div class="delete-wrapper">
-          <button class="delete" phx-click="delete-contact" phx-value-index="<%= index %>" id="delete-contact-<%= index %>" >
+          <button class="delete" phx-click="delete-contact" phx-value-index={ index } id={ "delete-contact-#{index}" } >
             &times;
           </button>
         </div>
