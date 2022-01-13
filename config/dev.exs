@@ -26,14 +26,16 @@ config :epi_contacts, EpiContactsWeb.Endpoint,
   content_security_policy_options: [header_override: "default-src * 'unsafe-inline'; img-src * 'unsafe-inline';"],
   check_origin: false,
   watchers: [
-    node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch",
-      "--watch-options-stdin",
-      cd: Path.expand("../assets", __DIR__)
-    ]
+    esbuild: {
+      Esbuild,
+      :install_and_run,
+      [:default, ~w(--sourcemap=inline --watch)]
+    },
+    sass: {
+      DartSass,
+      :install_and_run,
+      [:default, ~w(--embed-source-map --source-map-urls=absolute --watch)]
+    }
   ],
   strict_transport_security: "",
   http: [ip: {127, 0, 0, 1}, port: 4000]

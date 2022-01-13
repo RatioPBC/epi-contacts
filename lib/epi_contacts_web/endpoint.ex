@@ -42,7 +42,7 @@ defmodule EpiContactsWeb.Endpoint do
     at: "/",
     from: :epi_contacts,
     gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: ~w(assets fonts images favicon.ico robots.txt)
   )
 
   # Code reloading can be explicitly enabled under the
