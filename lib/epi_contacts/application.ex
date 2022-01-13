@@ -3,8 +3,6 @@ defmodule EpiContacts.Application do
   use Application
   require Cachex.Spec
   alias EpiContacts.Monitoring.AnalyticsReporter
-  alias EpiContacts.Config.JsonEnv
-  alias Vapor.Provider.{Dotenv, Env}
 
   defmodule SentryConfig do
     @moduledoc false
@@ -18,9 +16,6 @@ defmodule EpiContacts.Application do
   end
 
   def start(_type, _args) do
-    load_system_env()
-    load_secrets_env()
-    load_commcare_env()
     configure_sentry()
     configure_metrics()
     configure_posthog()
@@ -47,58 +42,6 @@ defmodule EpiContacts.Application do
   def config_change(changed, _new, removed) do
     EpiContactsWeb.Endpoint.config_change(changed, removed)
     :ok
-  end
-
-  defp load_system_env do
-    providers = [
-      %Env{bindings: [{:revision_date_epoch_seconds, "REVISION_DATE_EPOCH_SECONDS", required: false}]}
-    ]
-
-    %{revision_date_epoch_seconds: revision_date_epoch_seconds} = Vapor.load!(providers)
-    Application.put_env(:epi_contacts, :revision_date_epoch_seconds, revision_date_epoch_seconds)
-  end
-
-  defp load_secrets_env do
-    env_var_atom_bindings = [
-      {:release_level, "RELEASE_LEVEL"},
-      {:sentry_ca_bundle, "SENTRY_CA_BUNDLE"},
-      {:sentry_dsn, "SENTRY_DSN"},
-      {:secure_id_key, "SECURE_ID_KEY"},
-      {:posthog_api_key, "POSTHOG_API_KEY"},
-      {:posthog_api_url, "POSTHOG_API_URL"},
-      {:encryption_key, "ENCRYPTION_KEY"}
-    ]
-
-    config = config_from_vapor(env_var_atom_bindings)
-
-    env_var_atom_bindings
-    |> Enum.each(fn {key, _} -> Application.put_env(:epi_contacts, key, Map.get(config, key)) end)
-  end
-
-  defp load_commcare_env do
-    secret_bindings = [
-      {:commcare_api_token, "COMMCARE_API_TOKEN"},
-      {:commcare_username, "COMMCARE_USERNAME"},
-      {:commcare_user_id, "COMMCARE_USER_ID"}
-    ]
-
-    config = config_from_vapor(secret_bindings)
-
-    Application.put_env(:epi_contacts, :commcare_api_token, config.commcare_api_token)
-    Application.put_env(:epi_contacts, :commcare_user_id, config.commcare_user_id)
-    Application.put_env(:epi_contacts, :commcare_username, config.commcare_username)
-  end
-
-  defp config_from_vapor(secret_bindings) do
-    providers = [
-      %Dotenv{},
-      %JsonEnv{
-        variable: "SECRETS",
-        bindings: secret_bindings
-      }
-    ]
-
-    Vapor.load!(providers)
   end
 
   def merge_env(app, key, new_values) when is_list(new_values) do

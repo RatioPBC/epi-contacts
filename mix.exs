@@ -91,7 +91,6 @@ defmodule EpiContacts.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:timex, "~> 3.5"},
       {:uuid, "~> 1.1"},
-      {:vapor, "~> 0.8"},
       {:wallaby, "~> 0.24.0", runtime: false, only: :test},
       {:xml_builder, "~> 2.1"},
       {:nimble_totp, "~> 0.1"}

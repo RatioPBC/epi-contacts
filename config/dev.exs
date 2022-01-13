@@ -2,10 +2,17 @@ import Config
 
 # Configure your database
 
-config :epi_contacts,
-       EpiContacts.Repo,
-       [database: "epi_contacts_dev", pool_size: 20, show_sensitive_data_on_connection_error: true]
-       |> EpiContacts.Database.repo_opts()
+config :epi_contacts, EpiContacts.Repo,
+  [
+    username: "cc",
+    password: "abc123",
+    hostname: "localhost",
+    port: 5432,
+    database: "epi_contacts_dev",
+    show_sensitive_data_on_connection_error: true,
+    pool_size: 20
+  ]
+  |> EpiContacts.Database.repo_opts()
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -28,7 +35,8 @@ config :epi_contacts, EpiContactsWeb.Endpoint,
       cd: Path.expand("../assets", __DIR__)
     ]
   ],
-  strict_transport_security: ""
+  strict_transport_security: "",
+  http: [ip: {127, 0, 0, 1}, port: 4000]
 
 # ## SSL Support
 #
@@ -65,6 +73,7 @@ config :epi_contacts, EpiContactsWeb.Endpoint,
     ]
   ]
 
+
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:commcare_case_id, :commcare_domain, :contact_id, :contacts_count, :errors, :request_id, :secure_id]
@@ -79,3 +88,27 @@ config :phoenix, :plug_init_mode, :runtime
 config :epi_contacts,
   environment_name: "dev",
   secure_session_cookies: false
+
+config :epi_contacts,
+  revision_date_epoch_seconds: "1601918940",
+  release_level: "dev",
+  sentry_ca_bundle: nil,
+  sentry_dsn: "not used in dev",
+  secure_id_key: "d2FqsR+BGlcBlffGPiYL/URVWdi9Gc3pxd3dMOZUuzw=",
+  posthog_api_key: "get this from your local installation of PostHog",
+  posthog_api_url: "http://localhost:8000",
+  encryption_key: "oIzZBtTaOk49gc5X3+W4WYxEXEhTbukPsQ8mcNOwyyI2", # generate by running: mix phx.gen.secret 44
+  commcare_api_token: "token", # create api token in your personal commcare account and fill in with: api_key_owner_email:api_key_value
+  commcare_username: "user", # user id (email address) of your personal commcare account.
+  commcare_user_id: "uid" # user id of your personal commcare account. find yourself in
+                          # https://www.commcarehq.org/a/ny-state-covid19/settings/users/web/, click on your email, then grab user ID
+                          # from URL
+
+config :epi_contacts, EpiContactsWeb.Endpoint,
+  basic_auth_password: "password", # anything for dev
+  basic_auth_username: "ratiopbc", # anything for dev
+  webhook_user: "AzureDiamond",
+  webhook_pass: "hunter2",
+  live_view: [signing_salt: "xbK8/I1ibfroHQvkZTMKbO7NOLAHtbdP"],
+  secret_key_base: "3TjNgvbwkybwa/wmAHz6kgakyAZ5ETIBCGuKRFW1s/ebkOqElLgtQrJrPZqY51cr",
+  url: [host: "localhost"]
