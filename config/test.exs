@@ -11,11 +11,11 @@ config :bcrypt_elixir, :log_rounds, 1
 
 config :epi_contacts, EpiContacts.Repo,
   [
-    username: "cc",
-    password: "abc123",
-    hostname: "localhost",
+    username: System.get_env("POSTGRES_USER", "cc"),
+    password: System.get_env("POSTGRES_PASSWORD", "abc123"),
+    hostname: System.get_env("POSTGRES_HOST", "localhost"),
     port: 5432,
-    database: "epi_contacts_test#{System.get_env("MIX_TEST_PARTITION")}",
+    database: System.get_env("POSTGRES_DB", "epi_contacts_test#{System.get_env("MIX_TEST_PARTITION")}"),
     pool: Ecto.Adapters.SQL.Sandbox,
     show_sensitive_data_on_connection_error: true
   ]
