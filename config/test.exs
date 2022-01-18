@@ -63,8 +63,10 @@ config :epi_contacts,
   commcare_user_id: "abc123"
 
 config :epi_contacts, EpiContactsWeb.Endpoint,
-  basic_auth_password: "password", # anything for dev
-  basic_auth_username: "ratiopbc", # anything for dev
+  # anything for dev
+  basic_auth_password: "password",
+  # anything for dev
+  basic_auth_username: "ratiopbc",
   webhook_user: "AzureDiamond",
   webhook_pass: "hunter2",
   live_view: [signing_salt: "GdwB9kX0y82QGeQzNd2sIyV1clIY9qrWkTgGzv70ATjaYx9+wde2Q005So9Qu30y"],

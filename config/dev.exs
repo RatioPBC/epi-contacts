@@ -97,16 +97,22 @@ config :epi_contacts,
   secure_id_key: "d2FqsR+BGlcBlffGPiYL/URVWdi9Gc3pxd3dMOZUuzw=",
   posthog_api_key: "get this from your local installation of PostHog",
   posthog_api_url: "http://localhost:8000",
-  encryption_key: "oIzZBtTaOk49gc5X3+W4WYxEXEhTbukPsQ8mcNOwyyI2", # generate by running: mix phx.gen.secret 44
-  commcare_api_token: "token", # create api token in your personal commcare account and fill in with: api_key_owner_email:api_key_value
-  commcare_username: "user", # user id (email address) of your personal commcare account.
-  commcare_user_id: "uid" # user id of your personal commcare account. find yourself in
-                          # https://www.commcarehq.org/a/ny-state-covid19/settings/users/web/, click on your email, then grab user ID
-                          # from URL
+  # generate by running: mix phx.gen.secret 44
+  encryption_key: "oIzZBtTaOk49gc5X3+W4WYxEXEhTbukPsQ8mcNOwyyI2",
+  # create api token in your personal commcare account and fill in with: api_key_owner_email:api_key_value
+  # user id (email address) of your personal commcare account.
+  # user id of your personal commcare account. find yourself in
+  # https://www.commcarehq.org/a/ny-state-covid19/settings/users/web/
+  # click on your email, then grab user ID from URL
+  commcare_api_token: System.get_env("COMMCARE_API_TOKEN", "token"),
+  commcare_username: System.get_env("COMMCARE_USERNAME", "user"),
+  commcare_user_id: System.get_env("COMMCARE_USER_ID", "uid")
 
 config :epi_contacts, EpiContactsWeb.Endpoint,
-  basic_auth_password: "password", # anything for dev
-  basic_auth_username: "ratiopbc", # anything for dev
+  # anything for dev
+  basic_auth_password: "password",
+  # anything for dev
+  basic_auth_username: "ratiopbc",
   webhook_user: "AzureDiamond",
   webhook_pass: "hunter2",
   live_view: [signing_salt: "xbK8/I1ibfroHQvkZTMKbO7NOLAHtbdP"],
