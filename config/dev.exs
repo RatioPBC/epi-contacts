@@ -2,17 +2,18 @@ import Config
 
 # Configure your database
 
-config :epi_contacts, EpiContacts.Repo,
-  [
-    username: "cc",
-    password: "abc123",
-    hostname: "localhost",
-    port: 5432,
-    database: "epi_contacts_dev",
-    show_sensitive_data_on_connection_error: true,
-    pool_size: 20
-  ]
-  |> EpiContacts.Database.repo_opts()
+config :epi_contacts,
+       EpiContacts.Repo,
+       [
+         username: "cc",
+         password: "abc123",
+         hostname: "localhost",
+         port: 5432,
+         database: "epi_contacts_dev",
+         show_sensitive_data_on_connection_error: true,
+         pool_size: 20
+       ]
+       |> EpiContacts.Database.repo_opts()
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -72,7 +73,6 @@ config :epi_contacts, EpiContactsWeb.Endpoint,
       ~r"lib/epi_contacts_web/templates/.*(eex)$"
     ]
   ]
-
 
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

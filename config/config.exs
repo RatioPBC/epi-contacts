@@ -12,14 +12,12 @@ defmodule EpiContacts.Database do
 
   @spec repo_opts(keyword()) :: keyword()
   def repo_opts(opts) do
-    opts ++ local_opts()
-  end
-
-  defp local_opts do
     if socket_dir = System.get_env("PGDATA") do
-      [socket_dir: socket_dir]
+      opts
+      |> Keyword.take([:database, :pool, :show_sensitive_data_on_connection_error])
+      |> Keyword.merge(socket_dir: socket_dir)
     else
-      [username: "postgres", password: "postgres"]
+      opts ++ [username: "postgres", password: "postgres"]
     end
   end
 end
