@@ -53,10 +53,12 @@ defmodule EpiContacts.MixProject do
       {:cachex, "~> 3.2"},
       {:commcare_api, "~> 0.2"},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:dart_sass, "~> 0.3", runtime: Mix.env() == :dev},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:ecto, "~> 3.4"},
       {:ecto_sql, "~> 3.4"},
       {:elixir_xml_to_map, "~> 2.0"},
+      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
       {:euclid, "~> 0.2"},
       {:ex_aws, "~> 2.0"},
       {:ex_aws_cloudwatch, "~> 2.0"},
@@ -208,12 +210,19 @@ defmodule EpiContacts.MixProject do
       setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", &compile_assets/1, "test"]
+      test: [
+        "ecto.create --quiet",
+        "ecto.migrate --quiet",
+        "esbuild default --minify",
+        "sass default --no-source-map --style=compressed",
+        "test"
+      ],
+      "assets.deploy": [
+        "esbuild default --minify",
+        "sass default --no-source-map --style=compressed",
+        "phx.digest"
+      ]
     ]
-  end
-
-  defp compile_assets(_) do
-    Mix.shell().cmd("npm run build --prefix assets")
   end
 
   defp copy_images(_) do

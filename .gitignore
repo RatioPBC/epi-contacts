@@ -31,7 +31,11 @@ npm-debug.log
 # Since we are building assets from assets/,
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
-/priv/static/
+#
+# UPDATE: phx 1.6/esbuild - recommendation is to move static files here and
+# only ignore /priv/static/assets
+#/priv/static/
+/priv/static/assets
 
 .doctor.out
 .envrc.private
