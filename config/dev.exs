@@ -4,7 +4,15 @@ import Config
 
 config :epi_contacts,
        EpiContacts.Repo,
-       [database: "epi_contacts_dev", pool_size: 20, show_sensitive_data_on_connection_error: true]
+       [
+         username: "cc",
+         password: "abc123",
+         hostname: "localhost",
+         port: 5432,
+         database: "epi_contacts_dev",
+         show_sensitive_data_on_connection_error: true,
+         pool_size: 20
+       ]
        |> EpiContacts.Database.repo_opts()
 
 # For development, we disable any cache and enable
@@ -19,16 +27,19 @@ config :epi_contacts, EpiContactsWeb.Endpoint,
   content_security_policy_options: [header_override: "default-src * 'unsafe-inline'; img-src * 'unsafe-inline';"],
   check_origin: false,
   watchers: [
-    node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch",
-      "--watch-options-stdin",
-      cd: Path.expand("../assets", __DIR__)
-    ]
+    esbuild: {
+      Esbuild,
+      :install_and_run,
+      [:default, ~w(--sourcemap=inline --watch)]
+    },
+    sass: {
+      DartSass,
+      :install_and_run,
+      [:default, ~w(--embed-source-map --source-map-urls=absolute --watch)]
+    }
   ],
-  strict_transport_security: ""
+  strict_transport_security: "",
+  http: [ip: {127, 0, 0, 1}, port: 4000]
 
 # ## SSL Support
 #
@@ -79,3 +90,33 @@ config :phoenix, :plug_init_mode, :runtime
 config :epi_contacts,
   environment_name: "dev",
   secure_session_cookies: false
+
+config :epi_contacts,
+  revision_date_epoch_seconds: "1601918940",
+  release_level: "dev",
+  sentry_ca_bundle: nil,
+  sentry_dsn: "not used in dev",
+  secure_id_key: "d2FqsR+BGlcBlffGPiYL/URVWdi9Gc3pxd3dMOZUuzw=",
+  posthog_api_key: "get this from your local installation of PostHog",
+  posthog_api_url: "http://localhost:8000",
+  # generate by running: mix phx.gen.secret 44
+  encryption_key: "oIzZBtTaOk49gc5X3+W4WYxEXEhTbukPsQ8mcNOwyyI2",
+  # create api token in your personal commcare account and fill in with: api_key_owner_email:api_key_value
+  # user id (email address) of your personal commcare account.
+  # user id of your personal commcare account. find yourself in
+  # https://www.commcarehq.org/a/ny-state-covid19/settings/users/web/
+  # click on your email, then grab user ID from URL
+  commcare_api_token: System.get_env("COMMCARE_API_TOKEN", "token"),
+  commcare_username: System.get_env("COMMCARE_USERNAME", "user"),
+  commcare_user_id: System.get_env("COMMCARE_USER_ID", "uid")
+
+config :epi_contacts, EpiContactsWeb.Endpoint,
+  # anything for dev
+  basic_auth_password: "password",
+  # anything for dev
+  basic_auth_username: "ratiopbc",
+  webhook_user: "AzureDiamond",
+  webhook_pass: "hunter2",
+  live_view: [signing_salt: "xbK8/I1ibfroHQvkZTMKbO7NOLAHtbdP"],
+  secret_key_base: "3TjNgvbwkybwa/wmAHz6kgakyAZ5ETIBCGuKRFW1s/ebkOqElLgtQrJrPZqY51cr",
+  url: [host: "localhost"]

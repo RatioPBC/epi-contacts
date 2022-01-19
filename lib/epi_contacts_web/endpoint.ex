@@ -1,10 +1,6 @@
 defmodule EpiContactsWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :epi_contacts
 
-  alias EpiContacts.Config.JsonEnv
-  alias Vapor.Provider.Dotenv
-  alias Vapor.Provider.Env
-
   @secure_session_cookies Application.compile_env!(:epi_contacts, :secure_session_cookies)
 
   # The session will be stored in the cookie and signed,
@@ -46,7 +42,7 @@ defmodule EpiContactsWeb.Endpoint do
     at: "/",
     from: :epi_contacts,
     gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: ~w(assets fonts images favicon.ico robots.txt)
   )
 
   # Code reloading can be explicitly enabled under the
@@ -82,8 +78,6 @@ defmodule EpiContactsWeb.Endpoint do
     plug(Phoenix.Ecto.SQL.Sandbox)
   end
 
-  def init(:supervisor, opts), do: {:ok, load_system_env(opts)}
-
   defp ensure_browser_headers(conn, _opts) do
     environment_specified_headers = Application.get_env(:epi_contacts, EpiContactsWeb.Endpoint)
 
@@ -91,49 +85,5 @@ defmodule EpiContactsWeb.Endpoint do
     |> put_resp_header("cache-control", "private, no-store")
     |> put_resp_header("strict-transport-security", environment_specified_headers[:strict_transport_security])
     |> put_resp_header("x-content-type-options", "nosniff")
-  end
-
-  defp load_system_env(opts) do
-    providers = [
-      %Dotenv{},
-      %Env{
-        bindings: [
-          {:basic_auth_username, "BASIC_AUTH_USERNAME", default: ""},
-          {:basic_auth_password, "BASIC_AUTH_PASSWORD", default: ""},
-          {:webhook_user, "WEBHOOK_USER", default: ""},
-          {:webhook_pass, "WEBHOOK_PASS", default: ""},
-          {:canonical_host, "CANONICAL_HOST", default: "localhost"},
-          {:live_view_signing_salt, "LIVE_VIEW_SIGNING_SALT", default: ""},
-          {:port, "PORT", default: "4000"},
-          {:secret_key_base, "SECRET_KEY_BASE", default: ""}
-        ]
-      },
-      %JsonEnv{
-        variable: "SECRETS",
-        bindings: [
-          {:basic_auth_password, "BASIC_AUTH_PASSWORD"},
-          {:basic_auth_username, "BASIC_AUTH_USERNAME"},
-          {:webhook_user, "WEBHOOK_USER"},
-          {:webhook_pass, "WEBHOOK_PASS"},
-          {:canonical_host, "CANONICAL_HOST"},
-          {:live_view_signing_salt, "LIVE_VIEW_SIGNING_SALT"},
-          {:port, "PORT"},
-          {:secret_key_base, "SECRET_KEY_BASE"}
-        ]
-      }
-    ]
-
-    config = Vapor.load!(providers, [])
-
-    Keyword.merge(opts,
-      basic_auth_password: config.basic_auth_password,
-      basic_auth_username: config.basic_auth_username,
-      webhook_user: config.webhook_user,
-      webhook_pass: config.webhook_pass,
-      http: [port: config.port],
-      live_view: [signing_salt: config.live_view_signing_salt],
-      secret_key_base: config.secret_key_base,
-      url: [host: config.canonical_host]
-    )
   end
 end
