@@ -91,7 +91,7 @@ defmodule EpiContacts.Contact do
   def full_name(contact), do: [first_name(contact), last_name(contact)] |> Enum.join(" ")
   def contact_id(contact), do: contact.contact_id
   def first_name(contact), do: contact.first_name
-  def last_name(contact), do: Euclid.Exists.presence(contact.last_name)
+  def last_name(contact), do: Euclid.Term.presence(contact.last_name)
   def relationship(contact), do: contact.relationship
   def contact_type(contact), do: contact.contact_location
   def email(contact), do: contact.email

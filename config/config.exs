@@ -30,7 +30,7 @@ config :epi_contacts,
 config :epi_contacts, EpiContacts.Gettext,
   allowed_locales: ~w(en es),
   default_locale: "en",
-  one_module_per_locale: true
+  split_module_by: [:locale]
 
 config :epi_contacts, Oban,
   repo: EpiContacts.Repo,

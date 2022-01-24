@@ -199,7 +199,7 @@ defmodule EpiContacts.CommcareSmsTrigger do
   defp absent_secure_id?(patient_case) do
     patient_case
     |> PatientCase.secure_id()
-    |> Euclid.Exists.blank?()
+    |> Euclid.Term.blank?()
   end
 
   def case_meets_conditions?(patient_case, transaction_id, trigger_reason) do

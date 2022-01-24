@@ -7,7 +7,7 @@ defmodule EpiContactsWeb.Plugs.ContentSecurityPolicyHeader do
 
   import Plug.Conn
 
-  alias Euclid.Extra.Random
+  alias Euclid.Random
 
   def init(opts \\ []), do: opts
 

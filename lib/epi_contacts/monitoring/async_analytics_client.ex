@@ -3,7 +3,7 @@ defmodule EpiContacts.Monitoring.AsyncAnalyticsClient do
     Encapsulates the asynchronous mechanism for making HTTP calls to
     PostHog so that the caller is not blocked when capturing events
   """
-  alias Euclid.Exists
+  alias Euclid.Term
   alias EpiContacts.Monitoring.AnalyticsClientBehaviour
   require Logger
 
@@ -12,8 +12,8 @@ defmodule EpiContacts.Monitoring.AsyncAnalyticsClient do
   @impl AnalyticsClientBehaviour
   def configuration_present?,
     do:
-      Application.get_env(:posthog, :api_key) |> Exists.present?() &&
-        Application.get_env(:posthog, :api_url) |> Exists.present?()
+      Application.get_env(:posthog, :api_key) |> Term.present?() &&
+        Application.get_env(:posthog, :api_url) |> Term.present?()
 
   @impl AnalyticsClientBehaviour
   def capture(event_name, metadata, timestamp) do
