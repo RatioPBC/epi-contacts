@@ -13,8 +13,9 @@ config :epi_contacts, EpiContactsWeb.Endpoint,
 
 config :epi_contacts, EpiContacts.Repo,
   pool_size: "POOL_SIZE" |> System.get_env("60") |> String.to_integer(),
+  show_sensitive_data_on_connection_error: false,
   ssl: System.get_env("DBSSL", "true") == "true",
-  show_sensitive_data_on_connection_error: false
+  connection_info: System.fetch_env!("DATABASE_SECRET")
 
 defmodule SentryConfig do
   def ca_bundle() do
