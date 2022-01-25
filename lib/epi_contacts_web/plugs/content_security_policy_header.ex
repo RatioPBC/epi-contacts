@@ -35,7 +35,7 @@ defmodule EpiContactsWeb.Plugs.ContentSecurityPolicyHeader do
     nonce = conn.private[:nonce]
 
     "default-src 'self'; \
-    img-src 'self' 'nonce-#{nonce}' 'unsafe-inline'; \
+    img-src 'self' 'nonce-#{nonce}' 'unsafe-inline' data:; \
     style-src 'self' 'nonce-#{nonce}' 'unsafe-inline'; \
     connect-src 'self' #{url_for(conn, "ws")} #{url_for(conn, "wss")}; \
     frame-ancestors 'none'"

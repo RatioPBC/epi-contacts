@@ -13,7 +13,7 @@ defmodule EpiContactsWeb.Plugs.ContentSecurityPolicyHeaderTest do
 
     [csp] = get_resp_header(conn, "content-security-policy")
     assert csp =~ "connect-src 'self' ws://localhost wss://localhost;"
-    assert csp =~ "img-src 'self' 'nonce-#{nonce}' 'unsafe-inline';"
+    assert csp =~ "img-src 'self' 'nonce-#{nonce}' 'unsafe-inline' data:;"
     assert csp =~ "style-src 'self' 'nonce-#{nonce}' 'unsafe-inline';"
     assert csp =~ "frame-ancestors 'none'"
   end
