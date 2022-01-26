@@ -25,7 +25,7 @@ defmodule EpiContacts.Repo do
   end
 
   defp connection_info do
-    Application.get_env(:epi_locator, __MODULE__)[:connection_info]
+    Application.get_env(:epi_contacts, __MODULE__)[:connection_info]
   end
 
   defp database_url do
