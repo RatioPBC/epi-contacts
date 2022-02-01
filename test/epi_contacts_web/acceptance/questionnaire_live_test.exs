@@ -99,55 +99,55 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
     test "prep page shows instructions", %{conn: conn} do
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       assert_prep_page(view)
     end
 
     test "user lands on house page", %{conn: conn} do
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
+      render_click_next_button(view)
       assert_house_page(view)
     end
 
     test "contacts may be added on house page", %{conn: conn} do
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
+      render_click_next_button(view)
       add_contacts(view, @house_contacts)
     end
 
     test "user lands on social page", %{conn: conn} do
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
+      render_click_next_button(view)
       add_contacts(view, @house_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       assert_social_page(view)
     end
 
     test "contacts may be added on social page", %{conn: conn} do
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
+      render_click_next_button(view)
       add_contacts(view, @house_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       add_contacts(view, @social_contacts)
     end
 
     test "user lands on review page", %{conn: conn} do
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
+      render_click_next_button(view)
       add_contacts(view, @house_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       add_contacts(view, @social_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
 
       assert view
              |> element("h2")
@@ -173,12 +173,12 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
     test "user may remove contacts on review page", %{conn: conn} do
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
+      render_click_next_button(view)
       add_contacts(view, @house_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       add_contacts(view, @social_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
 
       element(view, "#delete-contact-4") |> render_click()
       element(view, "#delete-contact-1") |> render_click()
@@ -204,18 +204,18 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
     test "user may add new contacts after removing on review page", %{conn: conn} do
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
+      render_click_next_button(view)
       add_contacts(view, @house_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       add_contacts(view, @social_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
 
       element(view, "#delete-contact-4") |> render_click()
       element(view, "#delete-contact-1") |> render_click()
 
       add_contacts(view, @added_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
 
       assert view
              |> element("#contact-4 .contact-name")
@@ -262,18 +262,18 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
 
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
+      render_click_next_button(view)
       add_contacts(view, @house_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       add_contacts(view, @social_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
 
       element(view, "#delete-contact-4") |> render_click()
       element(view, "#delete-contact-1") |> render_click()
 
       add_contacts(view, @added_contacts)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
 
       view
       |> form("#review", review: %{agree_to_share: true})
@@ -330,13 +330,13 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
 
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       assert_prep_page(view)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       assert_house_page(view)
       element(view, "#back-button") |> render_click()
       assert_prep_page(view)
-      element(view, "#next-button") |> render_click()
+      render_click_next_button(view)
       assert_house_page(view)
       element(view, "#skip-button") |> render_click()
       assert_social_page(view)
@@ -426,6 +426,8 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   end
 
   # ---
+
+  def render_click_next_button(view), do: element(view, "#next-button") |> render_click()
 
   def patient_case_fixture,
     do:
