@@ -45,8 +45,6 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   setup :verify_on_exit!
 
   setup do
-    FakeCommcare.start_link("test/fixtures/commcare/case-with-test-results-and-contacts.json")
-
     stub(
       AnalyticsReporterBehaviourMock,
       :report_page_visit,
@@ -262,6 +260,8 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
     end
 
     test "user may agree and submit on review page", %{conn: conn} do
+      FakeCommcare.start_link("test/fixtures/commcare/case-with-test-results-and-contacts.json")
+
       expect(AnalyticsReporterBehaviourMock, :report_contacts_submission, fn contacts_count: 5,
                                                                              patient_case: %{"case_id" => case_id},
                                                                              timestamp: timestamp ->
@@ -406,9 +406,40 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
     test "user lands on error page if the initial GET to CommCare fails", %{conn: conn} do
       expect(HTTPoisonMock, :post, 0, fn _, _, _ -> nil end)
 
-      assert capture_log(fn ->
-               assert {:error, {:live_redirect, %{to: "/error"}}} = live(conn, @path)
-             end) =~ "case not found"
+      log =
+        capture_log(fn ->
+          assert {:error, {:live_redirect, %{to: "/error"}}} = live(conn, @path)
+        end)
+
+      assert log =~ "case not found"
+      assert %{success: 0, failure: 0, snoozed: 0} ==
+        Oban.drain_queue(queue: :default, with_safety: false)
+    end
+  end
+
+  @tag :skip
+  describe "when initial GET of data from CommCare does not have a test result" do
+    setup %{conn: conn} do
+      stub(CommcareClientBehaviourMock, :get_case, fn commcare_domain, case_id ->
+        assert commcare_domain == @domain
+        assert case_id == @case_id
+
+        {:ok, patient_case_without_test_result_fixture()}
+      end)
+
+      conn =
+        conn
+        |> init_test_session(%{})
+        |> fetch_session()
+        |> put_session(:locale, "en")
+
+      %{conn: conn}
+    end
+
+    test "user lands on error page if the initial GET to CommCare does not return a lab result", %{conn: conn} do
+      expect(HTTPoisonMock, :post, 0, fn _, _, _ -> nil end)
+
+      assert {:error, {:live_redirect, %{to: "/error"}}} = live(conn, @path)
 
       assert %{success: 0, failure: 0, snoozed: 0} ==
         Oban.drain_queue(queue: :default, with_safety: false)
@@ -420,6 +451,12 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   def patient_case_fixture(),
     do:
       "test/fixtures/commcare/case-with-test-results-and-contacts.json"
+      |> File.read!()
+      |> Jason.decode!()
+
+  def patient_case_without_test_result_fixture(),
+    do:
+      "test/fixtures/commcare/case-without-lab-result.json"
       |> File.read!()
       |> Jason.decode!()
 
