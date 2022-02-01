@@ -29,20 +29,8 @@ defmodule EpiContactsWeb.AcceptanceCase do
       Ecto.Adapters.SQL.Sandbox.mode(EpiContacts.Repo, {:shared, self()})
     end
 
-    # session_metadata = Phoenix.Ecto.SQL.Sandbox.metadata_for(EpiContacts.Repo, self())
-
     {:ok, _} = Application.ensure_all_started(:wallaby)
 
-    # {:ok, session} =
-    #   Wallaby.start_session(
-    #     metadata: session_metadata,
-    #     window_size: [
-    #       width: 800,
-    #       height: 600
-    #     ]
-    #   )
-
-    # {:ok, wallaby: session}
     :ok
   end
 

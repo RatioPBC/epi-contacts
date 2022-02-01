@@ -9,31 +9,12 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   alias EpiContacts.HTTPoisonMock
   alias EpiContacts.PostContactWorker
 
-  # alias EpiContactsWeb.Assertions.{
-  #   AddContact,
-  #   Confirmation,
-  #   ConfirmIdentity,
-  #   ContactList,
-  #   Error,
-  #   House,
-  #   Prep,
-  #   Review,
-  #   Social,
-  #   TestResults
-  # }
-
   # Data contained within test/fixtures/commcare/case-with-test-results-and-contacts.json
   @date_tested ~D[2020-11-01]
-  # @dob ~D[1987-05-05]
-  # @name "Test JME3"
   @case_id "00000000-8434-4475-b111-bb3a902b398b"
   @domain "ny-state-covid19"
   @path "/start/#{@domain}/#{@case_id}"
 
-  # User entered data (entered in the test):
-  # @incorrect_dob ~D[1961-01-01]
-
-  # Expectations in the tests:
   @non_symptomatic_end_date @date_tested |> Timex.shift(days: 3)
   @non_symptomatic_start_date @date_tested |> Timex.shift(days: -2)
 
@@ -57,7 +38,6 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   end
 
   describe "without locale set" do
-    @tag :skip
     test "redirects to locale choice", %{conn: conn} do
       {:error, {:redirect, opts}} = live(conn, @path)
 
