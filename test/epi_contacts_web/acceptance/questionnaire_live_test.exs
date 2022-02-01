@@ -2,11 +2,12 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   use EpiContactsWeb.ConnCase, async: false
 
   import Phoenix.LiveViewTest
-  import ExUnit.CaptureLog
+  # import ExUnit.CaptureLog
   import Mox
 
   alias CommcareAPI.FakeCommcare
   alias EpiContacts.HTTPoisonMock
+  alias EpiContacts.PostContactWorker
 
   # alias EpiContactsWeb.Assertions.{
   #   AddContact,
@@ -23,14 +24,14 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
 
   # Data contained within test/fixtures/commcare/case-with-test-results-and-contacts.json
   @date_tested ~D[2020-11-01]
-  @dob ~D[1987-05-05]
-  @name "Test JME3"
+  # @dob ~D[1987-05-05]
+  # @name "Test JME3"
   @case_id "00000000-8434-4475-b111-bb3a902b398b"
   @domain "ny-state-covid19"
   @path "/start/#{@domain}/#{@case_id}"
 
   # User entered data (entered in the test):
-  @incorrect_dob ~D[1961-01-01]
+  # @incorrect_dob ~D[1961-01-01]
 
   # Expectations in the tests:
   @non_symptomatic_end_date @date_tested |> Timex.shift(days: 3)
@@ -44,6 +45,8 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   setup :verify_on_exit!
 
   setup do
+    FakeCommcare.start_link("test/fixtures/commcare/case-with-test-results-and-contacts.json")
+
     stub(
       AnalyticsReporterBehaviourMock,
       :report_page_visit,
@@ -292,6 +295,16 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
         :ok
       end)
 
+      expect(HTTPoisonMock, :post, 5, fn url, body, header, _opts ->
+        assert url == "https://www.commcarehq.org/a/ny-state-covid19/receiver/"
+        assert body =~ "<?xml"
+        assert header == [{:Authorization, "ApiKey johndoe@example.com:3923c69760a6f9e4f46a069c2691083010cbb57d"}]
+        FakeCommcare.add_contact(body)
+
+        {:ok,
+         %HTTPoison.Response{status_code: 201, body: File.read!("test/fixtures/commcare/post-response_success.xml")}}
+      end)
+
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
       element(view, "#next-button") |> render_click()
@@ -325,7 +338,8 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
              |> render() =~ end_of_isolation_date
 
       assert 5 == all_enqueued(worker: PostContactWorker) |> length()
-      assert %{success: 5, failure: 0} == Oban.drain_queue(queue: :default, with_safety: false)
+      assert %{success: 5, failure: 0, snoozed: 0} ==
+        Oban.drain_queue(queue: :default, with_safety: false)
     end
   end
 
