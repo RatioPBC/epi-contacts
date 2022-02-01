@@ -2,7 +2,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   use EpiContactsWeb.ConnCase, async: false
 
   import Phoenix.LiveViewTest
-  # import ExUnit.CaptureLog
+  import ExUnit.CaptureLog
   import Mox
 
   alias CommcareAPI.FakeCommcare
@@ -55,13 +55,6 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       end
     )
 
-    stub(CommcareClientBehaviourMock, :get_case, fn commcare_domain, case_id ->
-      assert commcare_domain == @domain
-      assert case_id == @case_id
-
-      {:ok, patient_case_fixture()}
-    end)
-
     :ok
   end
 
@@ -80,8 +73,15 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
     end
   end
 
-  describe "when contacts are posted to Commcare" do
+  describe "when contacts are posted to CommCare" do
     setup %{conn: conn} do
+      stub(CommcareClientBehaviourMock, :get_case, fn commcare_domain, case_id ->
+        assert commcare_domain == @domain
+        assert case_id == @case_id
+
+        {:ok, patient_case_fixture()}
+      end)
+
       conn =
         conn
         |> init_test_session(%{})
@@ -319,8 +319,15 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
     end
   end
 
-  describe "when contacts are NOT posted to Commcare" do
+  describe "when contacts are NOT posted to CommCare" do
     setup %{conn: conn} do
+      stub(CommcareClientBehaviourMock, :get_case, fn commcare_domain, case_id ->
+        assert commcare_domain == @domain
+        assert case_id == @case_id
+
+        {:ok, patient_case_fixture()}
+      end)
+
       conn =
         conn
         |> init_test_session(%{})
@@ -380,6 +387,35 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
         Oban.drain_queue(queue: :default, with_safety: false)
     end
   end
+
+  describe "when initial GET of data from CommCare fails" do
+    setup %{conn: conn} do
+      stub(CommcareClientBehaviourMock, :get_case, fn _, _ ->
+        {:error, :not_found}
+      end)
+
+      conn =
+        conn
+        |> init_test_session(%{})
+        |> fetch_session()
+        |> put_session(:locale, "en")
+
+      %{conn: conn}
+    end
+
+    test "user lands on error page if the initial GET to CommCare fails", %{conn: conn} do
+      expect(HTTPoisonMock, :post, 0, fn _, _, _ -> nil end)
+
+      assert capture_log(fn ->
+               assert {:error, {:live_redirect, %{to: "/error"}}} = live(conn, @path)
+             end) =~ "case not found"
+
+      assert %{success: 0, failure: 0, snoozed: 0} ==
+        Oban.drain_queue(queue: :default, with_safety: false)
+    end
+  end
+
+  # ---
 
   def patient_case_fixture(),
     do:
