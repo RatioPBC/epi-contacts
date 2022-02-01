@@ -55,6 +55,13 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       end
     )
 
+    stub(CommcareClientBehaviourMock, :get_case, fn commcare_domain, case_id ->
+      assert commcare_domain == @domain
+      assert case_id == @case_id
+
+      {:ok, patient_case_fixture()}
+    end)
+
     :ok
   end
 
@@ -73,15 +80,8 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
     end
   end
 
-  describe "when contact are posted to Commcare" do
+  describe "when contacts are posted to Commcare" do
     setup %{conn: conn} do
-      stub(CommcareClientBehaviourMock, :get_case, fn commcare_domain, case_id ->
-        assert commcare_domain == @domain
-        assert case_id == @case_id
-
-        {:ok, patient_case_fixture()}
-      end)
-
       conn =
         conn
         |> init_test_session(%{})
@@ -123,10 +123,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       assert {:ok, view, _html} = live(conn, @path)
       confirm_identity_dob(view)
       element(view, "#next-button") |> render_click()
-      assert view
-             |> element("h2")
-             |> render() =~
-        "Now, you&#39;ll be asked to add contacts you&#39;ve seen from"
+      assert_prep_page(view)
     end
 
     test "user lands on house page", %{conn: conn} do
@@ -134,13 +131,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       confirm_identity_dob(view)
       element(view, "#next-button") |> render_click()
       element(view, "#next-button") |> render_click()
-
-      assert view
-             |> element(".question")
-             |> render() =~ "Question 1 of 2"
-      assert view
-             |> element("h1")
-             |> render() =~ "Who has been in your house with you from"
+      assert_house_page(view)
     end
 
     test "contacts may be added on house page", %{conn: conn} do
@@ -158,22 +149,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       element(view, "#next-button") |> render_click()
       add_contacts(view, @house_contacts)
       element(view, "#next-button") |> render_click()
-
-      start_date = @non_symptomatic_start_date |> Timex.lformat!("{WDfull}, {Mfull} {D}", "en")
-      end_date = @non_symptomatic_end_date |> Timex.lformat!("{WDfull}, {Mfull} {D}", "en")
-
-      assert view
-             |> element(".question")
-             |> render() =~ "Question 2 of 2"
-      assert view
-             |> element("[data-tid=start-date]")
-             |> render() =~ start_date
-      assert view
-             |> element("[data-tid=end-date]")
-             |> render() =~ end_date
-      assert view
-             |> element("h1")
-             |> render() =~ "Who else did you see"
+      assert_social_page(view)
     end
 
     test "contacts may be added on social page", %{conn: conn} do
@@ -343,6 +319,68 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
     end
   end
 
+  describe "when contacts are NOT posted to Commcare" do
+    setup %{conn: conn} do
+      conn =
+        conn
+        |> init_test_session(%{})
+        |> fetch_session()
+        |> put_session(:locale, "en")
+
+      %{conn: conn}
+    end
+
+    test "when a user answers 'no' to everything, nothing happens", %{conn: conn} do
+      expect(AnalyticsReporterBehaviourMock, :report_contacts_submission, fn contacts_count: 0,
+                                                                             patient_case: %{"case_id" => case_id},
+                                                                             timestamp: timestamp ->
+        assert case_id == @case_id
+        Euclid.Test.Extra.Assertions.assert_datetime_approximate(DateTime.utc_now(), timestamp)
+
+        :ok
+      end)
+
+      expect(HTTPoisonMock, :post, 0, fn _, _, _ -> nil end)
+
+      assert {:ok, view, _html} = live(conn, @path)
+      confirm_identity_dob(view)
+      element(view, "#next-button") |> render_click()
+      assert_prep_page(view)
+      element(view, "#next-button") |> render_click()
+      assert_house_page(view)
+      element(view, "#back-button") |> render_click()
+      assert_prep_page(view)
+      element(view, "#next-button") |> render_click()
+      assert_house_page(view)
+      element(view, "#skip-button") |> render_click()
+      assert_social_page(view)
+      element(view, "#back-button") |> render_click()
+      assert_house_page(view)
+      element(view, "#skip-button") |> render_click()
+      assert_social_page(view)
+      element(view, "#skip-button") |> render_click()
+
+      assert view
+             |> element("h2")
+             |> render() =~ "Review your contacts"
+
+      refute view
+             |> element(".contacts .contact")
+             |> has_element?()
+
+      view
+      |> form("#review", review: %{agree_to_share: true})
+      |> render_submit()
+
+      assert view
+             |> element("h2")
+             |> render() =~ "Thank you for helping us stop the spread of COVID-19."
+
+      assert %{success: 0, failure: 0, snoozed: 0} ==
+        Oban.drain_queue(queue: :default, with_safety: false)
+    end
+  end
+
   def patient_case_fixture(),
     do:
       "test/fixtures/commcare/case-with-test-results-and-contacts.json"
@@ -404,5 +442,39 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
              |> element(".contacts .contact:first-child .contact-email")
              |> render() =~ email
     end)
+  end
+
+  def assert_house_page(view) do
+    assert view
+           |> element(".question")
+           |> render() =~ "Question 1 of 2"
+    assert view
+           |> element("h1")
+           |> render() =~ "Who has been in your house with you from"
+  end
+  
+  def assert_prep_page(view) do
+    assert view
+           |> element("h2")
+           |> render() =~
+      "Now, you&#39;ll be asked to add contacts you&#39;ve seen from"
+  end
+
+  def assert_social_page(view) do
+    start_date = @non_symptomatic_start_date |> Timex.lformat!("{WDfull}, {Mfull} {D}", "en")
+    end_date = @non_symptomatic_end_date |> Timex.lformat!("{WDfull}, {Mfull} {D}", "en")
+
+    assert view
+           |> element(".question")
+           |> render() =~ "Question 2 of 2"
+    assert view
+           |> element("[data-tid=start-date]")
+           |> render() =~ start_date
+    assert view
+           |> element("[data-tid=end-date]")
+           |> render() =~ end_date
+    assert view
+           |> element("h1")
+           |> render() =~ "Who else did you see"
   end
 end
