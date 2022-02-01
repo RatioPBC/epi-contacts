@@ -8,6 +8,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   alias CommcareAPI.FakeCommcare
   alias EpiContacts.HTTPoisonMock
   alias EpiContacts.PostContactWorker
+  alias Euclid.Test.Extra.Assertions
 
   # Data contained within test/fixtures/commcare/case-with-test-results-and-contacts.json
   @date_tested ~D[2020-11-01]
@@ -244,7 +245,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
                                                                              patient_case: %{"case_id" => case_id},
                                                                              timestamp: timestamp ->
         assert case_id == @case_id
-        Euclid.Test.Extra.Assertions.assert_datetime_approximate(DateTime.utc_now(), timestamp)
+        Assertions.assert_datetime_approximate(DateTime.utc_now(), timestamp)
 
         :ok
       end)
@@ -320,7 +321,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
                                                                              patient_case: %{"case_id" => case_id},
                                                                              timestamp: timestamp ->
         assert case_id == @case_id
-        Euclid.Test.Extra.Assertions.assert_datetime_approximate(DateTime.utc_now(), timestamp)
+        Assertions.assert_datetime_approximate(DateTime.utc_now(), timestamp)
 
         :ok
       end)
@@ -426,13 +427,13 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
 
   # ---
 
-  def patient_case_fixture(),
+  def patient_case_fixture,
     do:
       "test/fixtures/commcare/case-with-test-results-and-contacts.json"
       |> File.read!()
       |> Jason.decode!()
 
-  def patient_case_without_test_result_fixture(),
+  def patient_case_without_test_result_fixture,
     do:
       "test/fixtures/commcare/case-without-lab-result.json"
       |> File.read!()
@@ -503,7 +504,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
            |> element("h1")
            |> render() =~ "Who has been in your house with you from"
   end
-  
+
   def assert_prep_page(view) do
     assert view
            |> element("h2")

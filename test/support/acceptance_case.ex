@@ -4,6 +4,7 @@ defmodule EpiContactsWeb.AcceptanceCase do
   """
 
   alias EpiContacts.Commcare.Client, as: CommcareClient
+  alias Ecto.Adapters.SQL.Sandbox, as: SQLSandbox
 
   use ExUnit.CaseTemplate
 
@@ -23,10 +24,10 @@ defmodule EpiContactsWeb.AcceptanceCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(EpiContacts.Repo)
+    :ok = SQLSandbox.checkout(EpiContacts.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(EpiContacts.Repo, {:shared, self()})
+      SQLSandbox.mode(EpiContacts.Repo, {:shared, self()})
     end
 
     {:ok, _} = Application.ensure_all_started(:wallaby)
