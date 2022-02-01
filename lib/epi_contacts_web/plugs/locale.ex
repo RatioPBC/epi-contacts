@@ -27,7 +27,8 @@ defmodule EpiContactsWeb.Plugs.Locale do
   defp supported?(_), do: false
 
   defp redirect_to_locale_page(conn) do
-    redirect_path = "#{conn.request_path}?#{conn.query_string}"
+    query = if conn.query_string == "", do: nil, else: conn.query_string
+    redirect_path = %URI{path: conn.request_path, query: query} |> URI.to_string()
     locale_path = Routes.page_path(conn, :locale, redirect_to: redirect_path)
 
     conn

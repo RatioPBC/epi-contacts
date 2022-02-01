@@ -39,11 +39,9 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
 
   describe "without locale set" do
     test "redirects to locale choice", %{conn: conn} do
-      {:error, {:redirect, opts}} = live(conn, @path)
+      assert {:error, {:redirect, %{to: to}}} = live(conn, @path)
 
-      assert String.length(opts[:flash]) > 0
-
-      %URI{path: path, query: query} = URI.new!(opts[:to])
+      %URI{path: path, query: query} = URI.new!(to)
       assert path == "/locale"
 
       expected = %{"redirect_to" => @path}
