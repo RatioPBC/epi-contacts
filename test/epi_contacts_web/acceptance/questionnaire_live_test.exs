@@ -457,51 +457,29 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       |> form("#add_contact", contact: add_contact)
       |> render_submit()
 
-      assert view
-             |> element(".contacts .contact:first-child .contact-name")
-             |> render() =~ name
-
-      assert view
-             |> element(".contacts .contact:first-child .contact-phone")
-             |> render() =~ phone
-
-      assert view
-             |> element(".contacts .contact:first-child .contact-email")
-             |> render() =~ email
+      assert_view_element_render_matches(view, ".contacts .contact:first-child .contact-name", name)
+      assert_view_element_render_matches(view, ".contacts .contact:first-child .contact-phone", phone)
+      assert_view_element_render_matches(view, ".contacts .contact:first-child .contact-email", email)
     end)
   end
 
   def assert_house_page(view) do
-    assert view
-           |> element(".question")
-           |> render() =~ "Question 1 of 2"
-    assert view
-           |> element("h1")
-           |> render() =~ "Who has been in your house with you from"
+    assert_view_element_render_matches(view, ".question", "Question 1 of 2")
+    assert_view_element_render_matches(view, "h1", "Who has been in your house with you from")
   end
 
   def assert_prep_page(view) do
-    assert view
-           |> element("h2")
-           |> render() =~
-      "Now, you&#39;ll be asked to add contacts you&#39;ve seen from"
+    assert_view_element_render_matches(view, "h2",
+      "Now, you&#39;ll be asked to add contacts you&#39;ve seen from")
   end
 
   def assert_social_page(view) do
     start_date = @non_symptomatic_start_date |> Timex.lformat!("{WDfull}, {Mfull} {D}", "en")
     end_date = @non_symptomatic_end_date |> Timex.lformat!("{WDfull}, {Mfull} {D}", "en")
 
-    assert view
-           |> element(".question")
-           |> render() =~ "Question 2 of 2"
-    assert view
-           |> element("[data-tid=start-date]")
-           |> render() =~ start_date
-    assert view
-           |> element("[data-tid=end-date]")
-           |> render() =~ end_date
-    assert view
-           |> element("h1")
-           |> render() =~ "Who else did you see"
+    assert_view_element_render_matches(view, ".question", "Question 2 of 2")
+    assert_view_element_render_matches(view, "[data-tid=start-date]", start_date)
+    assert_view_element_render_matches(view, "[data-tid=end-date]", end_date)
+    assert_view_element_render_matches(view, "h1", "Who else did you see")
   end
 end
