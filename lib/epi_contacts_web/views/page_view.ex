@@ -36,7 +36,7 @@ defmodule EpiContactsWeb.PageView do
     """
   end
 
-  defp formatted_release_from_isolation_date(patient_case, opts \\ []) do
+  def formatted_release_from_isolation_date(patient_case, opts \\ []) do
     locale = opts[:locale] || get_locale() || default_locale()
 
     {:ok, date} =

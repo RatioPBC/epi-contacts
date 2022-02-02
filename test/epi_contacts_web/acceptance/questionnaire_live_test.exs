@@ -258,13 +258,10 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       assert_view_element_render_matches(view, "h2", "Thank you for helping us stop the spread of COVID-19.")
 
       end_of_isolation_date =
-        @non_symptomatic_end_date
-        |> Timex.shift(days: 3)
-        |> Timex.format!("%B %d", :strftime)
+        patient_case_fixture()
+        |> EpiContactsWeb.PageView.formatted_release_from_isolation_date()
 
-      assert view
-             |> element("span.self-isolate-date")
-             |> render() =~ end_of_isolation_date
+      assert_view_element_render_matches(view, "span.self-isolate-date", end_of_isolation_date)
 
       assert 5 == all_enqueued(worker: PostContactWorker) |> length()
       assert %{success: 5, failure: 0, snoozed: 0} ==
@@ -361,35 +358,6 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
         end)
 
       assert log =~ "case not found"
-      assert %{success: 0, failure: 0, snoozed: 0} ==
-        Oban.drain_queue(queue: :default, with_safety: false)
-    end
-  end
-
-  @tag :skip
-  describe "when initial GET of data from CommCare does not have a test result" do
-    setup %{conn: conn} do
-      stub(CommcareClientBehaviourMock, :get_case, fn commcare_domain, case_id ->
-        assert commcare_domain == @domain
-        assert case_id == @case_id
-
-        {:ok, patient_case_without_test_result_fixture()}
-      end)
-
-      conn =
-        conn
-        |> init_test_session(%{})
-        |> fetch_session()
-        |> put_session(:locale, "en")
-
-      %{conn: conn}
-    end
-
-    test "user lands on error page if the initial GET to CommCare does not return a lab result", %{conn: conn} do
-      expect(HTTPoisonMock, :post, 0, fn _, _, _ -> nil end)
-
-      assert {:error, {:live_redirect, %{to: "/error"}}} = live(conn, @path)
-
       assert %{success: 0, failure: 0, snoozed: 0} ==
         Oban.drain_queue(queue: :default, with_safety: false)
     end
