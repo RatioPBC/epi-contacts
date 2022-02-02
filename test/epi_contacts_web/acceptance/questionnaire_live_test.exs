@@ -149,25 +149,13 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       add_contacts(view, @social_contacts)
       render_click_next_button(view)
 
-      assert view
-             |> element("h2")
-             |> render() =~ "Review your contacts"
+      assert_view_element_render_matches(view, "h2", "Review your contacts")
 
-      assert view
-             |> element("#contact-4 .contact-name")
-             |> render() =~ "Bob Smith"
-      assert view
-             |> element("#contact-3 .contact-name")
-             |> render() =~ "Minor Fred Smith"
-      assert view
-             |> element("#contact-2 .contact-name")
-             |> render() =~ "Jane Smith"
-      assert view
-             |> element("#contact-1 .contact-name")
-             |> render() =~ "Rashida Jones"
-      assert view
-             |> element("#contact-0 .contact-name")
-             |> render() =~ "Minor Mari Jones"
+      assert_view_element_render_matches(view, "#contact-4 .contact-name", "Bob Smith")
+      assert_view_element_render_matches(view, "#contact-3 .contact-name", "Minor Fred Smith")
+      assert_view_element_render_matches(view, "#contact-2 .contact-name", "Jane Smith")
+      assert_view_element_render_matches(view, "#contact-1 .contact-name", "Rashida Jones")
+      assert_view_element_render_matches(view, "#contact-0 .contact-name", "Minor Mari Jones")
     end
 
     test "user may remove contacts on review page", %{conn: conn} do
@@ -217,25 +205,13 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       add_contacts(view, @added_contacts)
       render_click_next_button(view)
 
-      assert view
-             |> element("#contact-4 .contact-name")
-             |> render() =~ "Minor Fred Smith"
-      assert view
-             |> element("#contact-3 .contact-name")
-             |> render() =~ "Jane Smith"
-      assert view
-             |> element("#contact-2 .contact-name")
-             |> render() =~ "Minor Mari Jones"
-      assert view
-             |> element("#contact-1 .contact-name")
-             |> render() =~ "Mo York"
-      assert view
-             |> element("#contact-0 .contact-name")
-             |> render() =~ "Minor Khalid Jersey"
+      assert_view_element_render_matches(view, "h2", "Review your contacts")
 
-      assert view
-             |> element("h2")
-             |> render() =~ "Review your contacts"
+      assert_view_element_render_matches(view, "#contact-4 .contact-name", "Minor Fred Smith")
+      assert_view_element_render_matches(view, "#contact-3 .contact-name", "Jane Smith")
+      assert_view_element_render_matches(view, "#contact-2 .contact-name", "Minor Mari Jones")
+      assert_view_element_render_matches(view, "#contact-1 .contact-name", "Mo York")
+      assert_view_element_render_matches(view, "#contact-0 .contact-name", "Minor Khalid Jersey")
     end
 
     test "user may agree and submit on review page", %{conn: conn} do
@@ -279,9 +255,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       |> form("#review", review: %{agree_to_share: true})
       |> render_submit()
 
-      assert view
-             |> element("h2")
-             |> render() =~ "Thank you for helping us stop the spread of COVID-19."
+      assert_view_element_render_matches(view, "h2", "Thank you for helping us stop the spread of COVID-19.")
 
       end_of_isolation_date =
         @non_symptomatic_end_date
@@ -346,9 +320,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       assert_social_page(view)
       element(view, "#skip-button") |> render_click()
 
-      assert view
-             |> element("h2")
-             |> render() =~ "Review your contacts"
+      assert_view_element_render_matches(view, "h2", "Review your contacts")
 
       refute view
              |> element(".contacts .contact")
@@ -358,9 +330,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
       |> form("#review", review: %{agree_to_share: true})
       |> render_submit()
 
-      assert view
-             |> element("h2")
-             |> render() =~ "Thank you for helping us stop the spread of COVID-19."
+      assert_view_element_render_matches(view, "h2", "Thank you for helping us stop the spread of COVID-19.")
 
       assert %{success: 0, failure: 0, snoozed: 0} ==
         Oban.drain_queue(queue: :default, with_safety: false)
@@ -428,6 +398,9 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   # ---
 
   def render_click_next_button(view), do: element(view, "#next-button") |> render_click()
+
+  def assert_view_element_render_matches(view, selector, match),
+    do: assert view |> element(selector) |> render() =~ match
 
   def patient_case_fixture,
     do:
