@@ -4,6 +4,7 @@ defmodule EpiContactsWeb.AcceptanceCase do
   """
 
   alias EpiContacts.Commcare.Client, as: CommcareClient
+  alias Ecto.Adapters.SQL.Sandbox, as: SQLSandbox
 
   use ExUnit.CaseTemplate
 
@@ -23,26 +24,15 @@ defmodule EpiContactsWeb.AcceptanceCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(EpiContacts.Repo)
+    :ok = SQLSandbox.checkout(EpiContacts.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(EpiContacts.Repo, {:shared, self()})
+      SQLSandbox.mode(EpiContacts.Repo, {:shared, self()})
     end
-
-    session_metadata = Phoenix.Ecto.SQL.Sandbox.metadata_for(EpiContacts.Repo, self())
 
     {:ok, _} = Application.ensure_all_started(:wallaby)
 
-    {:ok, session} =
-      Wallaby.start_session(
-        metadata: session_metadata,
-        window_size: [
-          width: 800,
-          height: 600
-        ]
-      )
-
-    {:ok, wallaby: session}
+    :ok
   end
 
   # in acceptance tests, we shouldn't mock the Commcare.Client, but instead let it call through to the HTTP layer

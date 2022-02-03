@@ -67,7 +67,7 @@ defmodule EpiContactsWeb.QuestionnaireLive do
   @impl true
   def render(%{live_action: component} = assigns)
       when component in @components do
-    ~L"""
+    ~H"""
     <%= live_component to_module(component),
         id: component,
         patient_case: @patient_case,
