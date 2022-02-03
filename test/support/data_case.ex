@@ -29,7 +29,7 @@ defmodule EpiContacts.DataCase do
 
       use Oban.Testing, repo: EpiContacts.Repo
 
-      import Euclid.Test.Extra.Assertions
+      import Euclid.Assertions
     end
   end
 
