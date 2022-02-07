@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9'
 services:
   postgres:
     image: postgres
@@ -7,9 +7,3 @@ services:
       POSTGRES_DB: epi_contacts_dev
     ports:
       - 5432:5432
-  epi_contacts:
-    image: epi_contacts
-    ports:
-      - 4000:4000
-    depends_on:
-      - postgres

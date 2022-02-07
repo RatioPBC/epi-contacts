@@ -2,7 +2,6 @@ defmodule EpiContacts.EncryptionTest do
   use ExUnit.Case, async: true
 
   alias EpiContacts.Encryption
-  alias Euclid.Test.Extra.Assertions, as: ExtraAssertions
 
   describe "generate_nonce/0" do
     test "generates a binary with size 24" do
@@ -70,6 +69,6 @@ defmodule EpiContacts.EncryptionTest do
 
     {:ok, decrypted_map} = Encryption.decrypt(encrypted_map, nonce_string)
 
-    assert ExtraAssertions.assert_eq(map, decrypted_map)
+    assert map == decrypted_map
   end
 end

@@ -8,7 +8,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
   alias CommcareAPI.FakeCommcare
   alias EpiContacts.HTTPoisonMock
   alias EpiContacts.PostContactWorker
-  alias Euclid.Test.Extra.Assertions
+  alias Euclid.Assertions
 
   # Data contained within test/fixtures/commcare/case-with-test-results-and-contacts.json
   @date_tested ~D[2020-11-01]
@@ -221,7 +221,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
                                                                              patient_case: %{"case_id" => case_id},
                                                                              timestamp: timestamp ->
         assert case_id == @case_id
-        Assertions.assert_datetime_approximate(DateTime.utc_now(), timestamp)
+        Assertions.assert_eq(DateTime.utc_now(), timestamp, within: {1, :second})
 
         :ok
       end)
@@ -292,7 +292,7 @@ defmodule EpiContactsWeb.Acceptance.QuestionnaireLiveTest do
                                                                              patient_case: %{"case_id" => case_id},
                                                                              timestamp: timestamp ->
         assert case_id == @case_id
-        Assertions.assert_datetime_approximate(DateTime.utc_now(), timestamp)
+        Assertions.assert_eq(DateTime.utc_now(), timestamp, within: {1, :second})
 
         :ok
       end)

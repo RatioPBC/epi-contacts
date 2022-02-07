@@ -54,7 +54,7 @@ defmodule EpiContacts.ContactsTest do
                                                                              patient_case: %{"case_id" => case_id},
                                                                              timestamp: timestamp ->
         assert case_id == @test_case_id
-        assert_datetime_approximate(DateTime.utc_now(), timestamp)
+        assert_eq(DateTime.utc_now(), timestamp, within: {1, :second})
 
         :ok
       end)
