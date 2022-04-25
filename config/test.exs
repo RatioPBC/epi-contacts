@@ -25,13 +25,6 @@ config :epi_contacts,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-config :wallaby,
-  driver: Wallaby.Experimental.Chrome,
-  chrome: [headless: true],
-  hackney_options: [timeout: :infinity, recv_timeout: :infinity],
-  screenshot_on_failure: true,
-  js_errors: true
-
 config :epi_contacts, EpiContactsWeb.Endpoint, server: true, port: 4002
 config :epi_contacts, EpiContacts, signer: EpiContacts.SignatureMock, ttl: 250
 config :epi_contacts, EpiContacts.PostContactWorker, commcare_verification_sleep: 0
