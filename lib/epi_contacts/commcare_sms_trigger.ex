@@ -36,11 +36,13 @@ defmodule EpiContacts.CommcareSmsTrigger do
   # years old; don't send to minors
   @minimum_age 18
   @minimum_age_feature_flag :minimum_age
+  @minors_feature_flag :minors
 
   def sms_trigger_feature_flag, do: @sms_trigger_feature_flag
   def pre_ci_feature_flag, do: @pre_ci_feature_flag
   def pre_ci_surge_feature_flag, do: @pre_ci_surge_feature_flag
   def minimum_age_feature_flag, do: @minimum_age_feature_flag
+  def minors_feature_flag, do: @minors_feature_flag
 
   @doc """
   Accepts a patient case, encrypts it, and inserts the job.
@@ -135,7 +137,10 @@ defmodule EpiContacts.CommcareSmsTrigger do
 
     trigger_reason = trigger_reason(post_ci_triggered, pre_ci_minor_triggered, pre_ci_triggered)
 
-    preconditions_met = post_ci_triggered || pre_ci_triggered
+    preconditions_met =
+      if pre_ci_minor_triggered && disabled_for_minors?(),
+        do: false,
+        else: post_ci_triggered || pre_ci_triggered
 
     log_transaction(patient_case, transaction_id, "sms_trigger_preconditions", %{
       case_eligible_for_sms: case_eligible_for_sms?(patient_case),
@@ -175,6 +180,8 @@ defmodule EpiContacts.CommcareSmsTrigger do
   defp case_eligible_for_pre_ci?(patient_case) do
     FunWithFlags.enabled?(@pre_ci_feature_flag, for: PatientCaseWrapper.new(patient_case))
   end
+
+  defp disabled_for_minors?, do: !FunWithFlags.enabled?(@minors_feature_flag)
 
   defp case_is_manually_triggered?(patient_case) do
     PatientCase.smc_opt_in?(patient_case)

@@ -13,6 +13,7 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
   @sms_trigger_feature_flag CommcareSmsTrigger.sms_trigger_feature_flag()
   @pre_ci_feature_flag CommcareSmsTrigger.pre_ci_feature_flag()
   @pre_ci_surge_feature_flag CommcareSmsTrigger.pre_ci_surge_feature_flag()
+  @minors_feature_flag CommcareSmsTrigger.minors_feature_flag()
   @id_property_name PatientCase.secure_id_property()
   @test_domain "test_domain"
   @test_case_id "test_case_id"
@@ -38,6 +39,7 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
     setup do
       disable_sms_trigger_feature_flag()
       disable_pre_ci_feature_flag()
+      enable_minors_feature_flag()
 
       [
         pre_ci_patient_case: %{
@@ -118,6 +120,19 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
          } do
       assert {false, _} = CommcareSmsTrigger.case_meets_preconditions?(manually_triggered_patient_case, transaction_id)
       assert {false, _} = CommcareSmsTrigger.case_meets_preconditions?(pre_ci_patient_case, transaction_id)
+    end
+
+    test "returns false when minimum_age_feature_flag is disabled", %{
+      pre_ci_patient_case: patient_case,
+      transaction_id: transaction_id
+    } do
+      patient_case = put_in(patient_case, ["properties", "dob"], "2020-01-01")
+
+      enable_pre_ci_feature_flag(for_actor: TestFunWithFlagsActor.new(@test_domain))
+      enable_sms_trigger_feature_flag(for_actor: TestFunWithFlagsActor.new(@test_domain))
+      disable_minors_feature_flag()
+
+      assert {false, :pre_ci_minor} = CommcareSmsTrigger.case_meets_preconditions?(patient_case, transaction_id)
     end
   end
 
@@ -529,5 +544,13 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
 
   defp disable_pre_ci_surge_feature_flag do
     {:ok, false} = FunWithFlags.disable(@pre_ci_surge_feature_flag, [])
+  end
+
+  defp enable_minors_feature_flag do
+    {:ok, true} = FunWithFlags.enable(@minors_feature_flag, [])
+  end
+
+  defp disable_minors_feature_flag do
+    {:ok, false} = FunWithFlags.disable(@minors_feature_flag, [])
   end
 end
