@@ -108,6 +108,7 @@ defmodule EpiContacts.CommcareSmsTrigger do
       {false, nil} -> {:discard, :not_triggered}
       {{:error, reason}, _trigger_reason} -> {:error, reason}
       false -> {:discard, "conditions not met"}
+      {false, _} -> {:discard, "preconditions not met"}
     end
   end
 
