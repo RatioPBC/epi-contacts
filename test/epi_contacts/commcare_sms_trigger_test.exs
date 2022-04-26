@@ -361,6 +361,23 @@ defmodule EpiContacts.CommcareSmsTriggerTest do
       assert {:discard, :not_triggered} = perform_trigger_job(@manually_triggered_patient_case)
     end
 
+    test "does NOT update commcare when all required properties are set & minor feature flag is disabled" do
+      patient_case = %{
+        "case_id" => @test_case_id,
+        "domain" => @test_domain,
+        "properties" => %{"dob" => "2020-01-01"}
+      }
+
+      refute_property_update()
+      refute_analytics_event()
+      disable_minors_feature_flag()
+
+      enable_pre_ci_feature_flag(for_actor: TestFunWithFlagsActor.new(@test_domain))
+      enable_sms_trigger_feature_flag(for_actor: TestFunWithFlagsActor.new(@test_domain))
+
+      assert {:discard, "preconditions not met"} = perform_trigger_job(patient_case)
+    end
+
     test "updates commcare case with property indicating a pre-ci sms trigger when all required properties are set & pre-ci is enabled & case is not manually triggered" do
       patient_case =
         @manually_triggered_patient_case

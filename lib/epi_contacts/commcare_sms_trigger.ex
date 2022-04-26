@@ -137,9 +137,10 @@ defmodule EpiContacts.CommcareSmsTrigger do
     pre_ci_minor_triggered = pre_ci_minor_triggered?(patient_case)
 
     trigger_reason = trigger_reason(post_ci_triggered, pre_ci_minor_triggered, pre_ci_triggered)
+    pre_ci_minor_triggered_and_feature_flag_disabled = pre_ci_minor_triggered && disabled_for_minors?()
 
     preconditions_met =
-      if pre_ci_minor_triggered && disabled_for_minors?(),
+      if pre_ci_minor_triggered_and_feature_flag_disabled,
         do: false,
         else: post_ci_triggered || pre_ci_triggered
 
@@ -148,7 +149,11 @@ defmodule EpiContacts.CommcareSmsTrigger do
       case_eligible_for_pre_ci: case_eligible_for_pre_ci?(patient_case),
       case_is_manually_triggered: case_is_manually_triggered?(patient_case),
       trigger_reason: trigger_reason,
-      preconditions_met: preconditions_met
+      preconditions_met: preconditions_met,
+      post_ci_triggered: post_ci_triggered,
+      pre_ci_triggered: pre_ci_triggered,
+      pre_ci_minor_triggered: pre_ci_minor_triggered,
+      pre_ci_minor_triggered_and_feature_flag_disabled: pre_ci_minor_triggered_and_feature_flag_disabled
     })
 
     {preconditions_met, trigger_reason}
